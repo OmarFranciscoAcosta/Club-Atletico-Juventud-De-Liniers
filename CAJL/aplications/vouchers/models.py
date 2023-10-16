@@ -32,4 +32,4 @@ class vouchers (models.Model):
         ordering = ['fecha_comprobante']
 
     def __str__(self):
-        return f'{self.id} - {self.fecha_comprobante} - {self.get_estado_display()} - {self.get_tipo_pago_display()}'
+        return f'Comprobante {self.id} - {self.fecha_comprobante} - {self.get_estado_display()} - {self.get_tipo_pago_display()}'
