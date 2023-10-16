@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'CAJL.aplications.location',
     'CAJL.aplications.activities',
     'CAJL.aplications.prices',
+    'CAJL.aplications.payments',
+    'CAJL.aplications.vouchers',
 ]
 
 JAZZMIN_SETTINGS = {
