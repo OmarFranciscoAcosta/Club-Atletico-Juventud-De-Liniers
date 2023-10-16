@@ -1,7 +1,6 @@
 from tkinter import CASCADE
 from django.db import models
 from CAJL.aplications.location.models import location
-from CAJL.aplications.location.models import location
 # Create your models here.
 class partners (models.Model):
     
