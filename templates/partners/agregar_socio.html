@@ -1,0 +1,32 @@
+{% extends 'loginregister/home.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<br>
+<br>
+<br>
+<br>
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mx-auto" style="width: 30rem;">
+            <div class="card-body">
+              <h5 class="card-title">Agregar un socio</h5>
+        
+              {{ form | crispy }}
+        
+              <button class="btn btn-sm btn-primary float-end" type="submit">Publicar socio</button> 
+            </div>
+          </div>
+    </form>
+</body>
+</html>
+
+{% endblock %}
+
+

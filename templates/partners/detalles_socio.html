@@ -1,0 +1,57 @@
+{% extends 'loginregister/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<br>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <form method="post">
+    <div class="card mx-auto" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Detalle del socio</h5>
+          {% csrf_token %}
+    
+          {{ form | crispy }}
+    
+          <button type="submit" name="editar" class="btn btn-primary" id="actualizar-socio">Guardar Cambios</button>
+          <button type="submit" name="eliminar" class="btn btn-danger" id="eliminar-socio">Eliminar Socio</button>
+        </div>
+      </div>
+    </form>
+</body>
+
+<script>
+document.getElementById('eliminar-socio').addEventListener('click', function(event) {
+    if (confirm('¿Estás seguro de que deseas eliminar a este socio?')) {
+        // Continuar con la eliminación
+        return true;
+    } else {
+        // Cancelar la eliminación
+        event.preventDefault(); // Evitar que el formulario se envíe
+        return false;
+    }
+});
+
+document.getElementById('actualizar-socio').addEventListener('click', function(event) {
+    if (confirm('El socio ha sido actualizado')) {
+        // Redirección al inicio.
+        return true;
+    } else {
+        return true;
+    }
+});
+</script>
+</html>
+
+
+    
+{% endblock %}
+    
+

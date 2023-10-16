@@ -1,0 +1,26 @@
+{% extends 'loginregister/base.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-0v9Hz66qFsz8mcrRvZUq6QoUyyOtnp5zPjOg1fLGsbH7bTfIyxjxjFEG5GPw5U/6E" crossorigin="anonymous">
+</head>
+
+<main>
+
+  <section class="Home_container">
+      <div class="centrado">
+
+        <img class="ImagenHome" src="https://github.com/MarcoNu97/Proyecto_CAJL/blob/main/Interfaz%20Principal/ImagenesHome/EscudoHome.png?raw=true" alt="ImagenEscudo">
+        <p class="PalabrasHome">Bienvenido/a al Sistema {{user.username | upper}}!</p>
+        <a href="#" class="LinkGuia">¿Eres nuevo? Aprenda como se utiliza el sitio aqui</a>
+
+      </div>
+         
+  </section>
+</main>
+{% endblock %}
+    
