@@ -18,4 +18,4 @@ class location (models.Model):
         ordering = ['municipio_nombre']
         
     def __str__(self):
-        return self.municipio_nombre
+        return f'{self.municipio_nombre}'

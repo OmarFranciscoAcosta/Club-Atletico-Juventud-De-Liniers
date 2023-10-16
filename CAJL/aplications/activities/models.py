@@ -16,5 +16,5 @@ class activities (models.Model):
         verbose_name = 'Actividad'
         verbose_name_plural = 'Actividades del club'
         ordering = ['nombre_actividad']
-    def __str__ (self):
-        return self.nombre_actividad + '-' + self.tipo_actividad
+    def __str__(self):
+        return f'{self.nombre_actividad} - {self.get_tipo_actividad_display()}'
