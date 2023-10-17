@@ -15,4 +15,4 @@ class voucherspartnersXactivities (models.Model):
         ordering = ['socio']
         
     def __str__(self):
-        return f'{self.id} - {self.comprobante} - {self.socio} - {self.actividad}'
+        return f'{self.comprobante} - {self.socio} - {self.actividad}'

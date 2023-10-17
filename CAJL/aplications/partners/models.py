@@ -31,4 +31,4 @@ class partners (models.Model):
         verbose_name_plural = 'Socios del club'
         ordering = ['nombre_completo']
     def __str__(self):
-        return f'{self.id} - {self.nombre_completo} - {self.dni}'
+        return f'Socio {self.id} - {self.nombre_completo} - {self.dni}'
