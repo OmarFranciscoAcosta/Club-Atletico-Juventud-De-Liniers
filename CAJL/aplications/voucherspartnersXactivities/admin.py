@@ -10,7 +10,7 @@ class voucherspartnersXactivitiesAdmin (admin.ModelAdmin):
         'socio',
         'actividad',
     )
-    search_fields = ['id','comprobante','socio','actividad']
+    search_fields = ['id','comprobante','socio','actividad',]
     list_filter = ['id','comprobante','socio','actividad',]
 
 admin.site.register(voucherspartnersXactivities,voucherspartnersXactivitiesAdmin)

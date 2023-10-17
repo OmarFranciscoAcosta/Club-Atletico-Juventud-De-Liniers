@@ -14,4 +14,4 @@ class partnerXactivities (models.Model):
         verbose_name_plural = 'Socios por actividades del club'
         ordering = ['socio']
     def __str__(self):
-        return f'{self.id} - {self.socio} - {self.actividad} - {self.activo}'
+        return f'{self.id} - {self.socio} - {self.actividad}'

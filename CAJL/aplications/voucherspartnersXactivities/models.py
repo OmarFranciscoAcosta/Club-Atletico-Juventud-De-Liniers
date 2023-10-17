@@ -11,8 +11,8 @@ class voucherspartnersXactivities (models.Model):
     
     class Meta:
         verbose_name = 'Comprobante de socio por actividad'
-        verbose_name_plural = 'Comprobantes de los socios por actividad'
-        ordering = ['socio']
+        verbose_name_plural = 'Comprobantes de los Socios por actividad'
+        ordering = ['comprobante']
         
     def __str__(self):
-        return f'{self.comprobante} - {self.socio} - {self.actividad}'
+        return f'{self.id} - {self.comprobante} - {self.socio} - {self.actividad}'
