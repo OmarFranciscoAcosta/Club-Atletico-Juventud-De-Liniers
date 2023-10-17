@@ -9,6 +9,10 @@ class voucherspartnersXactivities (models.Model):
     socio = models.ForeignKey (partners,on_delete=models.CASCADE,blank=True)
     actividad = models.ForeignKey (activities , on_delete=models.CASCADE,blank=True)
     
-    
+    class Meta:
+        verbose_name = 'Comprobante de socio por actividad'
+        verbose_name_plural = 'Comprobantes de los socios por actividad'
+        ordering = ['socio']
+        
     def __str__(self):
         return f'{self.id} - {self.comprobante} - {self.socio} - {self.actividad}'
