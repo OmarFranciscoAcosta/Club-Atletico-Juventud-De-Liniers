@@ -6,7 +6,7 @@ class partners (models.Model):
     
     nombre_completo = models.CharField ('Nombre completo',max_length=50, blank=True)
     dni = models.IntegerField('Dni',blank=True)
-    fecha_nacimiento = models.DateField('Fecha de nacimiento:',blank=True)
+    fecha_nacimiento = models.DateField('Fecha de nacimiento',blank=True)
     direccion = models.CharField('Dirección', max_length=50, blank=True)
     
     DISTRICT_CHOICES = location.LOC_CHOICES
@@ -30,5 +30,5 @@ class partners (models.Model):
         verbose_name = 'Socio'
         verbose_name_plural = 'Socios del club'
         ordering = ['nombre_completo']
-    def __str__ (self):
-       return self.nombre_completo
+    def __str__(self):
+        return f'{self.id} - {self.nombre_completo} - {self.dni}'
