@@ -1,0 +1,23 @@
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Aplica un estilo al formulario en lugar de a los campos individuales */
+.form-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Alinea los campos y etiquetas de manera horizontal */
+.form-horizontal .form-group {
+    flex-basis: calc(33.33% - 10px); /* Tres campos por fila */
+    margin-right: 10px;
+}
+
+/* Añade márgenes para separar los campos */
+.form-horizontal .form-group:not(:last-child) {
+    margin-bottom: 10px;
+}
