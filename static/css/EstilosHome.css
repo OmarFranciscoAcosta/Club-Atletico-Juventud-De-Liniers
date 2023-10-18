@@ -90,7 +90,6 @@ nav ul li a {
 }
 
 .ItemMenu {
-     background-color: #fcfcfc;
      list-style-type: none;
      width: 5rem;
      height: 65px;
@@ -143,7 +142,6 @@ nav ul li a {
 }
 
 .Logo {
-    background-color: #fcfcfc;
     border-radius: 0px 0px 0px 20px;
 }
 
@@ -158,10 +156,8 @@ nav ul li a {
 
 .Perfil {
 
-    border-radius: 50%;
     height: 100%;
     border: 0.5px solid rgba(230, 29, 29, 0.164);
-    background-color: #44424e;
     justify-items: end;
 
 }
