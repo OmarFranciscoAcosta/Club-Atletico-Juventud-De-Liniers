@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Tabla de Socios</title>
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-0v9Hz66qFsz8mcrRvZUq6QoUyyOtnp5zPjOg1fLGsbH7bTfIyxjxjFEG5GPw5U/6E" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
      <!-- DataTable -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -68,8 +68,7 @@
                         <td>{{ item.compite }}</td>
                         <td>{{ item.socio_activo }}</td>
                         <td>
-                           <a href="{% url 'detalles' item.id %}" class="btn btn-sm btn-primary">
-                                <i class="fas fa-pencil-alt"></i> Editar
+                           <a href={% url 'detalles' item.id %} class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i>
                             </a>
                         </td>
                     </tr>
