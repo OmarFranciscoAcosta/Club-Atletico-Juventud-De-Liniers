@@ -33,7 +33,14 @@
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Cobros</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'exit' %}>Salir</a></li>
                 <li class="ItemMenu Perfil centrado"><img class="ImagenPerfil centrado" src="https://static.vecteezy.com/system/resources/previews/002/387/693/non_2x/user-profile-icon-free-vector.jpg" alt="FotoUsuario"></li>
-                <li class="ItemMenu MenuPerfil"> <button class="OpcionesPerfil"><img class="FlechaPerfil" src="https://raw.githubusercontent.com/MarcoNu97/Proyecto_CAJL/main/Interfaz%20Principal/ImagenesHome/FlechaAbajo.png" alt="Opciones"></button></li>
+                <li class="ItemMenu MenuPerfil">
+                    <button class="OpcionesPerfil" id="OpcionesPerfilButton">
+                      <img class="FlechaPerfil" src="https://raw.githubusercontent.com/MarcoNu97/Proyecto_CAJL/main/Interfaz%20Principal/ImagenesHome/FlechaAbajo.png" alt="Opciones">
+                    </button>
+                    <ul class="MenuDesplegable" id="MenuDesplegable">
+                      <li><a href={% url 'exit' %}>Cerrar Sesión</a></li>
+                    </ul>
+                  </li>
                 {% else %}
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'home' %}>Inicio</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'login' %}>Ingresar</a></li>
@@ -46,6 +53,23 @@
         </nav>
     </header>    
 </section>
-
+    <script src="{% static 'js/main_home.js' %}"></script>   
+    <script>
+        // Obtén referencias a los elementos HTML
+        const opcionesPerfilButton = document.getElementById('OpcionesPerfilButton');
+        const menuDesplegable = document.getElementById('MenuDesplegable');
+      
+        // Agrega un controlador de eventos al botón
+        opcionesPerfilButton.addEventListener('click', () => {
+          menuDesplegable.classList.toggle('active');
+        });
+      
+        // Agrega un controlador de eventos al documento para cerrar el menú desplegable si se hace clic fuera de él
+        document.addEventListener('click', (event) => {
+          if (menuDesplegable.classList.contains('active') && event.target !== opcionesPerfilButton) {
+            menuDesplegable.classList.remove('active');
+          }
+        });
+      </script>
 </body>
 {% block content %}{% endblock %}
