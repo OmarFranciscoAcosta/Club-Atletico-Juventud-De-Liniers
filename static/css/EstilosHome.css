@@ -122,15 +122,15 @@ nav ul li a {
 
   .h:hover {
 
-    background-color: #fcfcfc;
+    background-color: transparent;
     color:  #f71919;
     transition: all 0.3s;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 0;
 
   }
 
    .M2 {
-        border: 0.1px solid rgba(235, 62, 62, -0.2);
+        border: 0.1px solid tra;
         font-weight: bold;
         font-size: 18px;
   } 
@@ -294,7 +294,7 @@ nav ul li a {
 }
 
 .ItemMenu {
-     background-color: #fcfcfc;
+     background-color: transparent;
      list-style-type: none;
      width: 6rem;
      height: 98%;
@@ -323,7 +323,7 @@ nav ul li a {
 }
 
 .Logo {
-    background-color: #fcfcfc;
+    background-color: transparent;
     border-radius: 0px 0px 0px 20px;
 }
 
