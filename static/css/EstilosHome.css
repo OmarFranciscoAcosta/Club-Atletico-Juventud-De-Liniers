@@ -150,7 +150,7 @@ nav ul li a {
     font-size: 18px;
     width: 17rem;
     font-weight: bold;
-    color: #06040a;
+    color: #000000;
     text-shadow: 1px 2px 3px grey;
 }
 
@@ -232,6 +232,43 @@ nav ul li a {
     margin-bottom: 5px;
 }
 
+#preciosMenuItem {
+    display: block; /* Muestra la opción al principio oculta */
+}
+
+#preciosMenuItem a {
+    background-color: transparent;
+    color: #363131;
+    transition: all 0.3s;
+    border-radius: 0;
+}
+
+#menuActividades {
+    display: none;
+    position: center;
+    background: linear-gradient(#fcfcfc, #ff1717);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    right: 41%; /* Alinea el menú a la derecha */
+    top: 100%; /* Aparece debajo de la opción "Actividades" */
+    z-index: 1; /* Coloca el menú sobre otros elementos si es necesario */
+}
+
+#preciosLink {
+    width: 60px; /* Ajusta el ancho a tu preferencia */
+    height: 20px; /* Ajusta la altura a tu preferencia */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 30px; /* Centra el texto verticalmente */
+    background-color: transparent;
+    color: #363131;
+    transition: all 0.3s;
+    border-radius: 5px; /* Puedes ajustar esto para bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+    text-decoration: none; /* Quita la decoración de enlace */
+}
 
 
 @media screen and (max-width: 480px) { /*Inicio breakpoint smarphones*/

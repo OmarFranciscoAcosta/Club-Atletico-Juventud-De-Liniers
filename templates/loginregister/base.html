@@ -24,7 +24,12 @@
                 <li class="ItemMenu"><a title="Volver al menu principal" class="Texto centrado animate__animated animate__pulse" href={% url 'home' %}>Club Atlético Juventud de Liniers</a></li>
                 {% if request.user.is_authenticated %}
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'socios' %}>Socios</a></li>
-                <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Actividades</a></li>
+                <li class="ItemMenu M2 h centrado" id="actividadesMenuItem">
+                    <a class="h centrado" href="#">Actividades</a>
+                    <ul class="MenuDesplegable" id="menuActividades">
+                        <li><a id="preciosLink" href="#">Precios de Actividades</a></li>
+                    </ul>
+                </li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Cobros</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'exit' %}>Cerrar Sesion</a></li>
                 <li class="ItemMenu Perfil centrado"><img class="ImagenPerfil centrado" src="https://static.vecteezy.com/system/resources/previews/002/387/693/non_2x/user-profile-icon-free-vector.jpg" alt="FotoUsuario"></li>
@@ -44,6 +49,24 @@
         </nav>
     </header>    
 </section>
+<script>
+    const actividadesMenuItem = document.getElementById('actividadesMenuItem');
+    const menuActividades = document.getElementById('menuActividades');
+    const preciosLink = document.getElementById('preciosLink');
+
+    actividadesMenuItem.addEventListener('mouseenter', () => {
+        menuActividades.style.display = 'block';
+    });
+
+    actividadesMenuItem.addEventListener('mouseleave', () => {
+        menuActividades.style.display = 'none';
+    });
+
+    preciosLink.addEventListener('click', () => {
+        // Reemplaza '#' con la URL de la página correspondiente.
+        window.location.href = '#'; // Reemplaza con la URL adecuada
+    });
+</script>
       <script src={% static 'js/main_home.js' %}></script>
 </body>
 {% block content %}{% endblock %}
