@@ -27,16 +27,11 @@
                 <li class="ItemMenu M2 h centrado" id="actividadesMenuItem">
                     <a class="h centrado" href="#">Actividades</a>
                     <ul class="MenuDesplegable" id="menuActividades">
-                        <li><a id="preciosLink" href="#">Precios de Actividades</a></li>
+                        <li><a id="preciosLink" href="#">Precios de las actividades</a></li>
                     </ul>
                 </li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Cobros</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'exit' %}>Cerrar Sesion</a></li>
-                <li class="ItemMenu Perfil centrado"><img class="ImagenPerfil centrado" src="https://static.vecteezy.com/system/resources/previews/002/387/693/non_2x/user-profile-icon-free-vector.jpg" alt="FotoUsuario"></li>
-                <li class="ItemMenu MenuPerfil">
-                    <button class="OpcionesPerfil" id="OpcionesPerfilButton">
-                      <img class="FlechaPerfil" src="https://raw.githubusercontent.com/MarcoNu97/Proyecto_CAJL/main/Interfaz%20Principal/ImagenesHome/FlechaAbajo.png" alt="Opciones">
-                    </button>
                 {% else %}
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'home' %}>Inicio</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'login' %}>Ingresar</a></li>

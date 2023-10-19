@@ -47,6 +47,35 @@ nav {
     z-index: 999; /* Asegura que la barra de navegación esté en la parte superior */
 }
 
+.menu-icon {
+    font-size: 30px; /* Tamaño del ícono de menú */
+    cursor: pointer;
+    display: none; /* Oculta el ícono de menú inicialmente */
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .menu-list {
+        display: none; /* Oculta la lista de navegación en pantallas pequeñas */
+    }
+    .menu-icon {
+        display: block; /* Muestra el ícono de menú */
+    }
+    .menu-icon.active + .menu-list {
+        display: block; /* Muestra la lista de navegación cuando el ícono de menú se hace clic */
+    }
+}
+
 nav ul {
     list-style: none;
     padding: 0;
