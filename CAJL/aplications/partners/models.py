@@ -2,6 +2,9 @@ from tkinter import CASCADE
 from django.db import models
 from CAJL.aplications.location.models import location
 # Create your models here.
+
+
+
 class partners (models.Model):
     
     nombre_completo = models.CharField ('Nombre completo',max_length=50, blank=True)
@@ -21,7 +24,7 @@ class partners (models.Model):
     apto_fisico = models.BooleanField('Apto físico',default=False)
     fecha_vencimiento_apto_fisico = models.DateField ('Fecha de vencimiento del apto físico',blank=True)
     fecha_vencimiento_fichaje = models.DateField ('Fecha de vencimiento del fichaje',blank=True)
-    compite = models.BooleanField('Compite?',default=False)
+    compite = models.BooleanField('Fichado?',default=False)
     socio_activo = models.BooleanField('Socio activo',default=False)
     
     
