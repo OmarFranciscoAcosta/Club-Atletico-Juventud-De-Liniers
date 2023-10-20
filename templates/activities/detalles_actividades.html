@@ -51,14 +51,18 @@ function showCustomPopup(message) {
 }
 
 document.getElementById('eliminar-actividad').addEventListener('click', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
     if (confirm('¿Estás seguro de que deseas eliminar esta actividad?')) {
         // Continuar con la eliminación
-        return true;
+        showCustomPopup('Actividad eliminada.');
+        // Redirigir a la página de actividades después de 2 segundos
+        setTimeout(function() {
+            window.location.href = '{% url "actividades" %}';
+        }, 2000);
     } else {
         // Cancelar la eliminación
-        event.preventDefault(); // Evitar que el formulario se envíe
         showCustomPopup('Eliminación cancelada.');
-        return false;
     }
 });
 
