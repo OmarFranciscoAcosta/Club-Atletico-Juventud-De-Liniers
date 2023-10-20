@@ -33,10 +33,10 @@
          <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
             <h2>Tabla de Actividades</h2>
             <table id="activities-table" class="display table table-striped">
-                <button id="btn_Actividad"><i class="fa-solid fa-user-plus"></i> Nueva actividad</button>
+                <button id="btn_Actividad"><i class="fa-solid fa-dumbbell"></i></i> Nueva actividad</button>
              <thead>
                 <tr class="bg-danger bg-gradient">
-                    <th class="centered">Numero de actividad</th>
+                    <th class="centered">Número de actividad</th>
                     <th class="centered">Nombre</th>
                     <th class="centered">Tipo de cobro</th>
                 </tr>
@@ -47,7 +47,13 @@
                         <td>{{ activity.id }}</td>
                         <td>{{ activity.nombre_actividad }}</td>
                         <td>{{ activity.get_tipo_actividad_display }}</td>
+                        <td>
+                            <a href={% url 'detalles-actividades' activity.id %} class="btn btn-sm btn-primary btn-custom-width">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </td>
                     </tr>
+                    
                     {% endfor %}
                 </tbody>
           

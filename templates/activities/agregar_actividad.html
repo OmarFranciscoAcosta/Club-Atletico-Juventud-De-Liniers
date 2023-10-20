@@ -3,13 +3,22 @@
 {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-<br>
-<br>
-<br>
-<br>
+
 
 <!DOCTYPE html>
 <head>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   <link rel="stylesheet" type="text/css" href={% static 'css/forms.css' %}>
 </head>
 <html>
@@ -18,9 +27,9 @@
     {% csrf_token %}
     <div class="card mx-auto" style="max-width: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Agregar un socio</h5>
+            <h5 class="card-title">Agregar una nueva actividad</h5>
             {{ form | crispy }}
-            <button class="btn btn-sm btn-primary float-end" type="submit">Agregar socio</button>
+            <button class="btn btn-sm btn-primary float-end" type="submit">Agregar actividad</button>
         </div>
     </div>
 </form>
@@ -28,5 +37,3 @@
 </html>
 
 {% endblock %}
-
-

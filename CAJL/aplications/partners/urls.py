@@ -20,5 +20,5 @@ from . import views
 urlpatterns = [
     path('socios/', views.datatable_view, name='socios'),
     path('agregar_socio/', views.agregar_socio, name='agregar_socio'),
-    path('detalles/<int:partner_id>/', views.detalles, name='detalles')
+    path('detalles/<int:partner_id>/', views.detalles, name='detalles'),
 ]
