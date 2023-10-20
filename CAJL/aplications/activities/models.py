@@ -15,6 +15,6 @@ class activities (models.Model):
     class Meta:
         verbose_name = 'Actividad'
         verbose_name_plural = 'Actividades del club'
-        ordering = ['nombre_actividad']
+        ordering = ['id']
     def __str__(self):
         return f'{self.nombre_actividad} - {self.get_tipo_actividad_display()}'

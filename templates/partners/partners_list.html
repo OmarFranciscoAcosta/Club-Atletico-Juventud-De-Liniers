@@ -81,26 +81,35 @@
         </div>
     </div>
 </section>
-        <script>
-             document.getElementById("btn_Socios").addEventListener("click", function() {
-            // Redirecciona a la URL deseada
-            window.location.href = "/agregar_socio/";
-    });
-         </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-    
+   
+
     <script>
-        $(document).ready(function () {
-            $('#tabla-socios-localidades').DataTable();
-        });
+    $(document).ready(function () {
+        $('#tabla-socios-localidades').DataTable();
+    });
     </script>
 
-    <!-- Custom JS -->
-    <script src={% static 'js/main_Socios.js' %}></script>
+    <script>
+    document.getElementById("btn_Socios").addEventListener("click", function() {
+   // Redirecciona a la URL deseada
+   window.location.href = "/agregar_socio/";
+    });
+    </script>
+
+    
 </body>
 
 </html>
 {% endblock %}
+
+<!--
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+-->
+
+<!-- Custom JS 
+<script src={% static 'js/main_Socios.js' %}></script> -->

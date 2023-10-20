@@ -7,6 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
 }
 .centered {
@@ -44,3 +45,4 @@
 .btn-custom-width {
     width: 60px; /* Puedes ajustar el ancho según tus necesidades */
 }
+
