@@ -8,7 +8,16 @@ from django.contrib import messages
 #Vista datatable actividades
 def activities_list(request):
     activities_data = activities.objects.all()
-    return render(request, 'activities/activities_list.html', {'activities_data': activities_data})
+    
+    tipos_actividad = activities_data.values_list('tipo_actividad', flat=True).distinct()
+    
+    context = {
+        'activities_data': activities_data,
+        'tipos_actividad': tipos_actividad,
+    }
+    
+    #return render(request, 'activities/activities_list.html', {'activities_data': activities_data})
+    return render(request, 'activities/activities_list.html', context)
 
 #Vista modificar datos, trayendo los mismos
 def detallesact(request, activities_id):

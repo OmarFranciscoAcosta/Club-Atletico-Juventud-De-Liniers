@@ -41,6 +41,24 @@
                 </div>
             </div>
             
+            <div class="filtro-tipo-actividad">
+                <label>Filtrar por tipo de actividad:</label>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="filtro-cuota_social" value="Cuota Social" class="filtro-tipo-actividad-checkbox">
+                        <label for="filtro-cuota_social">Cuota Social</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="filtro-porcentaje" value="Porcentaje" class="filtro-tipo-actividad-checkbox">
+                        <label for="filtro-porcentaje">Porcentaje</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="filtro-alquiler" value="Alquiler" class="filtro-tipo-actividad-checkbox">
+                        <label for="filtro-alquiler">Alquiler</label>
+                    </li>
+                </ul>
+            </div>
+
             <table id="activities-table" class="display table table-striped">
              <thead>
                 <tr class="bg-danger bg-gradient">
@@ -87,22 +105,38 @@
 <script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
 
 <script>
-    $(document).ready(function () {
-        var table = $('#activities-table').DataTable({
-            dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip', // "B" para botones, "f" para filtros, "r" para procesamiento y "t" para la tabla
-            language: {
-                url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json" // URL del archivo de idioma en español
-            },
-            buttons: [
-                {
-                    extend: 'excelHtml5', // Utiliza la extensión Excel
-                    text: 'Exportar a Excel', // Texto del botón
-                    className: 'btn btn-success btn-excel' // Clase CSS del botón
-                }
-            ]
-        });
+$(document).ready(function () {
+    var table = $('#activities-table').DataTable({
+        dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip',
+        language: {
+            url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+        },
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel',
+                className: 'btn btn-success btn-excel'
+            }
+        ]
     });
+
+    // Manejar el cambio en los checkboxes
+    $('.filtro-tipo-actividad-checkbox').change(function () {
+        var selectedTipos = [];
+        $('.filtro-tipo-actividad-checkbox:checked').each(function () {
+            selectedTipos.push($(this).val());
+        });
+
+        table.columns(2).search(selectedTipos.join('|'), true, false).draw();
+    });
+});
+
+
 </script>
+
+
+
+
 
 </script>
 <script>
