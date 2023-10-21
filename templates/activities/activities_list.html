@@ -120,6 +120,9 @@ $(document).ready(function () {
         ]
     });
 
+    // Mover el filtro al lado del cuadro de búsqueda
+    $('.dataTables_filter').after($('.filtro-tipo-actividad'));
+
     // Manejar el cambio en los checkboxes
     $('.filtro-tipo-actividad-checkbox').change(function () {
         var selectedTipos = [];
@@ -130,7 +133,6 @@ $(document).ready(function () {
         table.columns(2).search(selectedTipos.join('|'), true, false).draw();
     });
 });
-
 
 </script>
 
@@ -151,9 +153,3 @@ $(document).ready(function () {
 
 </html>
 {% endblock %}
-
-
-
-
-
-
