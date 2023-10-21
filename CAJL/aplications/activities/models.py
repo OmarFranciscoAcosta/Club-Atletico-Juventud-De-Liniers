@@ -4,13 +4,12 @@ from django.db import models
 class activities (models.Model):
     
     ACTIV_CHOICES =(
-        ('0', 'Cuota Social'),
-        ('1', 'Porcentaje'),
-        ('2', 'Alquiler'),
+        ('0', 'Mensual'),
+
     )
     
     nombre_actividad = models.CharField ('Nombre de la actividad',max_length=30,blank=True)
-    tipo_actividad = models.CharField('Tipo de la actividad',max_length=2, choices=ACTIV_CHOICES, blank=True)
+    tipo_actividad = models.CharField('Tipo de la actividad',max_length=2, choices=ACTIV_CHOICES, default='0', blank=True)
     
     class Meta:
         verbose_name = 'Actividad'

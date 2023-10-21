@@ -16,7 +16,6 @@ def activities_list(request):
         'tipos_actividad': tipos_actividad,
     }
     
-    #return render(request, 'activities/activities_list.html', {'activities_data': activities_data})
     return render(request, 'activities/activities_list.html', context)
 
 #Vista modificar datos, trayendo los mismos
