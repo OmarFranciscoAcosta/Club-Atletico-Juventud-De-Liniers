@@ -21,10 +21,12 @@ def detallesact(request, activities_id):
                 form.save()
                 messages.success(request, 'Los datos de la actividad han sido actualizados.')
                 return redirect('actividades')
+            else:
+                messages.error(request, 'Error al actualizar los datos de la actividad.')
         elif 'eliminar' in request.POST:
             activity.delete()
             messages.success(request, 'La actividad ha sido eliminada.')
-            return redirect('actividades')  # Redirige a donde desees después de la eliminación
+            return redirect('actividades')
     else:
         form = ActivitiesForm(instance=activity)
     

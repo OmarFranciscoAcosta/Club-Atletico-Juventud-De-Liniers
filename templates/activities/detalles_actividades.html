@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href={% static 'css/EstilosForm.css' %}>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosForm.css' %}">
 </head>
 <body>
 <br>
@@ -35,79 +35,20 @@
       </div>
     </form>
 
-    <!-- Ventana emergente personalizada -->
-    <div id="custom-popup" class="custom-popup">
-        <div class="popup-content">
-            <span id="popup-message"></span>
-            <a href={% url 'actividades' %} id="close-popup" class="btn btn-primary">Cerrar</a>
-        </div>
-    </div>
+    <script>
+        document.getElementById('eliminar-actividad').addEventListener('click', function(event) {
+            if (!window.confirm('¿Estás seguro de que deseas eliminar esta actividad?')) {
+                // Evitar que el formulario se envíe
+            }
+        });
+
+        document.getElementById('actualizar-actividad').addEventListener('click', function(event) {
+            alert('La actividad ha sido actualizada');
+            // O redirección al inicio
+            window.location.href = "{% url 'actividades' %}";
+             // Evitar que el formulario se envíe
+        });
+    </script>
 </body>
-
-<script>
-function showCustomPopup(message) {
-    document.getElementById('popup-message').textContent = message;
-    document.getElementById('custom-popup').style.display = 'block';
-}
-
-document.getElementById('eliminar-actividad').addEventListener('click', function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-
-    if (confirm('¿Estás seguro de que deseas eliminar esta actividad?')) {
-        // Continuar con la eliminación
-        showCustomPopup('Actividad eliminada.');
-        // Redirigir a la página de actividades después de 2 segundos
-        setTimeout(function() {
-            window.location.href = '{% url "actividades" %}';
-        }, 2000);
-    } else {
-        // Cancelar la eliminación
-        showCustomPopup('Eliminación cancelada.');
-    }
-});
-
-document.getElementById('actualizar-actividad').addEventListener('click', function(event) {
-    showCustomPopup('La actividad ha sido actualizada');
-    event.preventDefault(); // Evitar que el formulario se envíe
-});
-
-document.getElementById('close-popup').addEventListener('click', function() {
-    document.getElementById('custom-popup').style.display = 'none';
-});
-</script>
-
-<style>
-.custom-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-}
-
-#close-popup {
-    display: block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-</style>
 </html>
-
 {% endblock %}
