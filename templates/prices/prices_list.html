@@ -7,18 +7,17 @@
 <head>
 
     <title>Precios del Club</title>
-    <!-- <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen"> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css>">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    
+    <!-- EXCEL -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- DataTables CSS -->
-    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css>">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+   integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <br>
 <br>
@@ -29,6 +28,11 @@
         <div class="row">
             <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
                 <h1>Precios del Club</h1>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <button id="btn_Precio" class="btn btn-primary"><i class="fa-solid fa-upload"></i> Nuevo precio de actividad</button>
+                    </div>
+                </div>
                 
                     <table id="prices-table" class="display table table-striped">
                         <thead>
@@ -48,7 +52,22 @@
 
                             </tr>
                             <tbody  class="bg-light bg-gradient">
-                                
+                                {% for price in price_data %}
+                                <tr>
+                                  <td>{{ price.anio }}</td>
+                                  <td>{{ price.get_mes_display }}</td>
+                                  <td>{{ price.actividad.nombre_actividad }}</td>
+                                  <td>{{ price.valor_clase_consulta }}</td>
+                                  <td>{{ price.valor_mensual_fijo }}</td>
+                                  <td>{{ price.valor_mensual_1semana }}</td>
+                                  <td>{{ price.valor_mensual_2semana }}</td>
+                                  <td>{{ price.valor_clase_3semana }}</td>
+                                  <td>{{ price.valor_fichaje_anual }}</td>
+                                  <td>{{ price.valor_libre }}</td>
+                                  <td>{{ price.cuota_social }}</td>
+                                  <td>{{ price.mes_impago }}</td> 
+                                  </tr>
+                                  {% endfor %}
                             </tbody>
                         </thead>
                     </table>
@@ -74,18 +93,36 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#prices-table').DataTable({
+<script>
+    $(document).ready(function () {
+        var table = $('#prices-table').DataTable({
+            dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip',
             language: {
-            url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
-        },
-        
-                "processing": true,
-                "serverSide": true,
-                "ajax": "{% url 'prices_list_json' %}",
-            });
+                url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+            },
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Exportar a Excel',
+                    className: 'btn btn-success btn-excel'
+                }
+            ]
         });
+    
+        // Mover el filtro al lado del cuadro de búsqueda
+        $('.dataTables_filter').after($('.filtro-tipo-actividad'));
+    
+        // Manejar el cambio en los checkboxes
+        $('.filtro-tipo-actividad-checkbox').change(function () {
+            var selectedTipos = [];
+            $('.filtro-tipo-actividad-checkbox:checked').each(function () {
+                selectedTipos.push($(this).val());
+            });
+    
+            table.columns(2).search(selectedTipos.join('|'), true, false).draw();
+        });
+    });
+    
     </script>
 
 </body>
