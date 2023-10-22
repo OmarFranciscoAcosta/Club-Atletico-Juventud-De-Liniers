@@ -40,7 +40,7 @@
 
                     <div id="myDropdown1" class="dropdown-content">
                     
-                        <a id="preciosLink" href={% url 'prices' %}>Precio de las actividades</a>
+                        <a id="preciosLink" href={% url 'prices_list' %}>Precio de las actividades</a>
                        
                     </div>
                 </li>
@@ -111,11 +111,26 @@ window.onclick = function(event) {
 
 // 
 // funcion del boton Precios de las actividades
-    preciosLink.addEventListener('click', () => {
-        // Reemplaza '#' con la URL de la página correspondiente.
-        window.location.href = "{% url 'prices' %}"; // Reemplaza con la URL adecuada
+
+
+preciosLink.addEventListener('DOMContentLoaded', function () {
+        const preciosLink = document.getElementById('preciosLink');
+        preciosLink.addEventListener('click', function () {
+            window.location.href = "{% url 'prices_list' %}";
+        });
     });
+
+
+    // preciosLink.addEventListener('click', () => {
+    //     // Reemplaza '#' con la URL de la página correspondiente.
+    //     window.location.href = "{% url 'prices_list' %}"; // Reemplaza con la URL adecuada
+    // });
  </script>
-      <script src={% static 'js/main_home.js' %}></script>
+      <script src={% static 'js/main_home.js' %}>
+ </script>
+
+<script>
+    
+</script>
 </body>
 {% block content %}{% endblock %}
