@@ -27,7 +27,7 @@ body {
     background-color: #d1d6c1;
     margin: 0; /* Elimina el margen predeterminado del cuerpo */
     padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-    background-image: url('https://github.com/MarcoNu97/Proyecto_CAJL/blob/main/Interfaz%20Principal/ImagenesHome/club-fondoll.png?raw=true');
+    background-image: url('https://github.com/MarcoNu97/Proyecto_CAJL/blob/main/Interfaz%20Principal/ImagenesHome/Interior%20del%20Club.jpg?raw=true');
     background-size: cover; /* Escalar la imagen para cubrir toda la pantalla */
     background-position: center; /* Centrar la imagen */
     background-attachment: fixed; /* Fijar el fondo para que se mantenga en su lugar al desplazarse */
@@ -45,35 +45,6 @@ nav {
     border-radius: 0px 0px 15px 15px;
     transition: top 0.3s;
     z-index: 999; /* Asegura que la barra de navegación esté en la parte superior */
-}
-
-.menu-icon {
-    font-size: 30px; /* Tamaño del ícono de menú */
-    cursor: pointer;
-    display: none; /* Oculta el ícono de menú inicialmente */
-}
-
-.menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-}
-
-
-@media screen and (max-width: 768px) {
-    .menu-list {
-        display: none; /* Oculta la lista de navegación en pantallas pequeñas */
-    }
-    .menu-icon {
-        display: block; /* Muestra el ícono de menú */
-    }
-    .menu-icon.active + .menu-list {
-        display: block; /* Muestra la lista de navegación cuando el ícono de menú se hace clic */
-    }
 }
 
 nav ul {
@@ -106,47 +77,23 @@ nav ul li a {
 }
 
 #ContenedorMenu {
-
+    background-color: #f3f3f3;
     background-repeat: no-repeat;
-    height: 72px;
+    height: 77px;
     display: grid;
-    grid-template-columns: 80px 2.5fr 1fr 1fr 1fr 1fr 0.2fr 0.5fr;
+    grid-template-columns: 80px 2.5fr 1fr 1fr 1.5fr 1fr 0.2fr;
     grid-template-rows: 100%;
     margin-top: 0px;
     padding: 0px;
-    margin-left: 2px;
-    border-radius: 0px 0px 25px 25px;
+    border-radius: 0px 0px 20px 20px;
 }
 
 .ItemMenu {
      list-style-type: none;
-     width: 5rem;
-     height: 65px;
+     width: 6rem;
      height: 98%;
 
   }
-
-  .MenuDesplegable {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .MenuDesplegable li {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Estilo para mostrar el menú desplegable */
-  .MenuDesplegable.active {
-    display: block;
-  }
-
 
 
   .h:hover {
@@ -159,9 +106,9 @@ nav ul li a {
   }
 
    .M2 {
-        border: 0.1px solid tra;
         font-weight: bold;
         font-size: 18px;
+        width: 8rem;
   } 
 
 .LogoMenu {
@@ -183,40 +130,17 @@ nav ul li a {
     text-shadow: 1px 2px 3px grey;
 }
 
-.Perfil {
-
-    height: 100%;
-    border: 0.5px solid rgba(230, 29, 29, 0.164);
-    justify-items: end;
+.Tx{
+    font-size: 19px;
+    width: 19rem;
+    margin-top: 25%;
 
 }
 
-.ImagenPerfil {
-    width: 85%;
-    border-radius: 50%;
-    
- }
-
- .MenuPerfil {
-
-    display: grid;
-    justify-content: start;
-    align-items: center;
-    border-radius: 0px 0px 15px 0px;
-
- }
-
- .OpcionesPerfil {
-    width: 25px;
-    height: 30px;
-    background-color:rgba(189, 9, 24, -0.2);
-    border: 0;
-} 
-
-.FlechaPerfil {
-
-    height: 25px;
+.CerrarS{
+    width: 10rem;
 }
+
 
 .LinkGuia {
     font-family: 'Roboto', sans-serif;
@@ -255,52 +179,109 @@ nav ul li a {
 .PalabrasHome {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: bold;
     color: #f01515;
     margin-bottom: 5px;
 }
 
-#preciosMenuItem {
-    display: block; /* Muestra la opción al principio oculta */
-}
-
-#preciosMenuItem a {
-    background-color: transparent;
-    color: #363131;
-    transition: all 0.3s;
-    border-radius: 0;
-}
-
-#menuActividades {
-    display: none;
-    position: center;
-    background: linear-gradient(#fcfcfc, #ff1717);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    right: 41%; /* Alinea el menú a la derecha */
-    top: 100%; /* Aparece debajo de la opción "Actividades" */
-    z-index: 1; /* Coloca el menú sobre otros elementos si es necesario */
-}
-
+/* Estilos del botón del menú desplegable */
+/* ---- */
 #preciosLink {
-    width: 60px; /* Ajusta el ancho a tu preferencia */
-    height: 20px; /* Ajusta la altura a tu preferencia */
-    text-align: center; /* Centra el texto horizontalmente */
+    width: 157px; /* Ajusta el ancho a tu preferencia */
+    height: 40px; /* Ajusta la altura a tu preferencia */
     line-height: 30px; /* Centra el texto verticalmente */
+    text-align: start;
     background-color: transparent;
     color: #363131;
     transition: all 0.3s;
-    border-radius: 5px; /* Puedes ajustar esto para bordes redondeados */
-    font-size: 18px; /* Tamaño del texto */
+    border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+    font-size: 13px; /* Tamaño del texto */
     text-decoration: none; /* Quita la decoración de enlace */
 }
 
+#preciosLink:hover{
+    background-color: #dbd9d9;
+    color: #f01515;
+}
 
-@media screen and (max-width: 480px) { /*Inicio breakpoint smarphones*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 157px;
+    height: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 167px;
+    margin-left: 0;
+    border-radius: 0 0 5px 5px;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 4px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambiar el color de fondo de los enlaces cuando pasas el ratón sobre ellos */
+.dropdown-content a:hover {
+    background-color: #dcdada;
+}
+
+
+.cobrosLink {
+    width: 150px; /* Ajusta el ancho a tu preferencia */
+    height: 40px; /* Ajusta la altura a tu preferencia */
+    line-height: 30px; /* Centra el texto verticalmente */
+    text-align: start;
+    background-color: transparent;
+    color: #363131;
+    transition: all 0.3s;
+    border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+    font-size: 13px; /* Tamaño del texto */
+    text-decoration: none; /* Quita la decoración de enlace */
+}
+
+.cobrosLink:hover{
+    background-color: #dbd9d9;
+    color: #f01515;
+}
+
+/* -- */
+/* Estilos para los enlaces del menú desplegable */
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    height: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 167px;
+    margin-left: 30px;
+    border-radius: 0 0 5px 5px;
+
+}
+
+.dropdown-content2 a {
+    color: black;
+    padding: 2px 4px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambiar el color de fondo de los enlaces cuando pasas el ratón sobre ellos */
+.dropdown-content2 a:hover {
+    background-color: #dcdada;
+}
+
+
+/* --- */
+/* -- */
+@media screen and (max-width: 480px) { /*Inicio breakpoint smartphones*/
 
  
 
@@ -312,7 +293,264 @@ nav ul li a {
 @media screen and (min-width: 481px) and (max-width: 990px) { /*Inicio breakpoint tablets*/
 	
 
-	}/*Finalizacion breakpoint tablets*/
+    body {
+        background-color: #d1d6c1;
+        margin: 0; /* Elimina el margen predeterminado del cuerpo */
+        padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+        background-image: url('https://github.com/MarcoNu97/Proyecto_CAJL/blob/main/Interfaz%20Principal/ImagenesHome/Interior%20del%20Club.jpg?raw=true');
+        background-size: cover; /* Escalar la imagen para cubrir toda la pantalla */
+        background-position: center; /* Centrar la imagen */
+        background-attachment: fixed; /* Fijar el fondo para que se mantenga en su lugar al desplazarse */
+        background-repeat: no-repeat;
+    }
+    
+    
+    nav {
+        background: linear-gradient(#fcfcfc, #ff1717);
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 82px;
+        border-radius: 0px 0px 15px 15px;
+        transition: top 0.3s;
+        z-index: 999; /* Asegura que la barra de navegación esté en la parte superior */
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    
+    nav ul li {
+        text-align: center;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: #363131;
+    }
+    
+    .content {
+        margin-top: 82px;
+    }
+    
+    .centrado {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #ContenedorMenu {
+        background-color: #f3f3f3;
+        background-repeat: no-repeat;
+        height: 77px;
+        display: grid;
+        grid-template-columns: 80px 2.5fr 1fr 1fr 1.5fr 1fr 0.2fr;
+        grid-template-rows: 100%;
+        margin-top: 0px;
+        padding: 0px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    
+    .ItemMenu {
+         list-style-type: none;
+         width: 6rem;
+         height: 98%;
+    
+      }
+    
+    
+      .h:hover {
+    
+        background-color: transparent;
+        color:  #f71919;
+        transition: all 0.3s;
+        border-radius: 0;
+    
+      }
+    
+       .M2 {
+            font-weight: bold;
+            font-size: 18px;
+            width: 8rem;
+      } 
+    
+    .LogoMenu {
+    
+            height: 65px;
+    
+    }
+    
+    .Logo {
+        border-radius: 0px 0px 0px 20px;
+    }
+    
+    .Texto {
+        padding: 0;
+        font-size: 18px;
+        width: 17rem;
+        font-weight: bold;
+        color: #000000;
+        text-shadow: 1px 2px 3px grey;
+    }
+    
+    .Tx{
+        font-size: 19px;
+        width: 19rem;
+        margin-top: 25%;
+    
+    }
+    
+    .CerrarS{
+        width: 10rem;
+    }
+    
+    
+    .LinkGuia {
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    .LinkGuia:hover {
+        color: rgb(156, 144, 231);
+        transition: all 0.3s;
+        text-decoration: underline;
+    }
+    
+    
+    .Home_container {
+    
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+           
+    }
+    
+    .ImagenHome {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
+        width: 15rem;
+        height: 17rem;
+    
+    }
+    
+    .PalabrasHome {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        color: #f01515;
+        margin-bottom: 5px;
+    }
+    
+    /* Estilos del botón del menú desplegable */
+    /* ---- */
+    #preciosLink {
+        width: 157px; /* Ajusta el ancho a tu preferencia */
+        height: 40px; /* Ajusta la altura a tu preferencia */
+        line-height: 30px; /* Centra el texto verticalmente */
+        text-align: start;
+        background-color: transparent;
+        color: #363131;
+        transition: all 0.3s;
+        border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+        font-size: 13px; /* Tamaño del texto */
+        text-decoration: none; /* Quita la decoración de enlace */
+    }
+    
+    #preciosLink:hover{
+        background-color: #dbd9d9;
+        color: #f01515;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 157px;
+        height: 80px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        margin-top: 167px;
+        margin-left: 0;
+        border-radius: 0 0 5px 5px;
+    
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 2px 4px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Cambiar el color de fondo de los enlaces cuando pasas el ratón sobre ellos */
+    .dropdown-content a:hover {
+        background-color: #dcdada;
+    }
+    
+    
+    .cobrosLink {
+        width: 150px; /* Ajusta el ancho a tu preferencia */
+        height: 40px; /* Ajusta la altura a tu preferencia */
+        line-height: 30px; /* Centra el texto verticalmente */
+        text-align: start;
+        background-color: transparent;
+        color: #363131;
+        transition: all 0.3s;
+        border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+        font-size: 13px; /* Tamaño del texto */
+        text-decoration: none; /* Quita la decoración de enlace */
+    }
+    
+    .cobrosLink:hover{
+        background-color: #dbd9d9;
+        color: #f01515;
+    }
+    
+    /* -- */
+    /* Estilos para los enlaces del menú desplegable */
+    .dropdown-content2 {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 150px;
+        height: 80px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        margin-top: 167px;
+        margin-left: 30px;
+        border-radius: 0 0 5px 5px;
+    
+    }
+    
+    .dropdown-content2 a {
+        color: black;
+        padding: 2px 4px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Cambiar el color de fondo de los enlaces cuando pasas el ratón sobre ellos */
+    .dropdown-content2 a:hover {
+        background-color: #dcdada;
+    }
+    
+
+
+}/*Finalizacion breakpoint tablets*/
 
 
 
@@ -321,21 +559,23 @@ nav ul li a {
 
 
 
-nav {
-    background-color: #fcfcfc;
-    background-repeat: no-repeat;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 82px;
-    border-radius: 0px 0px 15px 15px;
-    
-}
+
+ nav {
+        background: linear-gradient(#fcfcfc, #ff1717);
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 98px;
+        border-radius: 0px 0px 15px 15px;
+        transition: top 0.3s;
+        z-index: 999; /* Asegura que la barra de navegación esté en la parte superior */
+    }
 
 nav ul li a {
     text-decoration: none;
     height: 98%;
-    width: 100px;
+    width: 90px;
     color: #363131;
  
 }
@@ -349,18 +589,16 @@ nav ul li a {
 #ContenedorMenu {
 
     background-repeat: no-repeat;
-    height: 82px;
+    height: 93px;
     display: grid;
-    grid-template-columns: 80px 2.5fr 1fr 1fr 1fr 1fr 0.2fr 0.5fr;
+    grid-template-columns: 80px 2.5fr 1fr 1fr 1.5fr 1fr 0.2fr;
     grid-template-rows: 100%;
     margin-top: 0px;
     padding: 0px;
-    margin-left: 2px;
     border-radius: 0px 0px 25px 25px;
 }
 
 .ItemMenu {
-     background-color: transparent;
      list-style-type: none;
      width: 6rem;
      height: 98%;
@@ -369,8 +607,8 @@ nav ul li a {
 
   .h:hover {
 
-    background-color: #be1010;
-    color:  #f8dada;
+    background-color:  #f3f3f3;;
+    color:  #ff0f0f;
     transition: all 0.3s;
     border-radius: 20px 20px 20px 20px;
 
@@ -380,11 +618,12 @@ nav ul li a {
         border: 0.1px solid rgba(235, 62, 62, -0.2);
         font-weight: bold;
         font-size: 23px;
+        width: 9rem;
   } 
 
 .LogoMenu {
 
-        height: 75px;
+        height: 85px;
 
 }
 
@@ -395,47 +634,75 @@ nav ul li a {
 
 .Texto {
     padding: 0;
-    font-size: 23px;
-    width: 22rem;
+    font-size: 25px;
+    width: 26rem;
     font-weight: bold;
     text-shadow: 1px 2px 3px grey;
 }
-
-.Perfil {
-
-    border-radius: 50%;
-    height: 100%;
-    border: 0.5px solid rgba(230, 29, 29, 0.164);
-    background-color: #44424e;
-    justify-items: end;
+.Tx{
+    font-size: 25px;
+    width: 28rem;
+    margin-top: 0 !important;
 
 }
 
-.ImagenPerfil {
-    width: 85%;
-    border-radius: 50%;
-    
- }
+.CerrarS{
+    width: 15rem;
+}
 
- .MenuPerfil {
 
-    display: grid;
-    justify-content: start;
-    align-items: center;
-    border-radius: 0px 0px 15px 0px;
+#preciosLink {
+    width: 190px; /* Ajusta el ancho a tu preferencia */
+    height: 40px; /* Ajusta la altura a tu preferencia */
+    line-height: 30px; /* Centra el texto verticalmente */
+    text-align: start;
+    background-color: transparent;
+    color: #363131;
+    transition: all 0.3s;
+    border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+    font-size: 14px; /* Tamaño del texto */
+    text-decoration: none; /* Quita la decoración de enlace */
+}
+.cobrosLink {
+    width: 190px; /* Ajusta el ancho a tu preferencia */
+    height: 40px; /* Ajusta la altura a tu preferencia */
+    line-height: 30px; /* Centra el texto verticalmente */
+    text-align: start;
+    background-color: transparent;
+    color: #363131;
+    transition: all 0.3s;
+    border-radius: 2px; /* Puedes ajustar esto para bordes redondeados */
+    font-size: 14px; /* Tamaño del texto */
+    text-decoration: none; /* Quita la decoración de enlace */
+}
+/* -- */
+/* Estilos para el contenedor del menú desplegable */
 
- }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 190px;
+    height: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 180px;
+    margin-left: 0;
+    border-radius: 0 0 5px 5px;
 
- .OpcionesPerfil {
-    width: 50px;
-    height: 50px;
-    background-color:rgba(189, 9, 24, -0.2);
-    border: 0;
-} 
+}
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 190px;
+    height: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 180px;
+    margin-left: 0;
+    border-radius: 0 0 5px 5px;
 
-.FlechaPerfil {
-
-    height: 30px;
 }
 
 .LinkGuia {
@@ -474,8 +741,8 @@ nav ul li a {
 
 .PalabrasHome {
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
     font-weight: bold;
     color: #eb1212;
     margin-bottom: 8px;

@@ -10,14 +10,18 @@ from django.contrib.auth import authenticate, login
 def home (request):
     return render (request, 'loginregister/home.html')
 
+#AUTENTICACION EN LA PESTAÑA PARTNERS
 @login_required
 def partners (request):
     return render (request, 'loginregister/partners.html')
 
+
+#LOGOUT
 def exit (request):
     logout(request)
     return redirect ('home')
 
+#REGISTRO
 def register(request):
     data = {
         'form': CustomUserCreationForm()
@@ -36,6 +40,7 @@ def register(request):
     
     return render (request, 'registration/register.html',data)
 
+#RECUPERAR CONTRASEÑA
 def custom_password_reset(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
