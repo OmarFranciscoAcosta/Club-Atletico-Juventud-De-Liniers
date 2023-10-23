@@ -6,7 +6,7 @@ El mismo fue realizado para el Club deportivo Juventud de Liniers, ubicado en Mo
 El mismo consta de un software de gestion de socios, con carga de de los mismos, y la generación básica de comprobantes de pago correspondientes a los socios, con gestion de pagos en el mismo.
 
 ## Librerias utilizadas en el proyecto.
-1. Django para el framework general.
+1. Django para el framework base.
 2. Django-Jazzmin para la gestión administrativa de la propia app (backoffice).
 3. Crispy-bootstrap5 para la gestión de formularios del sistema.
 
