@@ -38,6 +38,7 @@
                 <li class="ItemMenu"><a title="Volver al menu principal" class="Texto centrado Tx animate__animated animate__pulse" href={% url 'home' %}>Club Atlético Juventud de Liniers</a></li>
                 {% if request.user.is_authenticated %}
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'socios' %}>Socios</a></li>
+                
                 <li class="ItemMenu M2 h centrado">
                     <a class="h centrado dropa1" onmouseover="toggleDropdown()" href={% url 'actividades' %}>Actividades</a>
 
@@ -55,8 +56,9 @@
                         <a class="cobrosLink" href="#">Opción2</a>
                        
                     </div>
+                       
                 </li>
-
+                <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Log de cambios</a></li> 
                 <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'exit' %}>Cerrar Sesion</a></li>
                 {% else %}
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'home' %}>Inicio</a></li>
