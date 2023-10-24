@@ -1,7 +1,7 @@
 # Club Atlético Juventud de Liniers
 Proyecto Final del Instituto Superior Nuestra Señora de la Paz, ubicado en Buenos Aires, Argentina.
 
-El mismo fue realizado para el Club deportivo Juventud de Liniers, ubicado en Montiel 1174, CABA. En Buenos Aires, Argentina. 
+El mismo fue realizado para el Club deportivo Juventud de Liniers, ubicado en Montiel 1174, CABA. 
 
 El mismo consta de un software de gestion de socios, con carga de de los mismos, y la generación básica de comprobantes de pago correspondientes a los socios, con gestion de pagos en el mismo.
 
