@@ -12,7 +12,7 @@ class payments (models.Model):
     class Meta:
         verbose_name = 'Pagos'
         verbose_name_plural = 'Pagos del club'
-        ordering = ['fecha_pago']
+        ordering = ['-fecha_pago']
 
 def __str__(self):
         return f'{self.id} - {self.fecha_pago} - {self.monto_pago}'

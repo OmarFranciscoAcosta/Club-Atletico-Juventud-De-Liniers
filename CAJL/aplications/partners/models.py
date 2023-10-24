@@ -1,6 +1,7 @@
 from tkinter import CASCADE
 from django.db import models
 from CAJL.aplications.location.models import location
+from CAJL.aplications.activities.models import activities
 # Create your models here.
 
 
@@ -19,6 +20,7 @@ class partners (models.Model):
     localidad = models.ForeignKey(location, on_delete=models.CASCADE,blank=True)
     telefono1 = models.CharField('Telefono 1',max_length=15,blank=True)
     telefono2 = models.CharField('Telefono 2',max_length=15,blank=True)
+    actividades = models.ManyToManyField(activities,blank=True)
     correo = models.EmailField('Email',max_length=40,blank=True)
     descripcion = models.CharField('Descripción',max_length=50, blank=True)
     apto_fisico = models.BooleanField('Apto físico',default=False)
