@@ -17,7 +17,7 @@ Primeramente tener descargado Python de la página oficial: www.python.org
 
 Luego crear el entorno correspondiente, utilizando el comando pip vía CMD (Símbolo del Sistema).
 ```
-pip -m venv CAJL
+python -m venv CAJL
 ```
 Luego instalar las librerias utilizadas en el proyecto arriba, usando el comando pip
 ```
