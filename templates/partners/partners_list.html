@@ -47,25 +47,25 @@
                         <tbody  class="bg-light bg-gradient">
                                 {% for item in data %}
                             <tr>
-                                <td>{{ item.id }}</td>   
-                                <td>{{ item.nombre_completo }}</td>
-                                <td>{{ item.dni }}</td>
-                                <td>{{ item.fecha_nacimiento }}</td>
-                                <td>
+                                <td class="centered">{{ item.id }}</td>   
+                                <td class="centered">{{ item.nombre_completo }}</td>
+                                <td class="centered">{{ item.dni }}</td>
+                                <td class="centered">{{ item.fecha_nacimiento }}</td>
+                                <td class="centered">
                                     {% for actividad in item.actividades.all %}
                                     {{ actividad.nombre_actividad }},
                                     {% endfor %}
                                 </td>
                                 <!-- <td>{{ item.distrito }}</td> -->
                                 <!-- <td>{{ item.ultimo_pago }}</td> -->
-                                <td>
+                                <td class="centered">
                                     {% if item.compite %}
                                     <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
                                     {% else %}
                                     <i class="fas fa-times text-danger"></i>  <!-- Icono de cruz roja -->
                                     {% endif %}
                                 </td>
-                                <td>
+                                <td class="centered">
                                     {% if item.socio_activo %}
                                     <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
                                     {% else %}
@@ -80,7 +80,7 @@
                                 <!-- <td>{{ item.fecha_vencimiento_apto_fisico }}</td> -->
                                 <!-- <td>{{ item.compite }}</td> -->
                         
-                                <td>
+                                <td class="centered">
                                     <a href={% url 'detalles' item.id %} class="btn btn-sm btn-primary btn-custom-width">
                                     <i class="fas fa-pencil-alt"></i>
                                     </a>
