@@ -21,9 +21,9 @@ MES_CHOICES =(
 
 
 class prices (models.Model):
-    anio = models.IntegerField ('Año',blank=True)
-    mes = models.CharField('Mes',max_length=2, choices=MES_CHOICES, default='0', blank=True)
-    actividad = models.ForeignKey(activities, on_delete=models.CASCADE, blank=True)
+    anio = models.IntegerField ('Año')
+    mes = models.CharField('Mes',max_length=2, choices=MES_CHOICES, default='0')
+    actividad = models.ForeignKey(activities, on_delete=models.CASCADE)
     valor_clase_consulta = models.DecimalField('Valor de la clase por consulta', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_fijo = models.DecimalField ('Valor mensual fijo', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_1semana = models.DecimalField('Valor mensual por 1 vez semana', max_digits=10, decimal_places=2,blank=True, null=True)

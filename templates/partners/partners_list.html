@@ -6,12 +6,14 @@
 <html lang="es">
     {% load static %}
 <head>
+    <title>Socios</title>
     <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"> 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+ 
 </head>
 
 <body>
@@ -60,16 +62,16 @@
                                 <!-- <td>{{ item.ultimo_pago }}</td> -->
                                 <td class="centered">
                                     {% if item.compite %}
-                                    <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
+                                    <i class="fas fa-check text-success"> si</i>  <!-- Icono de tilde verde -->
                                     {% else %}
-                                    <i class="fas fa-times text-danger"></i>  <!-- Icono de cruz roja -->
+                                    <i class="fas fa-times text-danger"> no</i>  <!-- Icono de cruz roja -->
                                     {% endif %}
                                 </td>
                                 <td class="centered">
                                     {% if item.socio_activo %}
-                                    <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
+                                    <i class="fas fa-check text-success"> si</i>  <!-- Icono de tilde verde -->
                                     {% else %}
-                                    <i class="fas fa-times text-danger"></i>  <!-- Icono de cruz roja -->
+                                    <i class="fas fa-times text-danger"> no</i>  <!-- Icono de cruz roja -->
                                     {% endif %}
                                 </td>
                                 <!-- <td>{{ item.telefono1 }}</td> -->
