@@ -37,4 +37,4 @@ class prices (models.Model):
     class Meta:
         verbose_name = 'Precio'
         verbose_name_plural = 'Precios del club'
-        ordering = ['anio']
+        ordering = ['-anio']

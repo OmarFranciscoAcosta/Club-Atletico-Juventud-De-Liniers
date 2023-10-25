@@ -1,5 +1,6 @@
 from django.db import models
-
+from CAJL.aplications.partners.models import partners
+from CAJL.aplications.activities.models import activities
 # Create your models here.
 class vouchers (models.Model):
     
@@ -19,6 +20,8 @@ class vouchers (models.Model):
     
     
     fecha_comprobante = models.DateField('Fecha del comprobante',blank=True)
+    socio = models.ForeignKey (partners, on_delete=models.CASCADE, blank=True)
+    actividades = models.ManyToManyField (activities,blank=True)
     observacion = models.CharField('Observacion',max_length=50, blank=True)
     estado = models.CharField('Estado',max_length=1, choices=EST_CHOICES,blank=True)
     tipo_pago = models.CharField('Tipo de pago',max_length=1, choices=TIP_CHOICES, blank=True)

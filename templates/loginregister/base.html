@@ -49,11 +49,11 @@
                     </div>
                 </li>
                 <li class="ItemMenu M2 h centrado">
-                    <a class="h centrado dropa2" onmouseover="toggleDropdown2()" href="#">Cobros</a>
+                    <a class="h centrado dropa2" onmouseover="toggleDropdown2()">Cobros</a>
                     <div id="myDropdown2" class="dropdown-content2">
                     
-                        <a class="cobrosLink" href="#">Opción1</a>
-                        <a class="cobrosLink" href="#">Opción2</a>
+                        <a class="cobrosLink" href="#">Comprobantes</a>
+                        <a class="cobrosLink" href="#">Pagos</a>
                        
                     </div>
                        
@@ -114,22 +114,6 @@ window.onclick = function(event) {
     }
 }
 
-// 
-// funcion del boton Precios de las actividades
-
-
-preciosLink.addEventListener('DOMContentLoaded', function () {
-        const preciosLink = document.getElementById('preciosLink');
-        preciosLink.addEventListener('click', function () {
-            window.location.href = "{% url 'prices_list' %}";
-        });
-    });
-
-
-    // preciosLink.addEventListener('click', () => {
-    //     // Reemplaza '#' con la URL de la página correspondiente.
-    //     window.location.href = "{% url 'prices_list' %}"; // Reemplaza con la URL adecuada
-    // });
  </script>
       <script src={% static 'js/main_home.js' %}>
  </script>

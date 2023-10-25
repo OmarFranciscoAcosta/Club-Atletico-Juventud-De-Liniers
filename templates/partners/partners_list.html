@@ -32,21 +32,22 @@
                 <button id="btn_Socios"><i class="fa-solid fa-user-plus"></i> Nuevo Socio</button>
              <thead>
                 <tr class="bg-danger bg-gradient">
-                    <th class="centered">ID</th>
+                    <th class="centered">Nº de Socio</th>
                     <th class="centered">Nombre Completo</th>
                     <th class="centered">DNI</th>
                     <!-- <th class="centered">Fecha de Nacimiento</th> -->
-                    <th class="centered">Dirección</th>
+                    <th class="centered">Actvidades</th>
                     <!-- <th class="centered">Distrito</th> -->
-                    <th class="centered">Localidad</th>
-                    <th class="centered">Teléfono 1</th>
-                    <th class="centered">Teléfono 2</th>
-                    <th class="centered">Correo</th>
-                    <!-- <th class="centered">Descripción</th> -->
-                    <th class="centered">Apto Físico</th>
-                    <!-- <th class="centered">Fecha de Vencimiento del Apto Físico</th> -->
-                    <th class="centered">Compite</th>
+                    <!-- <th class="centered">Ultimo pago</th> -->
+                    <th class="centered">Fichado?</th>
                     <th class="centered">Socio Activo</th>
+                    <th></th>
+                    <!-- <th class="centered">Correo</th> -->
+                    <!-- <th class="centered">Descripción</th> -->
+                    <!-- <th class="centered">Apto Físico</th> -->
+                    <!-- <th class="centered">Fecha de Vencimiento del Apto Físico</th> -->
+                    <!-- <th class="centered">Compite</th>
+                    <th class="centered">Socio Activo</th> -->
                 </tr>
              </thead>
                 <tbody  class="bg-light bg-gradient">
@@ -56,17 +57,35 @@
                         <td>{{ item.nombre_completo }}</td>
                         <td>{{ item.dni }}</td>
                         <!-- <td>{{ item.fecha_nacimiento }}</td> -->
-                        <td>{{ item.direccion }}</td>
+                        <td>
+                            {% for actividad in item.actividades.all %}
+                            {{ actividad.nombre_actividad }},
+                            {% endfor %}
+                        </td>
                         <!-- <td>{{ item.distrito }}</td> -->
-                        <td>{{ item.localidad }}</td>
-                        <td>{{ item.telefono1 }}</td>
-                        <td>{{ item.telefono2 }}</td>
-                        <td>{{ item.correo }}</td>
+                        <!-- <td>{{ item.ultimo_pago }}</td> -->
+                        <td>
+                            {% if item.compite %}
+                            <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
+                            {% else %}
+                            <i class="fas fa-times text-danger"></i>  <!-- Icono de cruz roja -->
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if item.socio_activo %}
+                            <i class="fas fa-check text-success"></i>  <!-- Icono de tilde verde -->
+                            {% else %}
+                            <i class="fas fa-times text-danger"></i>  <!-- Icono de cruz roja -->
+                            {% endif %}
+                        </td>
+                        <!-- <td>{{ item.telefono1 }}</td> -->
+                        <!-- <td>{{ item.telefono2 }}</td> -->
+                        <!-- <td>{{ item.correo }}</td> -->
                         <!-- <td>{{ item.descripcion }}</td> -->
-                        <td>{{ item.apto_fisico }}</td>
+                        <!-- <td>{{ item.apto_fisico }}</td> -->
                         <!-- <td>{{ item.fecha_vencimiento_apto_fisico }}</td> -->
-                        <td>{{ item.compite }}</td>
-                        <td>{{ item.socio_activo }}</td>
+                        <!-- <td>{{ item.compite }}</td> -->
+                        
                         <td>
                             <a href={% url 'detalles' item.id %} class="btn btn-sm btn-primary btn-custom-width">
                                 <i class="fas fa-pencil-alt"></i>

@@ -15,16 +15,18 @@ def datatable_view(request):
             'nombre_completo': partner.nombre_completo,
             'dni': partner.dni,
             'fecha_nacimiento': partner.fecha_nacimiento,
-            'direccion': partner.direccion,
-            'distrito': partner.get_distrito_display(),  # Usamos get_<field_name>_display() para campos choices
-            'localidad': partner.localidad.municipio_nombre,
-            'telefono1': partner.telefono1,
-            'telefono2': partner.telefono2,
-            'correo': partner.correo,
-            'descripcion': partner.descripcion,
-            'apto_fisico': partner.apto_fisico,
-            'fecha_vencimiento_apto_fisico': partner.fecha_vencimiento_apto_fisico,
-            'fecha_vencimiento_fichaje': partner.fecha_vencimiento_fichaje,
+            # 'direccion': partner.direccion,
+            # 'distrito': partner.get_distrito_display(),  # Usamos get_<field_name>_display() para campos choices
+            # 'localidad': partner.localidad.municipio_nombre,
+            # 'telefono1': partner.telefono1,
+            # 'telefono2': partner.telefono2,
+            'actividades': partner.actividades,
+            # 'ultimo_pago': partner.payments
+            # 'correo': partner.correo,
+            # 'descripcion': partner.descripcion,
+            # 'apto_fisico': partner.apto_fisico,
+            # 'fecha_vencimiento_apto_fisico': partner.fecha_vencimiento_apto_fisico,
+            # 'fecha_vencimiento_fichaje': partner.fecha_vencimiento_fichaje,
             'compite': partner.compite,
             'socio_activo': partner.socio_activo,
         })

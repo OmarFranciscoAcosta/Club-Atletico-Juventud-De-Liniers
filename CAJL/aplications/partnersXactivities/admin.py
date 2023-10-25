@@ -13,4 +13,3 @@ class partnerXactivitiesAdmin (admin.ModelAdmin):
     search_fields = ('fecha_inscripcion','socio','actividad','activo',)
     list_filter = ('fecha_inscripcion','socio','actividad','activo',)
 
-admin.site.register(partnerXactivities,partnerXactivitiesAdmin)
