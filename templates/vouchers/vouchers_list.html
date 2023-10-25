@@ -21,6 +21,9 @@
     <div class="row">
         <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
             <h1>Comprobantes del club</h1>
+            <div class="col-md-6">
+                <button id="btn_Comprobante" class="btn btn-primary"><i class="fa-solid fa-upload"></i> Nuevo comprobante</button>
+            </div>
             <table id="tabla-comprobantes" class="display">
                 <thead>
                     <tr class="bg-danger bg-gradient">
@@ -41,10 +44,7 @@
                             <td class="centered">{{ comprobante.id }}</td>
                             <td class="centered">{{ comprobante.fecha_comprobante }}</td>
                             <td class="centered">{{ comprobante.socio.nombre_completo }}</td>
-                            <td class="centered">
-                                {% for actividad in comprobante.actividades.all %}
-                                    {{ actividad.nombre_actividad }},
-                                {% endfor %}
+                            <td class="centered">{% for actividad in comprobante.actividades.all %}{{ actividad.nombre_actividad }}, {% endfor %}
                             </td>
                             <td class="centered">{{ comprobante.observacion }}</td>
                             <td class="centered">{{ comprobante.get_estado_display }}</td>
@@ -95,6 +95,15 @@
         });
     });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnPrecio = document.getElementById('btn_Comprobante');
+            btnPrecio.addEventListener('click', function() {
+                // Redireccionar a la otra página
+                window.location.href = "{% url 'carga_comprobante' %}"; // Reemplaza '/otra-pagina/' con la URL de la página a la que deseas redirigir
+            });
+        });
+        </script>
 </body>
 </html>
 {% endblock %}

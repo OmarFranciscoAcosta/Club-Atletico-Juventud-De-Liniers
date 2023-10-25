@@ -1,0 +1,34 @@
+{% extends 'loginregister/home.html' %}
+
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+<br>
+<br>
+<br>
+<br>
+
+<!DOCTYPE html>
+<head>
+  <title>Agregar un nuevo comprobante</title>
+  <link rel="stylesheet" type="text/css" href={% static 'css/forms.css' %}>
+</head>
+<html>
+<body>
+<br>
+  <form method="post" id="mi-formulario" class="form-horizontal">
+    {% csrf_token %}
+    <div class="card mx-auto" style="max-width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Agregar un nuevo comprobante</h5>
+            {{ form | crispy }}
+            <button class="btn btn-sm btn-primary float-end" type="submit">Agregar comprobante</button>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>
+
+{% endblock %}

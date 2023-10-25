@@ -19,4 +19,5 @@ from . import views
 
 urlpatterns = [
     path('comprobantes/', views.comprobantes_list, name='comprobantes'),
+    path('carga_comprobante/', views.carga_comprobante, name='carga_comprobante'),
 ]
