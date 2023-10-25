@@ -7,7 +7,7 @@
 <head>
 
     <title>Precios del Club</title>
-    
+    <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
     <!-- EXCEL -->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
@@ -19,16 +19,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<body>
+<section class="Contenedor">
+
+<body>   
     <div class="container h-60 my-4">
         <div class="row">
             <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
@@ -42,35 +35,36 @@
                     <table id="prices-table" class="display table table-striped">
                         <thead>
                             <tr class="bg-danger bg-gradient">
-                                <th>Año</th>
-                                <th>Mes</th>
-                                <th>Actividad</th>
-                                <th>Valor Clase Consulta</th>
-                                <th>Valor Fijo</th>
-                                <th>Valor 1 Vez a la Semana</th>
-                                <th>Valor 2 Veces a la Semana</th>
-                                <th>Valor 3 Veces a la Semana</th>
-                                <th>Valor Fichaje Anual</th>
-                                <th>Valor Libre</th>
-                                <th>Cuota Social</th>
-                                <th>Mes Impago</th>
+                                <th class="centered">Año</th>
+                                <th class="centered">Mes</th>
+                                <th class="centered">Actividad</th>
+                                <th class="centered">Valor Clase Consulta</th>
+                                <th class="centered">Valor Fijo</th>
+                                <th class="centered">Valor 1 Vez a la Semana</th>
+                                <th class="centered">Valor 2 Veces a la Semana</th>
+                                <th class="centered">Valor 3 Veces a la Semana</th>
+                                <th class="centered">Valor Fichaje Anual</th>
+                                <th class="centered">Valor Libre</th>
+                                <th class="centered">Cuota Social</th>
+                                <th class="centered">Mes Impago</th>
+
 
                             </tr>
                             <tbody  class="bg-light bg-gradient">
                                 {% for price in price_data %}
                                 <tr>
-                                  <td>{{ price.anio }}</td>
-                                  <td>{{ price.get_mes_display }}</td>
-                                  <td>{{ price.actividad.nombre_actividad }}</td>
-                                  <td>{{ price.valor_clase_consulta }}</td>
-                                  <td>{{ price.valor_mensual_fijo }}</td>
-                                  <td>{{ price.valor_mensual_1semana }}</td>
-                                  <td>{{ price.valor_mensual_2semana }}</td>
-                                  <td>{{ price.valor_clase_3semana }}</td>
-                                  <td>{{ price.valor_fichaje_anual }}</td>
-                                  <td>{{ price.valor_libre }}</td>
-                                  <td>{{ price.cuota_social }}</td>
-                                  <td>{{ price.mes_impago }}</td> 
+                                  <td class="centered">{{ price.anio }}</td>
+                                  <td class="centered">{{ price.get_mes_display }}</td>
+                                  <td class="centered">{{ price.actividad.nombre_actividad }}</td>
+                                  <td class="centered">{% if price.valor_clase_consulta %}{{ price.valor_clase_consulta }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_mensual_fijo %}{{ price.valor_mensual_fijo }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_mensual_1semana %}{{ price.valor_mensual_1semana }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_mensual_2semana %}{{ price.valor_mensual_2semana }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_clase_3semana %}{{ price.valor_clase_3semana }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_fichaje_anual %}{{ price.valor_fichaje_anual }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_libre %}{{ price.valor_libre }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.cuota_social %}{{ price.cuota_social }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.mes_impago %}{{ price.mes_impago }}{% else %}-{% endif %}</td>
                                   </tr>
                                   {% endfor %}
                             </tbody>
@@ -112,19 +106,6 @@
                     className: 'btn btn-success btn-excel'
                 }
             ]
-        });
-    
-        // Mover el filtro al lado del cuadro de búsqueda
-        $('.dataTables_filter').after($('.filtro-tipo-actividad'));
-    
-        // Manejar el cambio en los checkboxes
-        $('.filtro-tipo-actividad-checkbox').change(function () {
-            var selectedTipos = [];
-            $('.filtro-tipo-actividad-checkbox:checked').each(function () {
-                selectedTipos.push($(this).val());
-            });
-    
-            table.columns(2).search(selectedTipos.join('|'), true, false).draw();
         });
     });
     
