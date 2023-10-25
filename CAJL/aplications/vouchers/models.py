@@ -32,7 +32,7 @@ class vouchers (models.Model):
     class Meta:
         verbose_name = 'Comprobante'
         verbose_name_plural = 'Comprobantes del club'
-        ordering = ['fecha_comprobante']
+        ordering = ['-fecha_comprobante']
 
     def __str__(self):
         return f'Comprobante {self.id} - {self.fecha_comprobante} - {self.get_estado_display()} - {self.get_tipo_pago_display()}'
