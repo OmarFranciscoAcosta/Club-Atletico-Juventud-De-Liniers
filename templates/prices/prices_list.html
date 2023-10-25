@@ -68,7 +68,7 @@
                                   <td class="centered">{% if price.mes_impago %}{{ price.mes_impago }}{% else %}-{% endif %}</td>
 
                                   <td class="centered">
-                                    <a href='{% url 'detalles_precio' price.id %}' class="btn btn-sm btn-primary btn-custom-width">
+                                    <a href={% url 'detalles_precio' price.id %} class="btn btn-sm btn-primary btn-custom-width">
                                     <i class="fas fa-pencil-alt"></i>
                                     </a>
                                 </td>

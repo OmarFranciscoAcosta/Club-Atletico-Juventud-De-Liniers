@@ -1,0 +1,47 @@
+{% extends 'loginregister/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Estilos_DT.css' %}">
+    <title>Detalle del comprobante</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <form method="post">
+    <div class="card mx-auto" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Detalle del comprobante</h5>
+          {% csrf_token %}
+    
+          {{ form | crispy }}
+    
+          <button type="submit" name="editar" class="btn btn-primary" id="actualizar-comprobante">Guardar Cambios</button>
+          <button type="submit" name="eliminar" class="btn btn-danger" id="eliminar-comprobante">Eliminar Precio</button>
+        </div>
+      </div>
+    </form>
+    <script>
+        document.getElementById('eliminar-comprobante').addEventListener('click', function(event) {
+            if (!window.confirm('¿Estás seguro de que deseas eliminar este comprobante?')) {
+                // Evitar que el formulario se envíe
+            }
+        });
+
+        document.getElementById('actualizar-comprobante').addEventListener('click', function(event) {
+            alert('El comprobante ha sido actualizado');
+            // O redirección al inicio
+            window.location.href = "{% url 'comprobantes' %}";
+             // Evitar que el formulario se envíe
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -51,7 +51,7 @@
                             <td class="centered">{{ comprobante.get_tipo_pago_display }}</td>
                             <td class="centered">{{ comprobante.nombre_quien_paga }}</td>
                             <td class="centered">
-                                <a href="#" class="btn btn-sm btn-primary btn-custom-width">
+                                <a href={% url 'detalles_comprobante' vouchers_id=comprobante.id %} class="btn btn-sm btn-primary btn-custom-width">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
                             </td>
