@@ -53,10 +53,7 @@
                                 <td class="centered">{{ item.nombre_completo }}</td>
                                 <td class="centered">{{ item.dni }}</td>
                                 <td class="centered">{{ item.fecha_nacimiento }}</td>
-                                <td class="centered">
-                                    {% for actividad in item.actividades.all %}
-                                    {{ actividad.nombre_actividad }},
-                                    {% endfor %}
+                                <td class="centered">{% for actividad in item.actividades.all %}{{ actividad.nombre_actividad }} ,{% endfor %}
                                 </td>
                                 <!-- <td>{{ item.distrito }}</td> -->
                                 <!-- <td>{{ item.ultimo_pago }}</td> -->
