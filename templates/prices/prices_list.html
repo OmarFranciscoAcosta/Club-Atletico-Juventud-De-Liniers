@@ -47,6 +47,7 @@
                                 <th class="centered">Valor Libre</th>
                                 <th class="centered">Cuota Social</th>
                                 <th class="centered">Mes Impago</th>
+                                <th class="centered"></th>
 
 
                             </tr>
@@ -65,6 +66,13 @@
                                   <td class="centered">{% if price.valor_libre %}{{ price.valor_libre }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.cuota_social %}{{ price.cuota_social }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.mes_impago %}{{ price.mes_impago }}{% else %}-{% endif %}</td>
+
+                                  <td class="centered">
+                                    <a href='{% url 'detalles_precio' price.id %}' class="btn btn-sm btn-primary btn-custom-width">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                </td>
+
                                   </tr>
                                   {% endfor %}
                             </tbody>
