@@ -1,5 +1,6 @@
 from django.db import models
 from CAJL.aplications.vouchers.models import vouchers
+from CAJL.aplications.partners.models import partners
 
 # Create your models here.
 class payments (models.Model):

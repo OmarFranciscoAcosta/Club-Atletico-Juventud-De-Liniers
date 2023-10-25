@@ -16,6 +16,7 @@ class partners (models.Model):
     DISTRICT_CHOICES = location.LOC_CHOICES
     
     
+    
     distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES, blank=True)
     localidad = models.ForeignKey(location, on_delete=models.CASCADE,blank=True)
     telefono1 = models.CharField('Telefono 1',max_length=15,blank=True)
