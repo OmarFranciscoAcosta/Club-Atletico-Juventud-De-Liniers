@@ -49,8 +49,8 @@
                         <td class="centered">{{ payment.id}}</td>
                         <td class="centered">{{ payment.anio}}</td>
                         <td class="centered">{{ payment.get_mes_display}}</td>
-                        <td class="centered">{{ payment.socio.nombre }}</td>
-                        <td class="centered">{% for actividad in payment.actividades.all %}{{ actividad.nombre }} ,{% endfor %}</td>
+                        <td class="centered">{{ payment.socio.nombre_completo }}</td>
+                        <td class="centered">{% for actividad in payment.actividades.all %}{{ actividad.nombre_actividad }} ,{% endfor %}</td>
                         <td class="centered">{{ payment.fecha_comprobante }}</td>
                         <td class="centered">{{ payment.get_estado_display }}</td>
                         <td class="centered">{{ payment.get_tipo_pago_display }}</td>
