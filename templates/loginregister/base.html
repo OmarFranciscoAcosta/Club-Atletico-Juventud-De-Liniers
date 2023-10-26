@@ -48,19 +48,10 @@
                        
                     </div>
                 </li>
-                <li class="ItemMenu M2 h centrado">
-                    <a class="h centrado dropa2" onmouseover="toggleDropdown2()">Cobros</a>
-                    <div id="myDropdown2" class="dropdown-content2">
-                    
-                        <a class="cobrosLink" href={% url 'payments_list' %}>Pagos</a>
-                       
-                    </div>
-                       
-                </li>
+                <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'payments_list' %}>Pagos</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href="#">Log de cambios</a></li> 
                 <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'exit' %}>Cerrar Sesion</a></li>
                 {% else %}
-                <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'home' %}>Inicio</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'login' %}>Ingresar</a></li>
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'register' %}>Registrarse</a></li>
                 {% endif %}

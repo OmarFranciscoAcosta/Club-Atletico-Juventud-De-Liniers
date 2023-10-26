@@ -38,7 +38,7 @@ class payments (models.Model):
     
     
     fecha_comprobante = models.DateField('Fecha del comprobante')
-    anio = models.IntegerField('Año', max_length=5)
+    anio = models.IntegerField('Año')
     mes = models.CharField('Mes',max_length=2,choices=MES_CHOICES)
     socio = models.ForeignKey(partners, on_delete=models.CASCADE)
     actividades = models.ManyToManyField(activities)

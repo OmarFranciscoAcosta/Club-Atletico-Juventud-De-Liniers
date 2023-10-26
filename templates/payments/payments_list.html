@@ -20,6 +20,12 @@
         <div class="row">
             <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
                 <h2>Tabla de Pagos</h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <button id="btn_Comprobante" class="btn btn-primary"><i class="fa-solid fa-dumbbell"></i> Nuevo comprobante</button>
+                    </div>
+                </div>
+
             <table id="payments-table" class="display table table-striped">
                 <thead>
                     <tr class="bg-danger bg-gradient">
@@ -78,6 +84,12 @@
 
 <script>
     $(document).ready(function () {
+        // Manejar el clic del botón "btn_Comprobante"
+        $('#btn_Comprobante').on('click', function () {
+            // Redireccionar a la URL "carga_comprobante"
+            window.location.href = "{% url 'agregar_comprobante' %}";
+        });
+
         var table = $('#payments-table').DataTable({
             dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip',
             language: {

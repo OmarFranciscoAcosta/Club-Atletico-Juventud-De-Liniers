@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     path('pagos/', views.payments_list, name='payments_list'),
+    path('agregar_comprobante/', views.carga_comprobante, name='agregar_comprobante'),
     # Agrega más rutas si es necesario
 ]
