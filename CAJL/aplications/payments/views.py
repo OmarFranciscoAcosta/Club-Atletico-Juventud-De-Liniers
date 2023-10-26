@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import JsonResponse
 from .models import payments
 from .forms import PaymentsForm 
+from django.contrib import messages
 
 # Create your views here.
 
@@ -30,3 +31,27 @@ def carga_comprobante(request):
         form = PaymentsForm()
 
     return render(request, 'payments/carga_comprobante.html', {'form': form})
+
+#RENDER PARA DETALLES DEL COMPROBANTE
+def detalles_cpb(request, payments_id):
+    payment = get_object_or_404(payments, id=payments_id)
+    
+    if request.method == 'POST':
+        if 'editar' in request.POST:
+            form = PaymentsForm(request.POST, instance=payment)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Los datos del comprobante han sido actualizados.')
+                return redirect('payments_list')
+            else:
+                messages.error(request, 'Error al actualizar los datos del comprobante.')
+        elif 'eliminar' in request.POST:
+            payments.delete()
+            messages.success(request, 'El comprobante ha sido eliminado.')
+            return redirect('payments_list')
+    else:
+        form = PaymentsForm(instance=payment)
+    
+    return render(request, 'payments/detalles_comprobante.html', {'form': form, 'payment': payment})
+
+
