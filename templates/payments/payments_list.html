@@ -1,0 +1,99 @@
+{% extends 'loginregister/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Pagos</title>
+
+    <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+</head>
+<body>
+<section class="Contenedor">
+    <div class="container h-60 my-4">
+        <div class="row">
+            <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
+                <h2>Tabla de Pagos</h2>
+            <table id="payments-table" class="display table table-striped">
+                <thead>
+                    <tr class="bg-danger bg-gradient">
+                        <th class="centered bg-danger bg-gradient">Nº de Comprobante</th>
+                        <th class="centered bg-danger bg-gradient">Año</th>
+                        <th class="centered bg-danger bg-gradient">Mes</th>
+                        <th class="centered bg-danger bg-gradient">Socio</th>
+                        <th class="centered bg-danger bg-gradient">Actividades</th>
+                        <th class="centered bg-danger bg-gradient">Fecha Comprobante</th>
+                        <th class="centered bg-danger bg-gradient">Estado</th>
+                        <th class="centered bg-danger bg-gradient">Tipo de Pago</th>
+                        <th class="centered bg-danger bg-gradient">Fecha del Pago</th>
+                        <th class="centered bg-danger bg-gradient">Monto del Pago</th>
+                        <!-- Agrega más encabezados de columnas según tus necesidades -->
+                    </tr>
+                </thead>
+                <tbody class="bg-light bg-gradient">
+                        {% for payment in payments_data %}
+                    <tr>
+                        <td class="centered">{{ payment.id}}</td>
+                        <td class="centered">{{ payment.anio}}</td>
+                        <td class="centered">{{ payment.get_mes_display}}</td>
+                        <td class="centered">{{ payment.socio.nombre }}</td>
+                        <td class="centered">{% for actividad in payment.actividades.all %}{{ actividad.nombre }} ,{% endfor %}</td>
+                        <td class="centered">{{ payment.fecha_comprobante }}</td>
+                        <td class="centered">{{ payment.get_estado_display }}</td>
+                        <td class="centered">{{ payment.get_tipo_pago_display }}</td>
+                        <td class="centered">{{ payment.fecha_pago }}</td>
+                        <td class="centered">{{ payment.monto_pago }}</td>
+                        <!-- Agrega más datos de columna según tus necesidades -->
+                    </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>  
+    </div>
+</div>
+</section>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- Include the DataTables Bootstrap JavaScript -->
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- EXCEL y BUTTONS -->
+
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var table = $('#payments-table').DataTable({
+            dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip',
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+            },
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Exportar a Excel',
+                    className: 'btn btn-success btn-excel'
+                }
+            ]
+        });
+    });
+</script>
+</body>
+</html>
+
+{% endblock %}
