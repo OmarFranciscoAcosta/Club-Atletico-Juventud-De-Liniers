@@ -7,13 +7,13 @@ class payments (models.Model):
     
     EST_CHOICES =(
         ('0','Pagado'),
-        ('1','No Pagado'),
+        ('1','Pago Parcial'),
         ('2','No Definido'),
     )
     
     TIP_CHOICES =(
         ('0','Efectivo'),
-        ('1','Tarjeta'),
+        ('1','Mercado Pago'),
         ('2','Transferencia'),
         ('3','No Definido'),
     )
