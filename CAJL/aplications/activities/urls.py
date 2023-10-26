@@ -19,7 +19,7 @@ from . import views
 
 
 urlpatterns = [
-     path('actividades/', views.activities_list, name='actividades'),
-      path('detalles-actividades/<int:activities_id>/', views.detallesact, name='detalles-actividades'),
-     path('agregar_actividad/', views.agregar_actividad, name='agregar_actividad'),
+    path('actividades/', views.activities_list, name='actividades'),
+    path('detalles-actividades/<int:activities_id>/', views.detallesact, name='detalles-actividades'),
+    path('agregar_actividad/', views.agregar_actividad, name='agregar_actividad'),
 ]
