@@ -39,6 +39,7 @@
                         <th class="centered bg-danger bg-gradient">Tipo de Pago</th>
                         <th class="centered bg-danger bg-gradient">Fecha del Pago</th>
                         <th class="centered bg-danger bg-gradient">Monto del Pago</th>
+                        <th class="centered bg-danger bg-gradient"></th>
                         <!-- Agrega más encabezados de columnas según tus necesidades -->
                     </tr>
                 </thead>
@@ -56,7 +57,7 @@
                         <td class="centered">{{ payment.fecha_pago }}</td>
                         <td class="centered">{{ payment.monto_pago }}</td>
                         <td class="centered">
-                            <a href={% url 'detalles-comprobante' payments_id %} class="btn btn-sm btn-primary btn-custom-width">
+                            <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </td>

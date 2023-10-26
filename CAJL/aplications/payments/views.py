@@ -33,7 +33,7 @@ def carga_comprobante(request):
     return render(request, 'payments/carga_comprobante.html', {'form': form})
 
 #RENDER PARA DETALLES DEL COMPROBANTE
-def detalles_cpb(request, payments_id):
+def detalles_comprobante(request, payments_id):
     payment = get_object_or_404(payments, id=payments_id)
     
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def detalles_cpb(request, payments_id):
             else:
                 messages.error(request, 'Error al actualizar los datos del comprobante.')
         elif 'eliminar' in request.POST:
-            payments.delete()
+            payment.delete()  # Cambiado de "payments.delete()" a "payment.delete()"
             messages.success(request, 'El comprobante ha sido eliminado.')
             return redirect('payments_list')
     else:
