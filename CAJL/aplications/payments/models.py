@@ -18,16 +18,36 @@ class payments (models.Model):
         ('3','No Definido'),
     )
     
+    MES_CHOICES =(
+        ('0', 'Enero'),
+        ('1', 'Febrero'),
+        ('2', 'Marzo'),
+        ('3', 'Abril'),
+        ('4', 'Mayo'),
+        ('5', 'Junio'),
+        ('6', 'Julio'),
+        ('7', 'Agosto'),
+        ('8', 'Septiembre'),
+        ('9', 'Octubre'),
+        ('10', 'Noviembre'),
+        ('11', 'Diciembre'),
+
+    )
     
-    fecha_comprobante = models.DateField('Fecha del comprobante',blank=True)
-    socio = models.ForeignKey(partners, on_delete=models.CASCADE, blank=True)
-    actividades = models.ManyToManyField(activities,blank=True)
+    
+    
+    
+    fecha_comprobante = models.DateField('Fecha del comprobante')
+    anio = models.IntegerField('Año', max_length=5)
+    mes = models.CharField('Mes',max_length=2,choices=MES_CHOICES)
+    socio = models.ForeignKey(partners, on_delete=models.CASCADE)
+    actividades = models.ManyToManyField(activities)
     observacion = models.CharField('Observacion',max_length=50, blank=True)
-    estado = models.CharField('Estado',max_length=1, choices=EST_CHOICES,blank=True)
-    tipo_pago = models.CharField('Tipo de pago',max_length=1, choices=TIP_CHOICES, blank=True)
+    estado = models.CharField('Estado',max_length=1, choices=EST_CHOICES)
+    tipo_pago = models.CharField('Tipo de pago',max_length=1, choices=TIP_CHOICES)
     nombre_quien_paga = models.CharField ('Nombre de la persona que paga', max_length=30, blank=True)
-    fecha_pago = models.DateField ('Fecha del pago',blank=True)
-    monto_pago = models.DecimalField('Monto del pago',max_digits=10, decimal_places=2,blank=True, null=True)
+    fecha_pago = models.DateField ('Fecha del pago')
+    monto_pago = models.DecimalField('Monto del pago',max_digits=10, decimal_places=2)
 
 
 

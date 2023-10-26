@@ -32,7 +32,7 @@ class prices (models.Model):
     valor_fichaje_anual = models.DecimalField('Valor del fichaje anual', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_libre = models.DecimalField ('Valor libre', max_digits=10, decimal_places=2,blank=True, null=True)
     cuota_social = models.DecimalField('Cuota Social', max_digits=10, decimal_places=2,blank=True, null=True)
-    mes_impago = models.DecimalField('Mes impago', max_digits=10, decimal_places=2,blank=True, null=True)
+    mes_impago = models.DecimalField('Recargo', max_digits=10, decimal_places=2,blank=True, null=True)
     
     class Meta:
         verbose_name = 'Precio'
