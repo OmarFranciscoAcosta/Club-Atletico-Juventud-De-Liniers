@@ -5,11 +5,14 @@ class activities (models.Model):
     
     ACTIV_CHOICES =(
         ('0', 'Mensual'),
+        ('1', 'Porcentaje'),
+        ('2', 'Alquiler'),
 
     )
     
     nombre_actividad = models.CharField ('Nombre de la actividad',max_length=30,blank=True)
     tipo_actividad = models.CharField('Tipo de la actividad',max_length=2, choices=ACTIV_CHOICES, default='0', blank=True)
+    descripcion = models.CharField('Descripción', max_length=50, blank=True)
     
     class Meta:
         verbose_name = 'Actividad'
