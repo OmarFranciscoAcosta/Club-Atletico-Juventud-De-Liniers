@@ -24,5 +24,4 @@ urlpatterns = [
     path('',include('CAJL.aplications.partners.urls')),
     path('',include('CAJL.aplications.activities.urls')),
     path('',include('CAJL.aplications.prices.urls')),
-    path('',include('CAJL.aplications.vouchers.urls')),
 ]
