@@ -38,10 +38,10 @@
                 <tbody>
                             {% for change_log in change_logs %}
                         <tr>
-                            <td>{{ change_log.date }}</td>
-                            <td>{{ change_log.model_name }}</td>
-                            <td>{{ change_log.user }}</td>
-                            <td>{{ change_log.description }}</td>
+                            <td class="centered">{{ change_log.date }}</td>
+                            <td class="centered">{{ change_log.model_name }}</td>
+                            <td class="centered">{{ change_log.user }}</td>
+                            <td class="centered">{{ change_log.description }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
