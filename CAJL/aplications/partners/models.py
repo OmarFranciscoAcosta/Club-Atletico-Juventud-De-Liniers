@@ -25,8 +25,8 @@ class partners (models.Model):
     correo = models.EmailField('Email',max_length=40,blank=True)
     descripcion = models.CharField('Descripción',max_length=50, blank=True)
     apto_fisico = models.BooleanField('Apto físico',default=False)
-    fecha_vencimiento_apto_fisico = models.DateField ('Fecha de vencimiento del apto físico',blank=True)
-    fecha_vencimiento_fichaje = models.DateField ('Fecha de vencimiento del fichaje',blank=True)
+    fecha_vencimiento_apto_fisico = models.DateField ('Fecha de emisión del apto físico',blank=True)
+    fecha_vencimiento_fichaje = models.DateField ('Fecha de emisión del fichaje',blank=True)
     compite = models.BooleanField('Fichado',default=False)
     socio_activo = models.BooleanField('Socio activo',default=False)
     
