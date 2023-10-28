@@ -2,6 +2,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from .models import partners
 from CAJL.aplications.changelog.models import ChangeLog
+from django.contrib.auth import get_user_model
 
 
 @receiver([post_save, post_delete], sender=partners)

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from CAJL.aplications.partners.signals import create_change_log
 from .models import partners
 from .forms import PartnerForm
 from django.contrib import messages
@@ -64,11 +65,16 @@ def detalles(request, partner_id):
                 form.save()
                 messages.success(request, 'Los datos del socio han sido actualizados.')
                 return redirect('socios')
+            else:
+                messages.error(request, 'Error al actualizar los datos de la actividad.')
         elif 'eliminar' in request.POST:
             partner.delete()
             messages.success(request, 'El socio ha sido eliminado.')
-            return redirect('socios')  # Redirige a donde desees después de la eliminación
+            return redirect('socios')
     else:
         form = PartnerForm(instance=partner)
     
     return render(request, 'partners/detalles_socio.html', {'form': form, 'partner': partner})
+
+
+
