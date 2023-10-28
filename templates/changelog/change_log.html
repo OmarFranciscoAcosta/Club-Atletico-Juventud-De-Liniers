@@ -1,70 +1,58 @@
 {% extends 'loginregister/base.html' %}
 
 {% load static %}
-
 {% block content %}
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Actividades</title>
-    
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Historial de Cambios</title>
+
     <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-
-        
 </head>
-<br>
-<br>
 <body>
-
-<section class="Contenedor">
-
-    <div class="container h-60 my-4">
-        <div class="row">
-         <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
-            <h2>Tabla de Actividades</h2>
-
-            <!-- Botón para agregar nueva actividad a Excel -->
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <button id="btn_Actividad" class="btn btn-primary"><i class="fa-solid fa-dumbbell"></i> Nueva actividad</button>
-                </div>
-            </div>
-            
-
-            <table id="activities-table" class="display table table-striped">
-             <thead>
-                <tr class="bg-danger bg-gradient">
-                    <th class="centered bg-danger bg-gradient">Número de actividad</th>
-                    <th class="centered bg-danger bg-gradient">Nombre</th>
-                    <th class="centered bg-danger bg-gradient">Tipo de cobro</th>
-                    <th class="centered bg-danger bg-gradient"></th>
-                </tr>
-             </thead>
-                <tbody  class="bg-light bg-gradient">
-                    {% for activity in activities_data %}
+    <br>
+    <br>
+    <section class="Contenedor">
+        <div class="container h-60 my-4">
+            <div class="row">
+                <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
+                    <h2>Historial de cambios</h2>
+            <table id="changeLogTable" class="display table table-striped">
+                <thead>
                     <tr>
-                        <td class="centered">{{ activity.id }}</td>
-                        <td class="centered">{{ activity.nombre_actividad }}</td>
-                        <td class="centered">{{ activity.get_tipo_actividad_display }}</td>
-                        <td class="centered">
-                            <a href={% url 'detalles-actividades' activity.id %} class="btn btn-sm btn-primary btn-custom-width">
-                                <i class="fas fa-pencil-alt"></i>
-                            </a>
-                        </td>
+                        <th class="centered bg-danger bg-gradient">Fecha</th>
+                        <th class="centered bg-danger bg-gradient">Modelo Afectado</th>
+                        <th class="centered bg-danger bg-gradient">Usuario</th>
+                        <th class="centered bg-danger bg-gradient">Descripción</th>
                     </tr>
-                    
+                </thead>
+                <tbody>
+                            {% for change_log in change_logs %}
+                        <tr>
+                            <td>{{ change_log.date }}</td>
+                            <td>{{ change_log.model_name }}</td>
+                            <td>{{ change_log.user }}</td>
+                            <td>{{ change_log.description }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
-         </div> 
         </div>
     </div>
-</section>
+</div>
+
+
+
+</section>     
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -81,10 +69,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
-
-<script>
+    <script>
 $(document).ready(function () {
-    var table = $('#activities-table').DataTable({
+    var table = $('#changeLogTable').DataTable({
         dom: '<"row"<"col-md-3"l><"col-md-6"f><"col-md-3"B>>rtip',
         language: {
             url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
@@ -98,23 +85,8 @@ $(document).ready(function () {
         ]
     });
 });
-
-</script>
-
-
-
-
-
-</script>
-<script>
-    document.getElementById("btn_Actividad").addEventListener("click", function() {
-        // Redirecciona a la URL deseada
-        window.location.href = "/agregar_actividad/"
-    });
-</script>
-
-
+    </script>
 </body>
-
 </html>
+
 {% endblock %}

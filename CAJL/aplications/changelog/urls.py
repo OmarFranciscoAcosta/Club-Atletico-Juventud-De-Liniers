@@ -14,16 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+
+from django.urls import path
+from .views import change_log_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('CAJL.aplications.loginregister.urls')),
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('',include('CAJL.aplications.partners.urls')),
-    path('',include('CAJL.aplications.activities.urls')),
-    path('',include('CAJL.aplications.prices.urls')),
-    path('',include('CAJL.aplications.payments.urls')),
-    path('',include('CAJL.aplications.changelog.urls')),
+    path('change-log/', change_log_view, name='change_log_view'),
 ]

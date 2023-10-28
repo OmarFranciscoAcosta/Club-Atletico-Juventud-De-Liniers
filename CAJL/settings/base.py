@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'CAJL.aplications.activities',
     'CAJL.aplications.prices',
     'CAJL.aplications.payments',
+    'CAJL.aplications.changelog',
     # 'CAJL.aplications.partnersXactivities',
     # 'CAJL.aplications.voucherspartnersXactivities',
 ]
