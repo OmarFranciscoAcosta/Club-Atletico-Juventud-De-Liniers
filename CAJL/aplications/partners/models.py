@@ -30,7 +30,7 @@ class partners (models.Model):
     fecha_vencimiento_fichaje = models.DateField ('Fecha de emisión del fichaje',blank=True)
     compite = models.BooleanField('Fichado',default=False)
     socio_activo = models.BooleanField('Socio activo',default=False)
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     
     @property
@@ -45,7 +45,7 @@ class partners (models.Model):
             # No se encontraron pagos con estado '0' o '1'
             return None
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     
     
     class Meta:
