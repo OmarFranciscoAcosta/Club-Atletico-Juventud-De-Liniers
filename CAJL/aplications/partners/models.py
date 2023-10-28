@@ -37,7 +37,7 @@ class partners (models.Model):
         
         if ultimos_pagos.exists():
             # Devolver el mes del primer pago en la lista ordenada
-            return ultimos_pagos[0].mes
+            return ultimos_pagos[0].get_mes_display()
         else:
             # No se encontraron pagos con estado '0' o '1'
             return None

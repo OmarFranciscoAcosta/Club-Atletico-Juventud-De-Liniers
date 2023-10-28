@@ -29,6 +29,7 @@ def datatable_view(request):
             # 'fecha_vencimiento_fichaje': partner.fecha_vencimiento_fichaje,
             'compite': partner.compite,
             'socio_activo': partner.socio_activo,
+            'ultimo_pago': partner.ultimo_pago,
         })
 
     return render(request, 'partners/partners_list.html', {'data': data})
