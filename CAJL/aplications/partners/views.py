@@ -46,9 +46,6 @@ def agregar_socio(request):
             socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
             socio.user = request.user  # Asigna el usuario actual
             socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
-            
-            messages.success(request, 'El socio ha sido agregado correctamente.')
-            
             return redirect('socios')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
         
     else:
