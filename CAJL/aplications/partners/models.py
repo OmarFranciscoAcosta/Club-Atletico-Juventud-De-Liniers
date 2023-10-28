@@ -30,6 +30,19 @@ class partners (models.Model):
     compite = models.BooleanField('Fichado',default=False)
     socio_activo = models.BooleanField('Socio activo',default=False)
     
+    @property
+    def ultimo_pago(self):
+        # Obtener los pagos asociados a este socio con estado '0' o '1' y ordenar por fecha de comprobante en orden descendente
+        ultimos_pagos = self.payments_set.filter(estado__in=['0', '1']).order_by('-fecha_comprobante')
+        
+        if ultimos_pagos.exists():
+            # Devolver el mes del primer pago en la lista ordenada
+            return ultimos_pagos[0].mes
+        else:
+            # No se encontraron pagos con estado '0' o '1'
+            return None
+    
+    
     
     
     class Meta:
