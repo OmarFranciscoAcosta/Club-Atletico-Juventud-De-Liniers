@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import partners
 from .forms import PartnerForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #Datatable con modelo Partners
@@ -35,12 +36,15 @@ def datatable_view(request):
     return render(request, 'partners/partners_list.html', {'data': data})
 
 #Agregar Socio
+@login_required
 def agregar_socio(request):
     if request.method == 'POST':
         # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
         form = PartnerForm(request.POST)
         if form.is_valid():
-            form.save()
+            socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
+            socio.user = request.user  # Asigna el usuario actual
+            socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
             return redirect('socios')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
     else:
         # Si no se envió un formulario (GET), muestra el formulario para agregar un socio.

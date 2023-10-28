@@ -2,6 +2,7 @@ from tkinter import CASCADE
 from django.db import models
 from CAJL.aplications.location.models import location
 from CAJL.aplications.activities.models import activities
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -30,6 +31,8 @@ class partners (models.Model):
     compite = models.BooleanField('Fichado',default=False)
     socio_activo = models.BooleanField('Socio activo',default=False)
     
+    
+    
     @property
     def ultimo_pago(self):
         # Obtener los pagos asociados a este socio con estado '0' o '1' y ordenar por fecha de comprobante en orden descendente
@@ -42,7 +45,7 @@ class partners (models.Model):
             # No se encontraron pagos con estado '0' o '1'
             return None
     
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     
     class Meta:
