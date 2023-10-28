@@ -4,14 +4,8 @@ from .models import partners
 from CAJL.aplications.changelog.models import ChangeLog
 from django.contrib.auth import get_user_model
 
-
 @receiver([post_save, post_delete], sender=partners)
-def create_change_log(sender, instance, **kwargs):
-    if 'created' in kwargs:
-        created = kwargs['created']
-    else:
-        created = False
-
+def create_change_log(sender, instance, created, **kwargs):
     if created:
         action = 'Creado'
     else:

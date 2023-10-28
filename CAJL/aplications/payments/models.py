@@ -1,6 +1,7 @@
 from django.db import models
 from CAJL.aplications.partners.models import partners
 from CAJL.aplications.activities.models import activities
+from django.contrib.auth.models import User
 
 # Create your models here.
 class payments (models.Model):
@@ -48,6 +49,7 @@ class payments (models.Model):
     nombre_quien_paga = models.CharField ('Nombre de la persona que paga', max_length=30, blank=True)
     fecha_pago = models.DateField ('Fecha del pago')
     monto_pago = models.DecimalField('Monto del pago',max_digits=10, decimal_places=2)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 

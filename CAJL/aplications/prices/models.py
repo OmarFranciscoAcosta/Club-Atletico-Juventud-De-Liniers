@@ -1,5 +1,6 @@
 from django.db import models
 from CAJL.aplications.activities.models import activities
+from django.contrib.auth.models import User
 # Create your models here.
 
 MES_CHOICES =(
@@ -36,6 +37,7 @@ class prices (models.Model):
     cuota_social = models.DecimalField('Cuota Social', max_digits=10, decimal_places=2,blank=True, null=True)
     medio_mes = models.DecimalField('Medio Mes', max_digits=10, decimal_places=2,blank=True, null=True)
     mes_impago = models.DecimalField('Recargo', max_digits=10, decimal_places=2,blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Precio'

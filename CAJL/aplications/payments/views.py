@@ -41,17 +41,15 @@ def detalles_comprobante(request, payments_id):
             form = PaymentsForm(request.POST, instance=payment)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Los datos del comprobante han sido actualizados.')
+                messages.success(request, 'Los datos de la actividad han sido actualizados.')
                 return redirect('payments_list')
             else:
-                messages.error(request, 'Error al actualizar los datos del comprobante.')
+                messages.error(request, 'Error al actualizar los datos de la actividad.')
         elif 'eliminar' in request.POST:
-            payment.delete()  # Cambiado de "payments.delete()" a "payment.delete()"
-            messages.success(request, 'El comprobante ha sido eliminado.')
+            payment.delete()
+            messages.success(request, 'La actividad ha sido eliminada.')
             return redirect('payments_list')
     else:
         form = PaymentsForm(instance=payment)
     
     return render(request, 'payments/detalles_comprobante.html', {'form': form, 'payment': payment})
-
-

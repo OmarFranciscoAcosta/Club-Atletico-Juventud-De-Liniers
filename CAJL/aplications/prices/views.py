@@ -41,15 +41,18 @@ def detalles_precio(request, price_id):
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Los datos del precio han sido actualizados.')
-                return redirect('prices_list')  # Reemplaza 'prices-list' con la URL de la lista de precios
+                return redirect('prices_list')
             else:
                 messages.error(request, 'Error al actualizar los datos del precio.')
         elif 'eliminar' in request.POST:
             price.delete()
-            messages.success(request, 'El precio ha sido eliminado.')
-            return redirect('prices_list')  # Reemplaza 'prices-list' con la URL de la lista de precios
+            messages.success(request, 'Los precios de la actividad ha sido eliminados.')
+            return redirect('prices_list')
     else:
         form = PricesForm(instance=price)
     
     return render(request, 'prices/detalles_precio.html', {'form': form, 'price': price})
+    
+    
+    
     

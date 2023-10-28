@@ -70,7 +70,9 @@ def detalles(request, partner_id):
         elif 'eliminar' in request.POST:
             partner.delete()
             messages.success(request, 'El socio ha sido eliminado.')
-            return redirect('socios')
+            # Publicar el cambio en el log con created=False
+            create_change_log(created=False, sender=partners, instance=partner)
+            return redirect('socios')  # Redirige a donde desees después de la eliminación
     else:
         form = PartnerForm(instance=partner)
     
