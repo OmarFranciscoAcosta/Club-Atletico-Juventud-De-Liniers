@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from django.http import JsonResponse
 from .models import payments
 from .forms import PaymentsForm 
 from django.contrib import messages
@@ -24,7 +23,16 @@ def carga_comprobante(request):
         if form.is_valid():
             comprobante = form.save(commit=False)  # Guarda la instancia sin hacer commit
             comprobante.user = request.user  # Asigna el usuario actual
-            comprobante.save()  # Ahora puedes guardar la instancia con el usuario asignado
+
+            # Guarda el socio en la base de datos
+            comprobante.save()
+
+            # Ahora puedes asignar las actividades al socio
+            actividades_seleccionadas = request.POST.getlist('actividades')
+            comprobante.actividades.set(actividades_seleccionadas)
+
+            messages.success(request, 'El socio ha sido agregado correctamente.')
+
             return redirect('payments_list')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
         
     else:
@@ -32,11 +40,6 @@ def carga_comprobante(request):
         form = PaymentsForm()
     
     return render(request, 'payments/carga_comprobante.html', {'form': form})
-
-
-
-
-
 
 
 #RENDER PARA DETALLES DEL COMPROBANTE
@@ -60,3 +63,12 @@ def detalles_comprobante(request, payments_id):
         form = PaymentsForm(instance=payment)
     
     return render(request, 'payments/detalles_comprobante.html', {'form': form, 'payment': payment})
+
+
+
+#RENDER PARA VISTA QUE MUESTRE UNA PANTALLA PARA IMPRIMIR
+def imprimir_comprobante(request, payments_id):
+    comprobante = get_object_or_404(payments, id=payments_id)  # Reemplaza "Comprobante" por el nombre de tu modelo
+    # Agrega cualquier otro procesamiento de datos que necesites aquí
+
+    return render(request, 'payments/imprimir_comprobante.html', {'comprobante': comprobante})

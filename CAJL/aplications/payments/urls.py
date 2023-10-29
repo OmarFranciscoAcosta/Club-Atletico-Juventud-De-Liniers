@@ -22,5 +22,6 @@ urlpatterns = [
     path('pagos/', views.payments_list, name='payments_list'),
     path('agregar_comprobante/', views.carga_comprobante, name='agregar_comprobante'),
     path('detalles_comprobante/<int:payments_id>/', views.detalles_comprobante, name='detalles_comprobante'),
+    path('imprimir_comprobante/<int:payments_id>/', views.imprimir_comprobante, name='imprimir_comprobante'),
     # Agrega más rutas si es necesario
 ]

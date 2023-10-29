@@ -40,6 +40,7 @@
                         <th class="centered bg-danger bg-gradient">Fecha del Pago</th>
                         <th class="centered bg-danger bg-gradient">Monto del Pago</th>
                         <th class="centered bg-danger bg-gradient"></th>
+                        <th class="centered bg-danger bg-gradient"></th>
                         <!-- Agrega más encabezados de columnas según tus necesidades -->
                     </tr>
                 </thead>
@@ -59,6 +60,11 @@
                         <td class="centered">
                             <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
                                 <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </td>
+                        <td class="centered">
+                            <a href={% url 'imprimir_comprobante' payments_id=payment.id %} class="btn btn-sm btn-success btn-custom-width">
+                                <i class="fas fa-print"></i>
                             </a>
                         </td>
                     </tr>

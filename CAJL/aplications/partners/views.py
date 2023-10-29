@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from CAJL.aplications.partners.signals import create_change_log
-from .models import partners
+from .models import partners, activities
 from .forms import PartnerForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -45,7 +45,16 @@ def agregar_socio(request):
         if form.is_valid():
             socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
             socio.user = request.user  # Asigna el usuario actual
-            socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
+
+            # Guarda el socio en la base de datos
+            socio.save()
+
+            # Ahora puedes asignar las actividades al socio
+            actividades_seleccionadas = request.POST.getlist('actividades')
+            socio.actividades.set(actividades_seleccionadas)
+
+            messages.success(request, 'El socio ha sido agregado correctamente.')
+
             return redirect('socios')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
         
     else:
