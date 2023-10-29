@@ -30,6 +30,7 @@
     <script>
         document.getElementById('eliminar-precio').addEventListener('click', function(event) {
             if (!window.confirm('¿Estás seguro de que deseas eliminar este precio?')) {
+                event.preventDefault()
                 // Evitar que el formulario se envíe
             }
         });

@@ -39,6 +39,7 @@
     <script>
         document.getElementById('eliminar-actividad').addEventListener('click', function(event) {
             if (!window.confirm('¿Estás seguro de que deseas eliminar esta actividad?')) {
+                event.preventDefault()
                 // Evitar que el formulario se envíe
             }
         });

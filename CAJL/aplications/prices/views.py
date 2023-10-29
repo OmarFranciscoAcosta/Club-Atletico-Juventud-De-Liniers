@@ -18,18 +18,24 @@ def prices_list(request):
 #Vista para generar la carga de un precio de la actividad:
 def carga_datos(request):
     if request.method == 'POST':
+        # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
         form = PricesForm(request.POST)
         if form.is_valid():
-            form.save()  # Guarda los datos en la base de datos
-
-            # Devuelve una respuesta JSON para indicar éxito
-            return JsonResponse({'success': True})
-
-    # Resto del código como lo tenías originalmente
+            socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
+            socio.user = request.user  # Asigna el usuario actual
+            socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
+            return redirect('prices_list')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
+        
     else:
+        # Si no se envió un formulario (GET), muestra el formulario para agregar un socio.
         form = PricesForm()
-
+    
     return render(request, 'prices/carga_precio.html', {'form': form})
+
+
+
+
+
 
 #Vista para generar los detalles de esa carga del precio de la actividad:
 def detalles_precio(request, price_id):

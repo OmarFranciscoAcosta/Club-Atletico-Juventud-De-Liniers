@@ -35,7 +35,9 @@
         document.getElementById('eliminar-comprobante').addEventListener('click', function(event) {
             if (!window.confirm('¿Estás seguro de que deseas eliminar este comprobante?')) {
                 // Evitar que el formulario se envíe
+                event.preventDefault();
             }
+
         });
 
         document.getElementById('actualizar-comprobante').addEventListener('click', function(event) {
