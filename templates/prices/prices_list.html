@@ -40,13 +40,15 @@
                                 <th class="centered">Actividad</th>
                                 <th class="centered">Valor Clase Consulta</th>
                                 <th class="centered">Valor Fijo</th>
-                                <th class="centered">Valor 1 Vez a la Semana</th>
-                                <th class="centered">Valor 2 Veces a la Semana</th>
-                                <th class="centered">Valor 3 Veces a la Semana</th>
+                                <th class="centered">V 1 x Semana</th>
+                                <th class="centered">V 2 x Semana</th>
+                                <th class="centered">V 3 x Semana</th>
+                                <th class="centered">Valor Patin Danza</th>
+                                <th class="centered">V 3 x Semana Patin + Escuela</th>
                                 <th class="centered">Valor Fichaje Anual</th>
                                 <th class="centered">Valor Libre</th>
                                 <th class="centered">Cuota Social</th>
-                                <th class="centered">Mes Impago</th>
+                                <th class="centered">Recargo</th>
                                 <th class="centered"></th>
 
 
@@ -62,6 +64,8 @@
                                   <td class="centered">{% if price.valor_mensual_1semana %}{{ price.valor_mensual_1semana }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_mensual_2semana %}{{ price.valor_mensual_2semana }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_clase_3semana %}{{ price.valor_clase_3semana }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_patindanza %}{{ price.valor_patindanza }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_patin3semanaescula %}{{ price.valor_patin3semanaescula }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_fichaje_anual %}{{ price.valor_fichaje_anual }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_libre %}{{ price.valor_libre }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.cuota_social %}{{ price.cuota_social }}{% else %}-{% endif %}</td>
