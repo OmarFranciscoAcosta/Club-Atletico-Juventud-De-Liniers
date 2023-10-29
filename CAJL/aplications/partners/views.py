@@ -69,10 +69,10 @@ def detalles(request, partner_id):
             else:
                 messages.error(request, 'Error al actualizar los datos de la actividad.')
         elif 'eliminar' in request.POST:
+            created = False  # Aquí asumimos que la eliminación no equivale a una creación
+            create_change_log(sender=partners, instance=partner, created=created)
             partner.delete()
             messages.success(request, 'El socio ha sido eliminado.')
-            # Publicar el cambio en el log con created=False
-            create_change_log(created=False, sender=partners, instance=partner)
             return redirect('socios')  # Redirige a donde desees después de la eliminación
     else:
         form = PartnerForm(instance=partner)
