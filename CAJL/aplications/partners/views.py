@@ -23,10 +23,9 @@ def datatable_view(request):
             # 'telefono1': partner.telefono1,
             # 'telefono2': partner.telefono2,
             'actividades': partner.actividades,
-            # 'ultimo_pago': partner.payments
             # 'correo': partner.correo,
             # 'descripcion': partner.descripcion,
-            # 'apto_fisico': partner.apto_fisico,
+            'apto_fisico': partner.apto_fisico,
             # 'fecha_vencimiento_apto_fisico': partner.fecha_vencimiento_apto_fisico,
             # 'fecha_vencimiento_fichaje': partner.fecha_vencimiento_fichaje,
             'compite': partner.compite,

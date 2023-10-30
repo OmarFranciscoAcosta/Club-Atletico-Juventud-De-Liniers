@@ -35,13 +35,14 @@
                                 <th class="centered bg-danger bg-gradient">Actvidades</th>
                                 <!-- <th class="centered">Distrito</th> -->
                                 <!-- <th class="centered">Ultimo pago</th> -->
-                                <th class="centered bg-danger bg-gradient">Fichado?</th>
+                                <th class="centered bg-danger bg-gradient">Fichado</th>
                                 <th class="centered bg-danger bg-gradient">Socio Activo</th>
+                                <th class="centered">Apto Físico</th>
                                 <th class="centered bg-danger bg-gradient">Ultimo mes pago</th>
                                 <th class="centered bg-danger bg-gradient"></th>
                                 <!-- <th class="centered">Correo</th> -->
                                 <!-- <th class="centered">Descripción</th> -->
-                                <!-- <th class="centered">Apto Físico</th> -->
+                                
                                 <!-- <th class="centered">Fecha de Vencimiento del Apto Físico</th> -->
                                 <!-- <th class="centered">Compite</th>
                                 <th class="centered">Socio Activo</th> -->
@@ -73,6 +74,13 @@
                                     {% endif %}
                                 </td>
                                 <td class="centered">
+                                    {% if item.apto_fisico %}
+                                    <i class="fas fa-check text-success"> si</i>  <!-- Icono de tilde verde -->
+                                    {% else %}
+                                    <i class="fas fa-times text-danger"> no</i>  <!-- Icono de cruz roja -->
+                                    {% endif %}
+                                </td>
+                                <td class="centered">
                                     {% if item.ultimo_pago %}
                                         {{ item.ultimo_pago }}
                                     {% else %}
@@ -83,7 +91,7 @@
                                 <!-- <td>{{ item.telefono2 }}</td> -->
                                 <!-- <td>{{ item.correo }}</td> -->
                                 <!-- <td>{{ item.descripcion }}</td> -->
-                                <!-- <td>{{ item.apto_fisico }}</td> -->
+                                
                                 <!-- <td>{{ item.fecha_vencimiento_apto_fisico }}</td> -->
                                 <!-- <td>{{ item.compite }}</td> -->
                         
