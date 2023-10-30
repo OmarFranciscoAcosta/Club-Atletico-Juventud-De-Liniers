@@ -6,26 +6,29 @@
 <html lang="es">
     {% load static %}
 <head>
-    <title>Socios</title>
-    <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <title>Historial de Cambios</title>
+
+    <link rel="stylesheet" type="text/css" href={% static 'css/Estilos_DT.css' %} media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
  
 </head>
 
 <body>
-
-<section class="Contenedor">
+<br>
+<br>
+<br>
+<br>
+<!-- <section class="Contenedor"> -->
 
     <div class="container h-60 my-4">
         <div class="row">
          <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
             <h1>Tabla de Socios</h1>
                 <table id="tabla-socios-localidades" class="display table table-striped">
-                        <button id="btn_Socios"><i class="fa-solid fa-user-plus"></i> Nuevo Socio</button>
+                        <button class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Nuevo Socio</button>
                         <thead>
                             <tr class="bg-danger bg-gradient">
                                 <th class="centered bg-danger bg-gradient">Nº de Socio</th>
@@ -108,15 +111,16 @@
          </div> 
         </div>
     </div>
-</section>
+<!-- </section> -->
 
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>   
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<!-- Include the DataTables Bootstrap JavaScript -->
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- Include the DataTables Bootstrap JavaScript -->
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<!-- EXCEL y BUTTONS -->
+
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.flash.min.js"></script>
