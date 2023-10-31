@@ -20,8 +20,8 @@ class partners (models.Model):
     
     distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES)
     localidad = models.ForeignKey(location, on_delete=models.CASCADE)
-    telefono1 = models.CharField('Telefono 1',max_length=15,blank=True)
-    telefono2 = models.CharField('Telefono 2',max_length=15,blank=True)
+    telefono1 = models.CharField('Teléfono 1',max_length=15,blank=True)
+    telefono2 = models.CharField('Teléfono 2',max_length=15,blank=True)
     actividades = models.ManyToManyField(activities)
     correo = models.EmailField('Email',max_length=40,blank=True)
     descripcion = models.CharField('Descripción',max_length=50, blank=True)
