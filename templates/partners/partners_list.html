@@ -28,7 +28,7 @@
          <div class="col-xl-12 bg-secondary bg-gradient bg-opacity-50">
             <h1>Tabla de Socios</h1>
                 <table id="tabla-socios-localidades" class="display table table-striped">
-                        <button class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Nuevo Socio</button>
+                        <button class="btn btn-primary" id="btn_Socios2"><i class="fa-solid fa-user-plus"></i> Nuevo Socio</button>
                         <thead>
                             <tr class="bg-danger bg-gradient">
                                 <th class="centered bg-danger bg-gradient">Nº de Socio</th>
@@ -146,7 +146,7 @@
              }
          ]
      });
-     $('#btn_Socios').click(function() {
+     $('#btn_Socios2').click(function() {
             window.location.href = '{% url "agregar_socio" %}';
         }); 
  });

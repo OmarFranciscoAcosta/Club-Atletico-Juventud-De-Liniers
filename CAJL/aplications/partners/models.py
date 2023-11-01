@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 class partners (models.Model):
     
     nombre_completo = models.CharField ('Nombre completo',max_length=50)
-    dni = models.IntegerField('Dni')
+    dni = models.IntegerField('DNI')
     fecha_nacimiento = models.DateField('Fecha de nacimiento')
     direccion = models.CharField('Dirección', max_length=50)
     

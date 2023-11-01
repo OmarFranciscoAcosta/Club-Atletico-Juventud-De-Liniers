@@ -33,7 +33,7 @@
             <!-- Botón para agregar nueva actividad a Excel -->
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <button class="btn btn-primary"><i class="fa-solid fa-dumbbell"></i>  Nueva actividad</button>
+                    <button class="btn btn-primary" id="btn_Actividad2"><i class="fa-solid fa-dumbbell"></i>  Nueva actividad</button>
                 </div>
             </div>
             
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
 </script>
 <script>
-    document.getElementById("btn_Actividad").addEventListener("click", function() {
+    document.getElementById("btn_Actividad2").addEventListener("click", function() {
         // Redirecciona a la URL deseada
         window.location.href = "/agregar_actividad/"
     });
