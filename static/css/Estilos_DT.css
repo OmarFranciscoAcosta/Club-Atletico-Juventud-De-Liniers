@@ -1,5 +1,8 @@
-/* Estilos del DataTable */
-/* ------- */
+div.container { 
+    max-width: 1300px;
+
+}
+
 .Contenedor {
 
     height: 100vh;
@@ -43,7 +46,7 @@
 }
 
 .btn-custom-width {
-    width: 60px; /* Puedes ajustar el ancho según tus necesidades */
+    width: 60px; /* Puedes ajustar el ancho segÃºn tus necesidades */
 }
 
 #btn_Actividad{
@@ -56,3 +59,17 @@
     padding: 1px;
     border-radius: 5px 5px 5px 5px;
 }
+
+
+@media screen and (min-width: 1700px) { /*Inicio breakpoint Monitores*/
+
+    /* Estilos del DataTable */
+    /* ------- */
+    
+    div.container { 
+        max-width: 1800px;
+    
+    }
+
+   
+}    

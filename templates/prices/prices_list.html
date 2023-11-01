@@ -15,6 +15,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+     <!-- DataTable cdn css Responsive -->
+     <link type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" rel="stylesheet" >
 </head>
 <section class="Contenedor">
 
@@ -49,6 +51,7 @@
                                 <th class="centered">Cuota Social</th>
                                 <th class="centered">Recargo</th>
                                 <th class="centered"></th>
+                                
 
 
                             </tr>
@@ -74,9 +77,11 @@
                                     <a href={% url 'detalles_precio' price.id %} class="btn btn-sm btn-primary btn-custom-width">
                                     <i class="fas fa-pencil-alt"></i>
                                     </a>
-                                </td>
+                                  </td>
 
                                   </tr>
+
+
                                   {% endfor %}
                             </tbody>
                         </thead>
@@ -102,7 +107,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
-
+<!-- DataTable cdn Js responsive -->
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 <script>
     $(document).ready(function () {
         var table = $('#prices-table').DataTable({
@@ -110,13 +116,29 @@
             language: {
                 url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
             },
+            responsive: true,
+            ordering: false,
             buttons: [
                 {
                     extend: 'excelHtml5',
                     text: '<i class="fa-regular fa-file-excel"></i> Exportar a Excel',
                     className: 'btn btn-success btn-excel'
                 }
-            ]
+            ],
+
+            columnDefs: [
+      
+        // Prioridad de las columnas responsive
+        // 
+        { responsivePriority: 2, targets: 14 },
+        { responsivePriority: 3, targets: 1 },
+        { responsivePriority: 4, targets: 2 },
+        { responsivePriority: 5, targets: 10 },
+        { responsivePriority: 6, targets: 11 },
+        { responsivePriority: 7, targets: 12 },
+        { responsivePriority: 8, targets: 13 },
+        { responsivePriority: 1, targets: 0 },
+    ],
         });
     });
     
