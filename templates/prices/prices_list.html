@@ -39,16 +39,15 @@
                                 <th class="centered">Año</th>
                                 <th class="centered">Mes</th>
                                 <th class="centered">Actividad</th>
-                                <th class="centered">Valor Clase Consulta</th>
-                                <th class="centered">Valor Fijo</th>
-                                <th class="centered">V 1 x Semana</th>
-                                <th class="centered">V 2 x Semana</th>
-                                <th class="centered">V 3 x Semana</th>
-                                <th class="centered">Valor Patin Danza</th>
-                                <th class="centered">V 3 x Semana Patin + Escuela</th>
-                                <th class="centered">Valor Fichaje Anual</th>
-                                <th class="centered">Valor Libre</th>
                                 <th class="centered">Cuota Social</th>
+                                <th class="centered">X Clase</th>
+                                <th class="centered">Mensual</th>
+                                <th class="centered">Fichaje</th>
+                                <th class="centered">1 x Semana</th>
+                                <th class="centered">2 x Semana</th>
+                                <th class="centered">3 x Semana</th>
+                                <th class="centered">3 x S Patin + Escuela</th>
+                                <th class="centered">Patin Danza</th>
                                 <th class="centered">Recargo</th>
                                 <th class="centered"></th>
                                 
@@ -61,16 +60,15 @@
                                   <td class="centered">{{ price.anio }}</td>
                                   <td class="centered">{{ price.get_mes_display }}</td>
                                   <td class="centered">{{ price.actividad.nombre_actividad }}</td>
+                                  <td class="centered">{% if price.cuota_social %}{{ price.cuota_social }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_clase_consulta %}{{ price.valor_clase_consulta }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_mensual_fijo %}{{ price.valor_mensual_fijo }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_fichaje_anual %}{{ price.valor_fichaje_anual }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_mensual_1semana %}{{ price.valor_mensual_1semana }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_mensual_2semana %}{{ price.valor_mensual_2semana }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_clase_3semana %}{{ price.valor_clase_3semana }}{% else %}-{% endif %}</td>
-                                  <td class="centered">{% if price.valor_patindanza %}{{ price.valor_patindanza }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.valor_patin3semanaescula %}{{ price.valor_patin3semanaescula }}{% else %}-{% endif %}</td>
-                                  <td class="centered">{% if price.valor_fichaje_anual %}{{ price.valor_fichaje_anual }}{% else %}-{% endif %}</td>
-                                  <td class="centered">{% if price.valor_libre %}{{ price.valor_libre }}{% else %}-{% endif %}</td>
-                                  <td class="centered">{% if price.cuota_social %}{{ price.cuota_social }}{% else %}-{% endif %}</td>
+                                  <td class="centered">{% if price.valor_patindanza %}{{ price.valor_patindanza }}{% else %}-{% endif %}</td>
                                   <td class="centered">{% if price.mes_impago %}{{ price.mes_impago }}{% else %}-{% endif %}</td>
 
                                   <td class="centered">
@@ -79,7 +77,7 @@
                                     </a>
                                   </td>
 
-                                  </tr>
+                                </tr>
 
 
                                   {% endfor %}
@@ -126,19 +124,7 @@
                 }
             ],
 
-            columnDefs: [
-      
-        // Prioridad de las columnas responsive
-        // 
-        { responsivePriority: 2, targets: 14 },
-        { responsivePriority: 3, targets: 1 },
-        { responsivePriority: 4, targets: 2 },
-        { responsivePriority: 5, targets: 10 },
-        { responsivePriority: 6, targets: 11 },
-        { responsivePriority: 7, targets: 12 },
-        { responsivePriority: 8, targets: 13 },
-        { responsivePriority: 1, targets: 0 },
-    ],
+            
         });
     });
     
