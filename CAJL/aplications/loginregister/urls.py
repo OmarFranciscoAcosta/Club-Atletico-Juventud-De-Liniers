@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from CAJL.aplications import loginregister
 from .views import custom_password_reset, home, partners, exit, register
+from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -28,4 +29,6 @@ urlpatterns = [
     path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_confirm'),
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('user-list/', views.user_list, name='user_list'),
+    path('user-details/<int:user_id>/', views.user_details, name='user_details'),
 ]

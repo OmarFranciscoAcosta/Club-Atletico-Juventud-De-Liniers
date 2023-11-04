@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 def home (request):
@@ -51,3 +52,34 @@ def custom_password_reset(request):
         form = PasswordChangeForm(request.user)
     
     return render(request, 'custom_password_reset_form.html', {'form': form})
+
+
+#DATATABLE PARA CARGAR USUARIOS
+def user_list(request):
+    users = User.objects.all()
+    context = {
+        'users': users
+    }
+    return render(request, 'loginregister/user_list.html', context)
+
+#VISTA PARA DETALLES DE LOS USUARIOS
+def user_details(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST, instance=user)
+        if 'editar' in request.POST:
+            if form.is_valid():
+                form.save()  # Guarda los cambios en la base de datos
+                messages.success(request, 'Los datos del usuario han sido actualizados.')
+                return redirect('user_list')  # Redirige después de la edición
+            else:
+                messages.error(request, 'Error al actualizar los datos del usuario.')
+        elif 'eliminar' in request.POST:
+            user.delete()
+            messages.success(request, 'El usuario ha sido eliminado.')
+            return redirect('user_list')
+    else:
+        form = CustomUserCreationForm(instance=user)
+    
+    return render(request, 'loginregister/user_details.html', {'form': form, 'user': user})
