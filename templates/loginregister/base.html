@@ -48,8 +48,10 @@
                 </li>
 
                 <li class="ItemMenu M2 h centrado"><a class="h centrado" href={% url 'payments_list' %}>Pagos</a></li>
-                
+
                 <li class="ItemMenu M2 h centrado"><a class="h centrado CerrarS" href={% url 'change_log_view' %}>Registro de Cambios</a></li>
+                
+                
                 {% if user.is_superuser %}
                 <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'user_list' %}>Usuarios</a></li>
                 {% endif %}

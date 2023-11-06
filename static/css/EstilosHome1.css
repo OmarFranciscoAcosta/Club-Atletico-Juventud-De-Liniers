@@ -81,7 +81,7 @@ nav ul li a {
     background-repeat: no-repeat;
     height: 77px;
     display: grid;
-    grid-template-columns: 80px 1.3fr 0.7fr 0.7fr 0.8fr 0.7fr 0.7fr;
+    grid-template-columns: 70px 1.2fr 0.4fr 0.4fr 0.3fr 0.8fr 0.7fr 0.5fr;
     grid-template-rows: 100%;
     margin-top: 0px;
     padding: 0px;
@@ -92,6 +92,7 @@ nav ul li a {
      list-style-type: none;
      width: 6rem;
      height: 98%;
+     
 
   }
 
@@ -112,13 +113,13 @@ nav ul li a {
   } 
 
 .LogoMenu {
-
+        
         height: 65px;
 
 }
 
 .Logo {
-    border-radius: 0px 0px 0px 20px;
+    border-radius: 0px 0px 0px 10px;
 }
 
 .Texto {
@@ -597,7 +598,7 @@ nav ul li a {
     background-repeat: no-repeat;
     height: 93px;
     display: grid;
-    grid-template-columns: 80px 1.3fr 0.7fr 0.7fr 0.8fr 0.7fr 0.7fr;
+    grid-template-columns: 80px 1.3fr 0.7fr 0.7fr 0.8fr 0.7fr 0.7fr 0.7fr;
     grid-template-rows: 100%;
     margin-top: 0px;
     padding: 0px;
@@ -755,4 +756,4 @@ nav ul li a {
     text-shadow: 1px 2px 3px rgb(0, 0, 0);
 }
 	
-	}/*Finalizacion breakpoint Monitores*/  
+	}/*Finalizacion breakpoint Monitores*/
