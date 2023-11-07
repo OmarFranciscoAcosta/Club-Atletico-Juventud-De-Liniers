@@ -598,7 +598,7 @@ nav ul li a {
     background-repeat: no-repeat;
     height: 93px;
     display: grid;
-    grid-template-columns: 80px 1.3fr 0.7fr 0.7fr 0.8fr 0.7fr 0.7fr 0.7fr;
+    grid-template-columns: 70px 1.2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.5fr 0.6fr ;
     grid-template-rows: 100%;
     margin-top: 0px;
     padding: 0px;
