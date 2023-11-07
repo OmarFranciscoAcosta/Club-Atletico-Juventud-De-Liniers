@@ -29,6 +29,7 @@
                             <th class="centered bg-danger bg-gradient">Nombre/s</th>
                             <th class="centered bg-danger bg-gradient">Apellido/s</th>
                             <th class="centered bg-danger bg-gradient">Email</th>
+                            <th class="centered bg-danger bg-gradient">Usuario activo</th>
                             <th class="centered bg-danger bg-gradient"></th>
                         </tr>
                     </thead>
@@ -39,6 +40,13 @@
                                 <td class="centered">{{ user.first_name }}</td>
                                 <td class="centered">{{ user.last_name }}</td>
                                 <td class="centered">{{ user.email }}</td>
+                                <td class="centered">
+                                    {% if user.is_active %}
+                                    <i class="fas fa-check text-success"> si</i>  <!-- Icono de tilde verde -->
+                                    {% else %}
+                                    <i class="fas fa-times text-danger"> no</i>  <!-- Icono de cruz roja -->
+                                    {% endif %}
+                                </td>
                                 <td class="centered">
                                     <a href={% url 'user_details' user.id %} class="btn btn-sm btn-primary btn-custom-width">
                                         <i class="fas fa-pencil-alt"></i>

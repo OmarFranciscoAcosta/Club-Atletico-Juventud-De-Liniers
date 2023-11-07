@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserDetailsForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -67,7 +67,7 @@ def user_details(request, user_id):
     user = get_object_or_404(User, id=user_id)
     
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST, instance=user)
+        form = UserDetailsForm(request.POST, instance=user)
         if 'editar' in request.POST:
             if form.is_valid():
                 form.save()  # Guarda los cambios en la base de datos
@@ -80,6 +80,6 @@ def user_details(request, user_id):
             messages.success(request, 'El usuario ha sido eliminado.')
             return redirect('user_list')
     else:
-        form = CustomUserCreationForm(instance=user)
+        form = UserDetailsForm(instance=user)
     
     return render(request, 'loginregister/user_details.html', {'form': form, 'user': user})

@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-
         # Personaliza el campo de ayuda para los requisitos de contraseña
         self.fields['password1'].help_text = (
             "La contraseña debe contener al menos 8 caracteres, incluyendo letras mayúsculas y minúsculas, "
@@ -14,4 +13,9 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2',]
+
+class UserDetailsForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'is_active']
