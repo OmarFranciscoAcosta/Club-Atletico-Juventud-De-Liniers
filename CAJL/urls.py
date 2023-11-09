@@ -26,4 +26,5 @@ urlpatterns = [
     path('',include('CAJL.aplications.prices.urls')),
     path('',include('CAJL.aplications.payments.urls')),
     path('',include('CAJL.aplications.changelog.urls')),
+    path("select2/", include("django_select2.urls")),
 ]

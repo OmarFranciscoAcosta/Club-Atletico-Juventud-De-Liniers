@@ -1,6 +1,7 @@
 from django import forms
-from .models import payments, activities
+from .models import payments, activities, partners
 from bootstrap_datepicker_plus.widgets import DatePickerInput
+from django_select2 import forms as s2forms
 class PaymentsForm(forms.ModelForm):
     actividades = forms.ModelMultipleChoiceField(
         queryset=activities.objects.all(),
@@ -25,6 +26,17 @@ class PaymentsForm(forms.ModelForm):
     }),
     help_text='Selecciona la fecha de pago del comprobante.'
     )
+    
+    
+    socio = forms.ModelChoiceField(
+        queryset=partners.objects.all(),
+        widget=s2forms.ModelSelect2Widget(
+            model=partners,
+            search_fields=['nombre_completo__icontains'],
+        ),
+        label='Socio',
+    )
+    
     
     class Meta:
         model = payments

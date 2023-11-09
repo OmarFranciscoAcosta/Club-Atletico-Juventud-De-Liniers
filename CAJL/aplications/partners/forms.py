@@ -39,6 +39,8 @@ class PartnerForm(forms.ModelForm):
         required=False
     )
 
+
+
     class Meta:
         model = partners
         exclude = ['user']

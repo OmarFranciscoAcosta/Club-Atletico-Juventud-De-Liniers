@@ -22,8 +22,9 @@ INSTALLED_APPS = [
     'jazzmin',
     'crispy_forms',
     'crispy_bootstrap5',
-    "bootstrap_datepicker_plus",
+    'bootstrap_datepicker_plus',
     'django.contrib.admin',
+    'django_select2',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,7 +52,6 @@ JAZZMIN_SETTINGS = {
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
-
 
 
 MIDDLEWARE = [
