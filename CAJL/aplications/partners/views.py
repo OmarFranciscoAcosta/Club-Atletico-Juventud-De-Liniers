@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from CAJL.aplications.partners.signals import create_change_log
-from .models import partners, activities
+from .models import partners
 from .forms import PartnerForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
