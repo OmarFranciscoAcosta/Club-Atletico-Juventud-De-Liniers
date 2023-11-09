@@ -1,4 +1,6 @@
 from django import forms
+from django.forms.widgets import DateInput
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 from .models import partners, activities
 
 class PartnerForm(forms.ModelForm):
@@ -8,9 +10,27 @@ class PartnerForm(forms.ModelForm):
         help_text=f'<a href="/agregar_actividad/" target="_blank">Agregar actividad</a>'   
     )
     
+    fecha_nacimiento = forms.DateField(
+        widget=DatePickerInput(format='%Y-%m-%d'),
+        help_text='Selecciona la fecha de nacimiento en el calendario.'
+    )
+
+    fecha_vencimiento_apto_fisico = forms.DateField(
+        widget=DatePickerInput(format='%Y-%m-%d'),
+        help_text='Selecciona la fecha de vencimiento del apto físico en el calendario.',
+        required=False
+    )
+
+    fecha_vencimiento_fichaje = forms.DateField(
+        widget=DatePickerInput(format='%Y-%m-%d'),
+        help_text='Selecciona la fecha de vencimiento del fichaje en el calendario.',
+        required=False
+    )
+
     class Meta:
         model = partners
         exclude = ['user']
+
         
         
         
