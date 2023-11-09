@@ -17,7 +17,7 @@ class PartnerForm(forms.ModelForm):
         # otras opciones que desees incluir
     }),
     help_text='Selecciona la fecha de nacimiento en el calendario.'
-)
+    )
 
     fecha_emisión_apto_físico = forms.DateField(
         widget=DatePickerInput(options={

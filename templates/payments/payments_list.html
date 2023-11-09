@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 <body>
-<!-- <section class="Contenedor"> -->
     <br>
     <br>
     <br>
@@ -45,7 +44,6 @@
                         <th class="centered bg-danger bg-gradient">Monto del Pago</th>
                         <th class="centered bg-danger bg-gradient"></th>
                         <th class="centered bg-danger bg-gradient"></th>
-                        <!-- Agrega más encabezados de columnas según tus necesidades -->
                     </tr>
                 </thead>
                 <tbody class="bg-light bg-gradient">
@@ -60,7 +58,7 @@
                         <td class="centered">{{ payment.get_estado_display }}</td>
                         <td class="centered">{{ payment.get_tipo_pago_display }}</td>
                         <td class="centered">{{ payment.fecha_pago }}</td>
-                        <td class="centered">{{ payment.monto_pago }}</td>
+                        <td class="centered">${{ payment.monto_pago }}</td>
                         <td class="centered">
                             <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
                                 <i class="fas fa-pencil-alt"></i>
@@ -78,7 +76,6 @@
         </div>  
     </div>
 </div>
-<!-- </section> -->
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
