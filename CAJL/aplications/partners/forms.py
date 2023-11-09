@@ -19,23 +19,23 @@ class PartnerForm(forms.ModelForm):
     help_text='Selecciona la fecha de nacimiento en el calendario.'
 )
 
-    fecha_vencimiento_apto_fisico = forms.DateField(
+    fecha_emisión_apto_físico = forms.DateField(
         widget=DatePickerInput(options={
         'format': 'DD/MM/YYYY',
         'locale': 'es'
         # otras opciones que desees incluir
     }),
-        help_text='Selecciona la fecha de vencimiento del apto físico en el calendario.',
+        help_text='Selecciona la fecha de emisión del apto físico en el calendario.',
         required=False
     )
 
-    fecha_vencimiento_fichaje = forms.DateField(
+    fecha_emisión_fichaje = forms.DateField(
         widget=DatePickerInput(options={
         'format': 'DD/MM/YYYY',
         'locale': 'es'
         # otras opciones que desees incluir
     }),
-        help_text='Selecciona la fecha de vencimiento del fichaje en el calendario.',
+        help_text='Selecciona la fecha de emisión del fichaje en el calendario.',
         required=False
     )
 
