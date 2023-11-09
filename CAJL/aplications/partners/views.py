@@ -60,6 +60,7 @@ def agregar_socio(request):
     else:
         # Si no se envió un formulario (GET), muestra el formulario para agregar un socio.
         form = PartnerForm()
+        
     
     return render(request, 'partners/agregar_socio.html', {'form': form})
 
