@@ -55,6 +55,7 @@ def custom_password_reset(request):
 
 
 #DATATABLE PARA CARGAR USUARIOS
+@login_required
 def user_list(request):
     users = User.objects.all()
     context = {
@@ -63,6 +64,7 @@ def user_list(request):
     return render(request, 'loginregister/user_list.html', context)
 
 #VISTA PARA DETALLES DE LOS USUARIOS
+@login_required
 def user_details(request, user_id):
     user = get_object_or_404(User, id=user_id)
     

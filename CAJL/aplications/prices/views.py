@@ -3,9 +3,11 @@ from django.http import JsonResponse
 from .forms import PricesForm
 from .models import prices
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #Vista para generar la datatable de precios de las actividades:
+@login_required
 def prices_list(request):
     price_data = prices.objects.all()
 
@@ -16,6 +18,7 @@ def prices_list(request):
     return render(request, 'prices/prices_list.html', context)
 
 #Vista para generar la carga de un precio de la actividad:
+@login_required
 def carga_datos(request):
     if request.method == 'POST':
         # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
@@ -38,6 +41,7 @@ def carga_datos(request):
 
 
 #Vista para generar los detalles de esa carga del precio de la actividad:
+@login_required
 def detalles_precio(request, price_id):
     price = get_object_or_404(prices, id=price_id)
     

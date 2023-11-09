@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #Datatable con modelo Partners
+@login_required
 def datatable_view(request):
     partners_data = partners.objects.select_related('localidad')
     data = []
@@ -64,6 +65,7 @@ def agregar_socio(request):
 
 
 #Detalles del socio con actualizar y eliminar, dejando mensajes de avisos
+@login_required
 def detalles(request, partner_id):
     partner = get_object_or_404(partners, id=partner_id)
     

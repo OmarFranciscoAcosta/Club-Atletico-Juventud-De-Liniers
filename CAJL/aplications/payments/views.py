@@ -2,11 +2,13 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import payments
 from .forms import PaymentsForm 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
 #RENDER DATOS PARA DATATABLE
+@login_required
 def payments_list(request):
     # Recupera los pagos desde la base de datos
     payments_data = payments.objects.all()
@@ -16,6 +18,7 @@ def payments_list(request):
     return render(request, 'payments/payments_list.html', context)
 
 #RENDER DATOS PARA CARGAR COMPROBANTE
+@login_required
 def carga_comprobante(request):
     if request.method == 'POST':
         # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
@@ -43,6 +46,7 @@ def carga_comprobante(request):
 
 
 #RENDER PARA DETALLES DEL COMPROBANTE
+@login_required
 def detalles_comprobante(request, payments_id):
     payment = get_object_or_404(payments, id=payments_id)
     
@@ -67,6 +71,7 @@ def detalles_comprobante(request, payments_id):
 
 
 #RENDER PARA VISTA QUE MUESTRE UNA PANTALLA PARA IMPRIMIR
+@login_required
 def imprimir_comprobante(request, payments_id):
     comprobante = get_object_or_404(payments, id=payments_id)  # Reemplaza "Comprobante" por el nombre de tu modelo
     # Agrega cualquier otro procesamiento de datos que necesites aquí

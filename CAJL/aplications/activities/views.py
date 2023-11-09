@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 #Vista datatable actividades
+@login_required
 def activities_list(request):
     activities_data = activities.objects.all()
     
@@ -20,6 +21,7 @@ def activities_list(request):
     return render(request, 'activities/activities_list.html', context)
 
 #Vista modificar datos, trayendo los mismos
+@login_required
 def detallesact(request, activities_id):
     activity = get_object_or_404(activities, id=activities_id)
     
