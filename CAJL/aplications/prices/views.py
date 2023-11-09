@@ -36,10 +36,6 @@ def carga_datos(request):
     return render(request, 'prices/carga_precio.html', {'form': form})
 
 
-
-
-
-
 #Vista para generar los detalles de esa carga del precio de la actividad:
 @login_required
 def detalles_precio(request, price_id):

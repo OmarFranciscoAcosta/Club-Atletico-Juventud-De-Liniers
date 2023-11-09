@@ -68,8 +68,6 @@ def detalles_comprobante(request, payments_id):
     
     return render(request, 'payments/detalles_comprobante.html', {'form': form, 'payment': payment})
 
-
-
 #RENDER PARA VISTA QUE MUESTRE UNA PANTALLA PARA IMPRIMIR
 @login_required
 def imprimir_comprobante(request, payments_id):
