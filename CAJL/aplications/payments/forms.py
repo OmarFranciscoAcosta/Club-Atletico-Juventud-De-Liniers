@@ -33,6 +33,7 @@ class PaymentsForm(forms.ModelForm):
         widget=s2forms.ModelSelect2Widget(
             model=partners,
             search_fields=['nombre_completo__icontains'],
+            attrs={'data-minimum-input-length': 0},
         ),
         label='Socio',
     )
