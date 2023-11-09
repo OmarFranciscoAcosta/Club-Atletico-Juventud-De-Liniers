@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.widgets import DateInput
 from bootstrap_datepicker_plus.widgets import DatePickerInput
-from .models import partners, activities
+from .models import partners, activities, location
 
 class PartnerForm(forms.ModelForm):
     actividades = forms.ModelMultipleChoiceField(
@@ -38,8 +38,6 @@ class PartnerForm(forms.ModelForm):
         help_text='Selecciona la fecha de emisión del fichaje en el calendario.',
         required=False
     )
-
-
 
     class Meta:
         model = partners
