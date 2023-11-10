@@ -39,8 +39,8 @@ class payments (models.Model):
     
     
     fecha_comprobante = models.DateField('Fecha del comprobante')
-    anio = models.IntegerField('Año facturado')
-    mes = models.CharField('Mes facturado',max_length=2,choices=MES_CHOICES)
+    anio = models.IntegerField('Año facturado', blank=True)
+    mes = models.CharField('Mes facturado',max_length=2,choices=MES_CHOICES, blank=True)
     socio = models.ForeignKey(partners, on_delete=models.CASCADE)
     actividades = models.ManyToManyField(activities)
     observacion = models.CharField('Observacion',max_length=50, blank=True)
