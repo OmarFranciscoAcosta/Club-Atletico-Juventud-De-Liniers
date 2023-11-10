@@ -32,6 +32,9 @@ pip install crispy-bootstrap5
 ```
 pip install django-bootstrap-datepicker-plus
 ```
+```
+pip install django-select2
+```
 Navegar hacia la carpeta donde esta ubicado el manage.py y tirar el comando runserver:
 ```
 py manage.py runserver
