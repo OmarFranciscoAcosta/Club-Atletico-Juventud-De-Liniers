@@ -16,7 +16,8 @@ class PartnerForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
-    help_text='Selecciona la fecha de nacimiento en el calendario.'
+        help_text='Selecciona la fecha de nacimiento en el calendario.',
+        required=False 
     )
 
     fecha_emisión_apto_físico = forms.DateField(
