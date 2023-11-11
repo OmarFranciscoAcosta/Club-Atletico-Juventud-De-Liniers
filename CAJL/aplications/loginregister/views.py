@@ -6,7 +6,6 @@ from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm, UserDetailsForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from CAJL.aplications.changelog.models import ChangeLog
 from CAJL.aplications.loginregister.signals import user_created
 
 
