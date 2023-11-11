@@ -60,9 +60,11 @@
                         <td class="centered">{{ payment.fecha_pago }}</td>
                         <td class="centered">${{ payment.monto_pago }}</td>
                         <td class="centered">
-                            <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
-                                <i class="fas fa-pencil-alt"></i>
-                            </a>
+                            {% if payment.estado != '3' %}
+                                <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                            {% endif %}
                         </td>
                         <td class="centered">
                             <a href={% url 'imprimir_comprobante' payments_id=payment.id %} class="btn btn-sm btn-success btn-custom-width">

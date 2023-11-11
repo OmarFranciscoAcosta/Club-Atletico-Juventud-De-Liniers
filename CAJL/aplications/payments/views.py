@@ -33,11 +33,9 @@ def carga_comprobante(request):
             actividades_seleccionadas = request.POST.getlist('actividades')
             comprobante.actividades.set(actividades_seleccionadas)
             
-            if comprobante.estado == '0':
+            if comprobante.estado == '0' or comprobante.estado == '1' or comprobante.estado == '2':
                 comprobante.socio.socio_activo = True
-            elif comprobante.estado == '1':
-                comprobante.socio.socio_activo = True
-            elif comprobante.estado == '2':
+            elif comprobante.estado == '3':
                 comprobante.socio.socio_activo = False
                 
             comprobante.socio.save()    
@@ -52,7 +50,6 @@ def carga_comprobante(request):
         form = PaymentsForm()
     
     return render(request, 'payments/carga_comprobante.html', {'form': form})
-
 
 #RENDER PARA DETALLES DEL COMPROBANTE
 @login_required
@@ -76,13 +73,10 @@ def detalles_comprobante(request, payments_id):
 
 # Actualizar socio_activo basado en el estado del comprobante
 def update_socio_activo(payment):
-    
     socio = payment.socio
-    if payment.estado == '0':
+    if payment.estado in ['0', '1', '2']:
         socio.socio_activo = True
-    elif payment.estado == '1':
-        socio.socio_activo = True
-    elif payment.estado == '2':
+    elif payment.estado == '3':
         socio.socio_activo = False
     socio.save()
 
