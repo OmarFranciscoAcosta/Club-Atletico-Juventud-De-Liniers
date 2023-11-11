@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from CAJL.aplications.partners.signals import create_change_log
 from .models import partners
-from .forms import PartnerForm
+from .forms import PartnerForm, PartnerDetailsForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -18,17 +18,17 @@ def datatable_view(request):
             'nombre_completo': partner.nombre_completo,
             'dni': partner.dni,
             'fecha_nacimiento': partner.fecha_nacimiento,
-            # 'direccion': partner.direccion,
-            # 'distrito': partner.get_distrito_display(),  # Usamos get_<field_name>_display() para campos choices
-            # 'localidad': partner.localidad.municipio_nombre,
-            # 'telefono1': partner.telefono1,
-            # 'telefono2': partner.telefono2,
+            'direccion': partner.direccion,
+            'distrito': partner.get_distrito_display(),
+            'localidad': partner.localidad.municipio_nombre,
+            'telefono1': partner.telefono1,
+            'telefono2': partner.telefono2,
             'actividades': partner.actividades,
-            # 'correo': partner.correo,
-            # 'descripcion': partner.descripcion,
+            'correo': partner.correo,
+            'descripcion': partner.descripcion,
             'apto_fisico': partner.apto_fisico,
-            # 'fecha_vencimiento_apto_fisico': partner.fecha_vencimiento_apto_fisico,
-            # 'fecha_vencimiento_fichaje': partner.fecha_vencimiento_fichaje,
+            'fecha_emisión_apto_fisico': partner.fecha_emisión_apto_físico,
+            'fecha_emisión_fichaje': partner.fecha_emisión_fichaje,
             'compite': partner.compite,
             'socio_activo': partner.socio_activo,
             'ultimo_pago': partner.ultimo_pago,
@@ -72,7 +72,7 @@ def detalles(request, partner_id):
     
     if request.method == 'POST':
         if 'editar' in request.POST:
-            form = PartnerForm(request.POST, instance=partner)
+            form = PartnerDetailsForm(request.POST, instance=partner)
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Los datos del socio han sido actualizados.')
@@ -86,7 +86,7 @@ def detalles(request, partner_id):
             messages.success(request, 'El socio ha sido eliminado.')
             return redirect('socios')  # Redirige a donde desees después de la eliminación
     else:
-        form = PartnerForm(instance=partner)
+        form = PartnerDetailsForm(instance=partner)
     
     return render(request, 'partners/detalles_socio.html', {'form': form, 'partner': partner})
 
