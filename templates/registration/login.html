@@ -4,35 +4,49 @@
 
 {% load crispy_forms_tags %}
 
-
-<title>Iniciar Sesion</title>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<form action="" method="post">
-{% csrf_token %}
-
-
-<div class="card mx-auto" style="width: 30rem;">
-    <div class="card-body">
-      <h5 class="card-title">Ingrese su usuario y contraseña</h5>
-
-      {{ form | crispy }}
-
-      <a href={% url 'register' %} class="card-link">Registrarse</a>
-      <a href={% url 'password_reset' %} class="card-link">Olvidaste tu contraseña?</a>
-
-      <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesion</button> 
-    </div>
-  </div>
-
-
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesion</title>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <form action="" method="post" class="card mx-auto" style="width: 30rem;">
+    {% csrf_token %}
   
-</form>
+    <div class="card-body">
+        <h5 class="card-title">Ingrese su usuario y contraseña</h5>
+  
+        {{ form | crispy }}
+  
+        <a href={% url 'register' %} class="card-link">Registrarse</a>
+        <a href={% url 'password_reset' %} class="card-link">Olvidaste tu contraseña?</a>
+  
+        <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesion</button>
+
+        
+    </div>
+
+
+  </form>
+</body>
+</html>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 {% endblock %}
+
+
