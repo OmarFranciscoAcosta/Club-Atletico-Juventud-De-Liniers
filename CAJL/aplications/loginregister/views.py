@@ -6,6 +6,9 @@ from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm, UserDetailsForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from CAJL.aplications.changelog.models import ChangeLog
+from CAJL.aplications.loginregister.signals import user_created
+
 
 # Create your views here.
 def home (request):
@@ -29,15 +32,21 @@ def register(request):
     }    
     
     if request.method == 'POST':
-        user_creation_form = CustomUserCreationForm (data=request.POST)
+        user_creation_form = CustomUserCreationForm(data=request.POST)
         
         if user_creation_form.is_valid():
-            user_creation_form.save()
+            # Guarda el formulario sin hacer commit para obtener la instancia del usuario
+            user = user_creation_form.save(commit=False)
+            user.save()  # Guarda la instancia del usuario ahora
+
+            # Llama a la función de señal con la instancia del usuario
+            user_created(sender=user.__class__, instance=user, created=True)
             
+            print("Vista de registro ejecutada")
             
             return redirect('home')
     
-    return render (request, 'registration/register.html',data)
+    return render(request, 'registration/register.html', data)
 
 #RECUPERAR CONTRASEÑA
 def custom_password_reset(request):

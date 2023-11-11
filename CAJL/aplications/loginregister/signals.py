@@ -1,11 +1,19 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-from changelog.models import ChangeLog
+from CAJL.aplications.changelog.models import ChangeLog
 
-@receiver(post_save, sender=User)
+
+signal_connected = False  # Variable para rastrear si la señal está conectada
+
+@receiver(post_save, sender=User, dispatch_uid="unique_user_created")
 def user_created(sender, instance, created, **kwargs):
-    if created:
-        # Si el usuario fue recién creado
-        description = f"Se creó el usuario: {instance.username}"
-        ChangeLog.objects.create(model_name='User', user=instance, description=description)
+    global signal_connected  # Usa la variable global
+
+    if not signal_connected:
+        if created:
+            description = f"Se creó el usuario: {instance.username}"
+            print("Senial ejecutada")
+            ChangeLog.objects.create(model_name='User', user=instance, description=description)
+
+        signal_connected = True  # Establece la variable a True después de ejecutar la señal
