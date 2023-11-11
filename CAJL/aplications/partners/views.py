@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from CAJL.aplications.partners.signals import create_change_log
 from .models import partners
-from .forms import PartnerForm, PartnerDetailsForm
+from .forms import PartnerCreateForm, PartnerDetailsForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -41,7 +41,7 @@ def datatable_view(request):
 def agregar_socio(request):
     if request.method == 'POST':
         # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
-        form = PartnerForm(request.POST)
+        form = PartnerCreateForm(request.POST)
         if form.is_valid():
             socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
             socio.user = request.user  # Asigna el usuario actual
@@ -59,7 +59,7 @@ def agregar_socio(request):
         
     else:
         # Si no se envió un formulario (GET), muestra el formulario para agregar un socio.
-        form = PartnerForm()
+        form = PartnerCreateForm()
         
     
     return render(request, 'partners/agregar_socio.html', {'form': form})

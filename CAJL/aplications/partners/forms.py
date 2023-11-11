@@ -4,7 +4,7 @@ from bootstrap_datepicker_plus.widgets import DatePickerInput
 from django_select2 import forms as s2forms
 from .models import partners, activities, location
 
-class PartnerForm(forms.ModelForm):
+class PartnerCreateForm(forms.ModelForm):
     actividades = forms.ModelMultipleChoiceField(
         queryset=activities.objects.all(),
         widget=forms.CheckboxSelectMultiple,
