@@ -27,24 +27,15 @@
           {{ form | crispy }}
           {{ form.media }}
     
-          <button type="submit" name="editar" class="btn btn-primary" id="actualizar-socio">Guardar Cambios</button>
-          <button type="submit" name="eliminar" class="btn btn-danger" id="eliminar-socio">Eliminar Socio</button>
+          <div class="text-center">
+            <button type="submit" name="editar" class="btn btn-primary" id="actualizar-socio">Guardar Cambios</button>
+        </div>
         </div>
       </div>
     </form>
 </body>
 
 <script>
-document.getElementById('eliminar-socio').addEventListener('click', function(event) {
-    if (confirm('¿Estás seguro de que deseas eliminar a este socio?')) {
-        // Continuar con la eliminación
-        return true;
-    } else {
-        // Cancelar la eliminación
-        event.preventDefault(); // Evitar que el formulario se envíe
-        return false;
-    }
-});
 
 document.getElementById('actualizar-socio').addEventListener('click', function(event) {
     if (confirm('El socio ha sido actualizado')) {

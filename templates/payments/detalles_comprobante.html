@@ -30,21 +30,15 @@
           {{ form | crispy }}
           {{ form.media }}
     
-          <button type="submit" name="editar" class="btn btn-primary" id="actualizar-comprobante">Guardar Cambios</button>
-          <button type="submit" name="eliminar" class="btn btn-danger" id="eliminar-comprobante">Eliminar Comprobante</button>
+          <div class="text-center">
+            <button type="submit" name="editar" class="btn btn-primary" id="actualizar-comprobante">Guardar Cambios</button>
+        </div>
+          
         </div>
       </div>
     </form>
 
     <script>
-        document.getElementById('eliminar-comprobante').addEventListener('click', function(event) {
-            if (!window.confirm('¿Estás seguro de que deseas eliminar este comprobante?')) {
-                // Evitar que el formulario se envíe
-                event.preventDefault();
-            }
-
-        });
-
         document.getElementById('actualizar-comprobante').addEventListener('click', function(event) {
             alert('El comprobante ha sido actualizado');
             // O redirección al inicio

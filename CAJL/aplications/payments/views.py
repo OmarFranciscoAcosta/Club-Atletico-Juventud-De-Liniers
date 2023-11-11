@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
 #RENDER DATOS PARA DATATABLE
 @login_required
 def payments_list(request):
@@ -33,6 +32,16 @@ def carga_comprobante(request):
             # Ahora puedes asignar las actividades al socio
             actividades_seleccionadas = request.POST.getlist('actividades')
             comprobante.actividades.set(actividades_seleccionadas)
+            
+            if comprobante.estado == '0':
+                comprobante.socio.socio_activo = True
+            elif comprobante.estado == '1':
+                comprobante.socio.socio_activo = True
+            elif comprobante.estado == '2':
+                comprobante.socio.socio_activo = False
+                
+            comprobante.socio.save()    
+                
 
             messages.success(request, 'El socio ha sido agregado correctamente.')
 
@@ -55,18 +64,27 @@ def detalles_comprobante(request, payments_id):
             form = PaymentsForm(request.POST, instance=payment)
             if form.is_valid():
                 form.save()
+                update_socio_activo(payment)
                 messages.success(request, 'Los datos del comprobante han sido actualizados.')
                 return redirect('payments_list')
             else:
                 messages.error(request, 'Error al actualizar los datos del comprobante.')
-        elif 'eliminar' in request.POST:
-            payment.delete()
-            messages.success(request, 'El comprobante ha sido eliminado.')
-            return redirect('payments_list')
     else:
         form = PaymentsForm(instance=payment)
     
     return render(request, 'payments/detalles_comprobante.html', {'form': form, 'payment': payment})
+
+# Actualizar socio_activo basado en el estado del comprobante
+def update_socio_activo(payment):
+    
+    socio = payment.socio
+    if payment.estado == '0':
+        socio.socio_activo = True
+    elif payment.estado == '1':
+        socio.socio_activo = True
+    elif payment.estado == '2':
+        socio.socio_activo = False
+    socio.save()
 
 #RENDER PARA VISTA QUE MUESTRE UNA PANTALLA PARA IMPRIMIR
 @login_required
