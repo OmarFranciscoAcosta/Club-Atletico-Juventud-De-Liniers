@@ -1,6 +1,7 @@
 from django import forms
 from django.forms.widgets import DateInput
 from bootstrap_datepicker_plus.widgets import DatePickerInput
+from django_select2 import forms as s2forms
 from .models import partners, activities, location
 
 class PartnerForm(forms.ModelForm):
@@ -40,6 +41,16 @@ class PartnerForm(forms.ModelForm):
         required=False
     )
 
+    localidad = forms.ModelChoiceField(
+        queryset=location.objects.all(),
+        widget=s2forms.ModelSelect2Widget(
+            model=location,
+            search_fields=['municipio_nombre__icontains'],
+            attrs={'data-minimum-input-length': 0},
+        ),
+        label='Localidad',
+        required=False
+    )
     class Meta:
         model = partners
         exclude = ['user']
