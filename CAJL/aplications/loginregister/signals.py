@@ -13,7 +13,6 @@ def user_created(sender, instance, created, **kwargs):
     if not signal_connected:
         if created:
             description = f"Se creó el usuario: {instance.username}"
-            print("Senial ejecutada")
             ChangeLog.objects.create(model_name='User', user=instance, description=description)
 
         signal_connected = True  # Establece la variable a True después de ejecutar la señal
