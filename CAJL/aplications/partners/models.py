@@ -55,6 +55,6 @@ class partners (models.Model):
     class Meta:
         verbose_name = 'Socio'
         verbose_name_plural = 'Socios del club'
-        ordering = ['nombre_completo']
+        ordering = ['id']
     def __str__(self):
         return f'Socio {self.id} - {self.nombre_completo} - {self.dni}'
