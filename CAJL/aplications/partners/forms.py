@@ -55,8 +55,7 @@ class PartnerCreateForm(forms.ModelForm):
     class Meta:
         model = partners
         exclude = ['user']
-        
-        
+            
         
 class PartnerDetailsForm(forms.ModelForm):
     actividades = forms.ModelMultipleChoiceField(
@@ -108,7 +107,7 @@ class PartnerDetailsForm(forms.ModelForm):
     
     socio_activo = forms.BooleanField(
         label='Socio activo',
-        help_text='Indica si el socio debe ser tratado como activo. Desmarque esta opción en lugar de borrar los datos del socio.',
+        help_text='Indica si el socio debe ser tratado como activo. Desmarque esta opción en lugar de borrar los datos del mismo.',
         required=False,
     )
     
