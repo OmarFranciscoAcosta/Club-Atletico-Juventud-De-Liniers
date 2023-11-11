@@ -40,8 +40,7 @@ def register(request):
 
             # Llama a la función de señal con la instancia del usuario
             user_created(sender=user.__class__, instance=user, created=True)
-            
-            print("Vista de registro ejecutada")
+        
             
             return redirect('home')
     
