@@ -23,7 +23,7 @@ class partners (models.Model):
     
     
     distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES, blank=True, null=True)
-    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True, null=True)
+    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True)
     telefono1 = models.CharField('Teléfono 1',max_length=15, blank=True, null=True)
     telefono2 = models.CharField('Teléfono 2',max_length=15,blank=True, null=True)
     actividades = models.ManyToManyField(activities)

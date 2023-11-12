@@ -9,8 +9,8 @@ class location (models.Model):
     )
     
     
-    municipio_nombre = models.CharField('Nombre del municipio', max_length=40, blank=True)
-    localidad_nombre = models.CharField('Nombre de la localidad', max_length=1, choices=LOC_CHOICES, blank=True)
+    municipio_nombre = models.CharField('Nombre del municipio', max_length=40, blank=True, null=True)
+    localidad_nombre = models.CharField('Nombre de la localidad', max_length=1, choices=LOC_CHOICES, blank=True, null=True)
     
     class Meta: 
         verbose_name = 'Localidad'
