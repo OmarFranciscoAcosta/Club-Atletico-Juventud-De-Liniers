@@ -10,7 +10,7 @@ class payments (models.Model):
         ('0','Pagado'),
         ('1','Pago Parcial'),
         ('2','Pagado y Confirmado'),
-        ('3', 'No definido'),
+        ('3', 'No Definido'),
     )
     
     TIP_CHOICES =(
