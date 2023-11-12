@@ -22,4 +22,4 @@ def create_change_log(sender, instance, **kwargs):
         model_name=sender.__name__,
         user=user,
         description=f'{action} - ID: {instance.id}'
-    )
+    ) 
