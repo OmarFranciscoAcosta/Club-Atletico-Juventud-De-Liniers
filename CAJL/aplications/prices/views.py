@@ -24,9 +24,9 @@ def carga_datos(request):
         # Si se envió un formulario (POST), procesa los datos y guárdalos en la base de datos.
         form = PricesForm(request.POST)
         if form.is_valid():
-            socio = form.save(commit=False)  # Guarda la instancia sin hacer commit
-            socio.user = request.user  # Asigna el usuario actual
-            socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
+            price = form.save(commit=False)
+            price.user = request.user
+            price.save()
             return redirect('prices_list')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
         
     else:
@@ -45,7 +45,9 @@ def detalles_precio(request, price_id):
         if 'editar' in request.POST:
             form = PricesForm(request.POST, instance=price)
             if form.is_valid():
-                form.save()
+                updated_price = form.save(commit=False)
+                updated_price.user = request.user
+                updated_price.save()
                 messages.success(request, 'Los datos del precio han sido actualizados.')
                 return redirect('prices_list')
             else:
