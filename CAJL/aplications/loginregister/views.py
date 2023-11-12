@@ -42,7 +42,7 @@ def register(request):
             user_created(sender=user.__class__, instance=user, created=True)
         
             
-            return redirect('home')
+            return redirect('login')
     
     return render(request, 'registration/register.html', data)
 
