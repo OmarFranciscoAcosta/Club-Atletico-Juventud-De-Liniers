@@ -32,8 +32,8 @@ class partners (models.Model):
     apto_fisico = models.BooleanField('Apto físico',default=False, null=True)
     fecha_emisión_apto_físico = models.DateField ('Fecha de emisión del apto físico',blank=True, null=True)
     fecha_emisión_fichaje = models.DateField ('Fecha de emisión del fichaje',blank=True, null=True)
-    compite = models.BooleanField('Fichado',default=False, null=True)
-    socio_activo = models.BooleanField('Socio activo',default=False, null=True)
+    compite = models.BooleanField('Fichado',default=False)
+    socio_activo = models.BooleanField('Socio activo',default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     
