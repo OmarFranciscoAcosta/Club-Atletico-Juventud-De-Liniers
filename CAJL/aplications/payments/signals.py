@@ -17,7 +17,7 @@ def create_change_log(sender, instance, **kwargs):
     else:
         action = 'Eliminado' if kwargs.get('signal') == post_delete else 'Actualizado'
 
-    user = instance.user # Asegúrate de que el campo de relación con el usuario esté correctamente configurado
+    user = instance.user 
 
     model_name = MODEL_TRANSLATIONS.get(sender.__name__, sender.__name__)
 
