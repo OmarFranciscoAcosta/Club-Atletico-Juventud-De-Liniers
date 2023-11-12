@@ -40,7 +40,7 @@ class partners (models.Model):
     @property
     def ultimo_pago(self):
         # Obtener los pagos asociados a este socio con estado '0' o '1' y ordenar por fecha de comprobante en orden descendente
-        ultimos_pagos = self.payments_set.filter(estado__in=['0', '1']).order_by('-fecha_comprobante')
+        ultimos_pagos = self.payments_set.filter(estado__in=['0', '1','2']).order_by('-anio','-fecha_comprobante')
         
         if ultimos_pagos.exists():
             # Devolver el mes del primer pago en la lista ordenada
