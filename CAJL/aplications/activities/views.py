@@ -40,9 +40,8 @@ def detallesact(request, activities_id):
                 messages.error(request, 'Error al actualizar los datos de la actividad.')
         elif 'eliminar' in request.POST:
             
-            user = request.user if request.user.is_authenticated else None
-            
-            activity_id = activity.id if activity else None
+            deleted_activity = activity
+            deleted_activity.user = request.user
             
             activity.delete()
             

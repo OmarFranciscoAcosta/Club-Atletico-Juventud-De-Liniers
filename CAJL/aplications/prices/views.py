@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
 from .forms import PricesForm
 from .models import prices
 from django.contrib import messages
@@ -53,6 +52,10 @@ def detalles_precio(request, price_id):
             else:
                 messages.error(request, 'Error al actualizar los datos del precio.')
         elif 'eliminar' in request.POST:
+            
+            deleted_price = price
+            deleted_price.user = request.user
+            
             price.delete()
             messages.success(request, 'Los precios de la actividad ha sido eliminados.')
             return redirect('prices_list')
