@@ -5,6 +5,7 @@ from CAJL.aplications.changelog.models import ChangeLog
 
 @receiver([post_save, post_delete], sender=payments)
 def create_change_log(sender, instance, **kwargs):
+    # Determina si la acción es una creación o eliminación
     if 'created' in kwargs:
         created = kwargs['created']
     else:
@@ -19,6 +20,6 @@ def create_change_log(sender, instance, **kwargs):
 
     ChangeLog.objects.create(
         model_name=sender.__name__,
-        user=user,  # Accede al usuario relacionado en tu modelo
+        user=user,
         description=f'{action} - ID: {instance.id}'
     )

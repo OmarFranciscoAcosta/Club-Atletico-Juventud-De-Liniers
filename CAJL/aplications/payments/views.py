@@ -33,12 +33,7 @@ def carga_comprobante(request):
             actividades_seleccionadas = request.POST.getlist('actividades')
             comprobante.actividades.set(actividades_seleccionadas)
             
-            if comprobante.estado == '0' or comprobante.estado == '1' or comprobante.estado == '2':
-                comprobante.socio.socio_activo = True
-            elif comprobante.estado == '3':
-                comprobante.socio.socio_activo = False
-                
-            comprobante.socio.save()    
+            update_socio_activo(comprobante)
                 
 
             messages.success(request, 'El socio ha sido agregado correctamente.')
@@ -60,8 +55,10 @@ def detalles_comprobante(request, payments_id):
         if 'editar' in request.POST:
             form = PaymentsForm(request.POST, instance=payment)
             if form.is_valid():
-                form.save()
-                update_socio_activo(payment)
+                updated_payment = form.save(commit=False)
+                updated_payment.user = request.user
+                updated_payment.save()
+                update_socio_activo(updated_payment)
                 messages.success(request, 'Los datos del comprobante han sido actualizados.')
                 return redirect('payments_list')
             else:
