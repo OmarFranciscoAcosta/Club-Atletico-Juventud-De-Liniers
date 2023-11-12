@@ -14,26 +14,26 @@ letters_only_validator = RegexValidator(
 class partners (models.Model):
     
     nombre_completo = models.CharField('Nombre completo', max_length=50, validators=[letters_only_validator], blank=True)
-    dni = models.IntegerField('DNI',blank=True)
+    dni = models.IntegerField('DNI',blank=True, null=True)
     fecha_nacimiento = models.DateField('Fecha de nacimiento',blank=True, null=True)
-    direccion = models.CharField('Dirección', max_length=50, blank=True)
+    direccion = models.CharField('Dirección', max_length=50, blank=True, null=True)
     
     DISTRICT_CHOICES = location.LOC_CHOICES
     
     
     
-    distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES, blank=True)
-    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True)
-    telefono1 = models.CharField('Teléfono 1',max_length=15, blank=True)
-    telefono2 = models.CharField('Teléfono 2',max_length=15,blank=True)
+    distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES, blank=True, null=True)
+    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True, null=True)
+    telefono1 = models.CharField('Teléfono 1',max_length=15, blank=True, null=True)
+    telefono2 = models.CharField('Teléfono 2',max_length=15,blank=True, null=True)
     actividades = models.ManyToManyField(activities)
-    correo = models.EmailField('Email',max_length=40,blank=True)
-    descripcion = models.CharField('Descripción',max_length=50, blank=True)
-    apto_fisico = models.BooleanField('Apto físico',default=False)
+    correo = models.EmailField('Email',max_length=40,blank=True, null=True)
+    descripcion = models.CharField('Descripción',max_length=50, blank=True, null=True)
+    apto_fisico = models.BooleanField('Apto físico',default=False, null=True)
     fecha_emisión_apto_físico = models.DateField ('Fecha de emisión del apto físico',blank=True, null=True)
     fecha_emisión_fichaje = models.DateField ('Fecha de emisión del fichaje',blank=True, null=True)
-    compite = models.BooleanField('Fichado',default=False)
-    socio_activo = models.BooleanField('Socio activo',default=False)
+    compite = models.BooleanField('Fichado',default=False, null=True)
+    socio_activo = models.BooleanField('Socio activo',default=False, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     

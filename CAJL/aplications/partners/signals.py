@@ -5,21 +5,17 @@ from CAJL.aplications.changelog.models import ChangeLog
 
 @receiver([post_save, post_delete], sender=partners)
 def create_change_log(sender, instance, **kwargs):
-    # Determina si la acción es una creación o eliminación
-    if 'created' in kwargs:
-        created = kwargs['created']
-    else:
-        created = False
+    action = 'Creado' if kwargs.get('created') else 'Eliminado' if kwargs.get('signal') == post_delete else 'Actualizado'
 
-    if created:
-        action = 'Creado'
-    else:
-        action = 'Eliminado' if kwargs.get('signal') == post_delete else 'Actualizado'
+    user = getattr(instance, 'user', None)
 
-    user = instance.user  # Asegúrate de que el campo de relación con el usuario esté correctamente configurado
+    try:
+        # Crear el registro en cualquier caso
+        ChangeLog.objects.create(
+            model_name=sender.__name__,
+            user=user,
+            description=f'{action} - ID: {instance.id}'
+        )
 
-    ChangeLog.objects.create(
-        model_name=sender.__name__,
-        user=user,
-        description=f'{action} - ID: {instance.id}'
-    ) 
+    except Exception as e:
+        print(f"Error creating ChangeLog: {e}")

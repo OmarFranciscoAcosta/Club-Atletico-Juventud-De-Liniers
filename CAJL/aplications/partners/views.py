@@ -47,16 +47,17 @@ def agregar_socio(request):
             socio.user = request.user  # Asigna el usuario actual
 
             # Guarda el socio en la base de datos
-            socio.save()
+            try:
+                socio.save()  # Ahora puedes guardar la instancia con el usuario asignado
 
-            # Ahora puedes asignar las actividades al socio
-            actividades_seleccionadas = request.POST.getlist('actividades')
-            socio.actividades.set(actividades_seleccionadas)
+                actividades_seleccionadas = request.POST.getlist('actividades')
+                socio.actividades.set(actividades_seleccionadas)
 
-            messages.success(request, 'El socio ha sido agregado correctamente.')
-
-            return redirect('socios')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
-        
+                messages.success(request, 'El socio ha sido agregado correctamente.')
+                return redirect('socios')  # Redirige a la página de lista de socios (ajusta la URL según tu configuración)
+                
+            except Exception as e:
+                messages.error(request, f'Error al agregar el socio: {e}')
     else:
         # Si no se envió un formulario (GET), muestra el formulario para agregar un socio.
         form = PartnerCreateForm()
@@ -74,7 +75,14 @@ def detalles(request, partner_id):
         if 'editar' in request.POST:
             form = PartnerDetailsForm(request.POST, instance=partner)
             if form.is_valid():
-                form.save()
+                updated_partner = form.save(commit=False)
+                updated_partner.user = request.user
+                updated_partner.save()
+                
+                
+                actividades_seleccionadas = request.POST.getlist('actividades')
+                updated_partner.actividades.set(actividades_seleccionadas)
+                
                 messages.success(request, 'Los datos del socio han sido actualizados.')
                 return redirect('socios')
             else:
