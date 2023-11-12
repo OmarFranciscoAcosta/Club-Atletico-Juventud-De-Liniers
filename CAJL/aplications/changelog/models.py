@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class ChangeLog(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     model_name = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Asócialo a tu modelo de usuario si lo tienes
+    user = models.ForeignKey(User, null=True, blank=True,on_delete=models.CASCADE)  # Asócialo a tu modelo de usuario si lo tienes
     description = models.TextField()
 
     class Meta:
