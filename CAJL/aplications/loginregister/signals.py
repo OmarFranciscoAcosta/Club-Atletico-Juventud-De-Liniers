@@ -6,6 +6,9 @@ from .translations import MODEL_TRANSLATIONS
 
 signal_connected = False  # Variable para rastrear si la señal está conectada
 
+
+
+
 @receiver(post_save, sender=User, dispatch_uid="unique_user_created")
 def user_created(sender, instance, created, **kwargs):
     global signal_connected  # Usa la variable global
@@ -17,7 +20,7 @@ def user_created(sender, instance, created, **kwargs):
             model_name = MODEL_TRANSLATIONS.get(sender.__name__, sender.__name__)
             
             description = f"Se creó el usuario: {instance.username}"
-            ChangeLog.objects.create(model_name=sender.__name__, user=instance, description=description)
+            ChangeLog.objects.create(model_name=model_name, user=instance, description=description)
 
             # Asignación automática al grupo
             group_name = "Administrativo"  # Reemplaza con el nombre de tu grupo
