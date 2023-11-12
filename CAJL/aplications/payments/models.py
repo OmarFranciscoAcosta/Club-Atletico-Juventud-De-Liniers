@@ -39,7 +39,7 @@ class payments (models.Model):
     
     
     
-    fecha_comprobante = models.DateField('Fecha del comprobante')
+    fecha_comprobante = models.DateField('Fecha del comprobante', null=True)
     anio = models.IntegerField('Año facturado', blank=True)
     mes = models.CharField('Mes facturado',max_length=2,choices=MES_CHOICES, blank=True)
     socio = models.ForeignKey(partners, on_delete=models.CASCADE)
@@ -48,7 +48,7 @@ class payments (models.Model):
     estado = models.CharField('Estado',max_length=1, choices=EST_CHOICES)
     tipo_pago = models.CharField('Tipo de pago',max_length=1, choices=TIP_CHOICES)
     nombre_quien_paga = models.CharField ('Nombre de la persona que paga', max_length=30, blank=True)
-    fecha_pago = models.DateField ('Fecha del pago')
+    fecha_pago = models.DateField ('Fecha del pago', null=True)
     monto_pago = models.DecimalField('Monto del pago',max_digits=10, decimal_places=2)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
