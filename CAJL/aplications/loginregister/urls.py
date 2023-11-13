@@ -19,6 +19,9 @@ from CAJL.aplications import loginregister
 from .views import custom_password_reset, home, partners, exit, register
 from . import views
 from django.contrib.auth import views as auth_views
+from .views import error_404_view
+
+handler404 = error_404_view
 
 urlpatterns = [
     path('',home,name='home'),

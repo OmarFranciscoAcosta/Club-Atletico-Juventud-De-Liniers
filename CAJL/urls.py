@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from CAJL.aplications.loginregister.views import error_404_view
+
+handler404 = error_404_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),

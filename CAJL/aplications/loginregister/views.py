@@ -8,8 +8,13 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from CAJL.aplications.loginregister.signals import user_created
 
-
 # Create your views here.
+
+def error_404_view(request, exception):
+    return render(request, 'loginregister/404.html', status=404)
+
+
+
 def home (request):
     return render (request, 'loginregister/home.html')
 
