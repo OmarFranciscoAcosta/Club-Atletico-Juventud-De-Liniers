@@ -3,7 +3,8 @@ from CAJL.aplications.activities.models import activities
 from django.contrib.auth.models import User
 # Create your models here.
 
-MES_CHOICES =(
+class prices (models.Model):
+    MES_CHOICES =(
         ('0', 'Enero'),
         ('1', 'Febrero'),
         ('2', 'Marzo'),
@@ -18,13 +19,11 @@ MES_CHOICES =(
         ('11', 'Diciembre'),
 
     )
-
-
-
-class prices (models.Model):
-    anio = models.IntegerField ('Año')
-    mes = models.CharField('Mes',max_length=2, choices=MES_CHOICES, default='0')
-    actividad = models.ForeignKey(activities, on_delete=models.CASCADE)
+    
+    
+    anio = models.IntegerField ('Año', blank=False, null=False, default='2023')
+    mes = models.CharField('Mes',max_length=2, choices=MES_CHOICES, default='0', blank=False, null=False)
+    actividad = models.ForeignKey(activities, on_delete=models.CASCADE, blank=False, null=False)
     valor_clase_consulta = models.DecimalField('Valor de la clase por consulta', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_fijo = models.DecimalField ('Valor mensual fijo', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_1semana = models.DecimalField('Valor mensual por 1 vez a la semana', max_digits=10, decimal_places=2,blank=True, null=True)
