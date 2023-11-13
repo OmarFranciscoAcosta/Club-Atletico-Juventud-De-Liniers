@@ -13,7 +13,7 @@ letters_only_validator = RegexValidator(
 )
 class partners (models.Model):
     
-    nombre_completo = models.CharField('Nombre completo', max_length=50, validators=[letters_only_validator], blank=True)
+    nombre_completo = models.CharField('Nombre completo', max_length=50, validators=[letters_only_validator], blank=True, null=True)
     dni = models.IntegerField('DNI',blank=True, null=True)
     fecha_nacimiento = models.DateField('Fecha de nacimiento',blank=True, null=True)
     direccion = models.CharField('Dirección', max_length=50, blank=True, null=True)
@@ -23,7 +23,7 @@ class partners (models.Model):
     
     
     distrito = models.CharField('Distrito',max_length=2, choices=DISTRICT_CHOICES, blank=True, null=True)
-    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True)
+    localidad = models.ForeignKey(location, on_delete=models.CASCADE, blank=True, null=True)
     telefono1 = models.CharField('Teléfono 1',max_length=15, blank=True, null=True)
     telefono2 = models.CharField('Teléfono 2',max_length=15,blank=True, null=True)
     actividades = models.ManyToManyField(activities)

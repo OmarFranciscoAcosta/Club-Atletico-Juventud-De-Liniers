@@ -20,7 +20,7 @@ def datatable_view(request):
             'fecha_nacimiento': partner.fecha_nacimiento,
             'direccion': partner.direccion,
             'distrito': partner.get_distrito_display(),
-            'localidad': partner.localidad.municipio_nombre,
+            #'localidad': partner.localidad.municipio_nombre,
             'telefono1': partner.telefono1,
             'telefono2': partner.telefono2,
             'actividades': partner.actividades,
