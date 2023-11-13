@@ -17,6 +17,7 @@ class PartnerCreateForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de nacimiento',
         help_text='Selecciona la fecha de nacimiento en el calendario.',
         required=False 
     )
@@ -27,6 +28,7 @@ class PartnerCreateForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de emisión del apto físico',
         help_text='Selecciona la fecha de emisión del apto físico en el calendario.',
         required=False
     )
@@ -37,6 +39,7 @@ class PartnerCreateForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de emisión del fichaje',
         help_text='Selecciona la fecha de emisión del fichaje en el calendario.',
         required=False
     )
@@ -67,9 +70,10 @@ class PartnerDetailsForm(forms.ModelForm):
     fecha_nacimiento = forms.DateField(
     widget=DatePickerInput(options={
         'format': 'DD/MM/YYYY',
-        'locale': 'es'
+        'locale': 'es',
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de nacimiento',
         help_text='Selecciona la fecha de nacimiento en el calendario.',
         required=False 
     )
@@ -80,6 +84,7 @@ class PartnerDetailsForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de emisión del apto físico',
         help_text='Selecciona la fecha de emisión del apto físico en el calendario.',
         required=False
     )
@@ -90,6 +95,7 @@ class PartnerDetailsForm(forms.ModelForm):
         'locale': 'es'
         # otras opciones que desees incluir
     }),
+        label= 'Fecha de emisión del fichaje',
         help_text='Selecciona la fecha de emisión del fichaje en el calendario.',
         required=False
     )
