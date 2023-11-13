@@ -12,7 +12,7 @@ class activities (models.Model):
     )
     
     nombre_actividad = models.CharField ('Nombre de la actividad',max_length=30)
-    tipo_actividad = models.CharField('Tipo de la actividad',max_length=2, choices=ACTIV_CHOICES, default='0')
+    tipo_actividad = models.CharField('Tipo de cobro de la actividad',max_length=2, choices=ACTIV_CHOICES, default='0')
     descripcion = models.CharField('Descripción', max_length=50, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     

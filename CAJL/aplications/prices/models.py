@@ -27,7 +27,7 @@ class prices (models.Model):
     actividad = models.ForeignKey(activities, on_delete=models.CASCADE)
     valor_clase_consulta = models.DecimalField('Valor de la clase por consulta', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_fijo = models.DecimalField ('Valor mensual fijo', max_digits=10, decimal_places=2,blank=True, null=True)
-    valor_mensual_1semana = models.DecimalField('Valor mensual por 1 vez semana', max_digits=10, decimal_places=2,blank=True, null=True)
+    valor_mensual_1semana = models.DecimalField('Valor mensual por 1 vez a la semana', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_mensual_2semana = models.DecimalField ('Valor mensual por 2 veces a la semana',max_digits=10, decimal_places=2,blank=True, null=True)
     valor_clase_3semana = models.DecimalField('Valor mensual por 3 veces a la semana', max_digits=10, decimal_places=2,blank=True, null=True)
     valor_patindanza = models.DecimalField('Valor mensual de Patin con danza', max_digits=10, decimal_places=2,blank=True, null=True)
