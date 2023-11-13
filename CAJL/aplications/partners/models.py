@@ -29,7 +29,7 @@ class partners (models.Model):
     actividades = models.ManyToManyField(activities)
     correo = models.EmailField('Email',max_length=40,blank=True, null=True)
     descripcion = models.CharField('Descripción',max_length=50, blank=True, null=True)
-    apto_fisico = models.BooleanField('Apto físico',default=False, null=True)
+    apto_fisico = models.BooleanField('Apto físico',default=False)
     fecha_emisión_apto_físico = models.DateField ('Fecha de emisión del apto físico',blank=True, null=True)
     fecha_emisión_fichaje = models.DateField ('Fecha de emisión del fichaje',blank=True, null=True)
     compite = models.BooleanField('Fichado',default=False)
