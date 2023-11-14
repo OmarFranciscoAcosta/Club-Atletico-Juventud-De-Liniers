@@ -28,7 +28,7 @@ class PaymentsForm(forms.ModelForm):
     }),
     help_text='Selecciona la fecha de pago del comprobante.',
     label = 'Fecha del pago',
-    required = True
+    required=False
     )
     
     
@@ -40,7 +40,7 @@ class PaymentsForm(forms.ModelForm):
             attrs={'data-minimum-input-length': 0},
         ),
         label='Socio',
-        required= True
+        required=True
     )
     
     
