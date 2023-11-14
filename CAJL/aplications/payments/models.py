@@ -44,7 +44,7 @@ class payments (models.Model):
     mes = models.CharField('Mes facturado',max_length=2,choices=MES_CHOICES, blank=True)
     socio = models.ForeignKey(partners, on_delete=models.CASCADE)
     actividades = models.ManyToManyField(activities)
-    observacion = models.CharField('Observacion',max_length=50, blank=True)
+    observacion = models.CharField('Observación',max_length=50, blank=True)
     estado = models.CharField('Estado',max_length=1, choices=EST_CHOICES)
     tipo_pago = models.CharField('Tipo de pago',max_length=1, choices=TIP_CHOICES)
     nombre_quien_paga = models.CharField ('Nombre de la persona que paga', max_length=30, blank=True)

@@ -15,7 +15,8 @@ class PaymentsForm(forms.ModelForm):
         'locale': 'es'
         
     }),
-    help_text='Selecciona la fecha de creación del comprobante.'
+    help_text='Selecciona la fecha de creación del comprobante.',
+    label = 'Fecha del comprobante',
     )
     
     fecha_pago = forms.DateField(
@@ -24,7 +25,8 @@ class PaymentsForm(forms.ModelForm):
         'locale': 'es'
         
     }),
-    help_text='Selecciona la fecha de pago del comprobante.'
+    help_text='Selecciona la fecha de pago del comprobante.',
+    label = 'Fecha del pago',
     )
     
     
