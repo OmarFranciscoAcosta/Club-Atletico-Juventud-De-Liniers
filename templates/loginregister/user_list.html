@@ -31,6 +31,7 @@
                             <th class="centered bg-danger bg-gradient">Nombre/s</th>
                             <th class="centered bg-danger bg-gradient">Apellido/s</th>
                             <th class="centered bg-danger bg-gradient">Email</th>
+                            <th class="centered bg-danger bg-gradient">Último inicio de sesion</th>
                             <th class="centered bg-danger bg-gradient">Usuario activo</th>
                             <th class="centered bg-danger bg-gradient"></th>
                         </tr>
@@ -42,6 +43,7 @@
                                 <td class="centered">{{ user.first_name }}</td>
                                 <td class="centered">{{ user.last_name }}</td>
                                 <td class="centered">{{ user.email }}</td>
+                                <td class="centered">{{ user.last_login }}</td>
                                 <td class="centered">
                                     {% if user.is_active %}
                                     <i class="fas fa-check text-success"> si</i>  <!-- Icono de tilde verde -->
@@ -54,9 +56,6 @@
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                 </td>
-
-
-                                
 
                             </tr>
                         {% endfor %}

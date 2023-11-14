@@ -18,7 +18,13 @@ class CustomUserCreationForm(UserCreationForm):
 
 class UserDetailsForm(forms.ModelForm):
     last_login = forms.DateTimeField(label='Último inicio de sesión', disabled=True)
-    groups = forms.ModelMultipleChoiceField(queryset=Group.objects.all(), required=False)
+    groups = forms.ModelMultipleChoiceField(
+        queryset=Group.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label = 'Grupo'
+    )
+    
     
     class Meta:
         model = User

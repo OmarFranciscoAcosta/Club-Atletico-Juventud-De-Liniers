@@ -103,6 +103,7 @@ def user_details(request, user_id):
                 messages.error(request, 'Error al actualizar los datos del usuario.')
     else:
         form = UserDetailsForm(instance=user)
+        form.fields['groups'].initial = user.groups.all()
     
     return render(request, 'loginregister/user_details.html', {'form': form, 'user': user})
 
