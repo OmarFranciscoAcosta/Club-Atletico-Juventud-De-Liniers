@@ -34,4 +34,5 @@ urlpatterns = [
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('user-list/', views.user_list, name='user_list'),
     path('user-details/<int:user_id>/', views.user_details, name='user_details'),
+    path('/inaccesible', views.inaccessible_view, name='acceso_denegado'),
 ]

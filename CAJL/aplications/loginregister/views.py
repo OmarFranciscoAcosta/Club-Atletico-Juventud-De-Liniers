@@ -73,6 +73,9 @@ def custom_password_reset(request):
 #DATATABLE PARA CARGAR USUARIOS
 @login_required
 def user_list(request):
+    if not (request.user.is_superuser or request.user.groups.filter(name='Presidente').exists()):
+        return redirect('acceso_denegado')
+        
     users = User.objects.all()
     context = {
         'users': users
@@ -101,3 +104,7 @@ def user_details(request, user_id):
         form = UserDetailsForm(instance=user)
     
     return render(request, 'loginregister/user_details.html', {'form': form, 'user': user})
+
+#VISTA INACCESIBLE PARA USUARIOS NO PRESIDENTE.
+def inaccessible_view(request):
+    return render(request, 'loginregister/inaccessible.html')
