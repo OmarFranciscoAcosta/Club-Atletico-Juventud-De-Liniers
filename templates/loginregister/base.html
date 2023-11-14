@@ -54,6 +54,8 @@
                 
                 {% if es_presidente %}
                 <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'user_list' %}>Usuarios</a></li>
+                {% else %}
+                <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'user_list' %}>Usuarios</a></li>
                 {% endif %}
                 <li class="ItemMenu M2 h centrado"><a class="h CerrarS centrado" href={% url 'exit' %}>Cerrar Sesion</a></li>
                 {% else %}

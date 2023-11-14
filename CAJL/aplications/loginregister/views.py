@@ -73,9 +73,12 @@ def custom_password_reset(request):
 #DATATABLE PARA CARGAR USUARIOS
 @login_required
 def user_list(request):
-    if not (request.user.is_superuser or request.user.groups.filter(name='Presidente').exists()):
+    if request.user.is_superuser or request.user.groups.filter(name='Presidente').exists():
+        request.session['es_presidente'] = True
+    if not request.session.get('es_presidente', False):
         return redirect('acceso_denegado')
-        
+    
+    
     users = User.objects.all()
     context = {
         'users': users
@@ -91,15 +94,13 @@ def user_details(request, user_id):
         form = UserDetailsForm(request.POST, instance=user)
         if 'editar' in request.POST:
             if form.is_valid():
-                form.save()  # Guarda los cambios en la base de datos
+                form.save()
+                groups = form.cleaned_data.get('groups')
+                user.groups.set(groups)
                 messages.success(request, 'Los datos del usuario han sido actualizados.')
                 return redirect('user_list')  # Redirige después de la edición
             else:
                 messages.error(request, 'Error al actualizar los datos del usuario.')
-        elif 'eliminar' in request.POST:
-            user.delete()
-            messages.success(request, 'El usuario ha sido eliminado.')
-            return redirect('user_list')
     else:
         form = UserDetailsForm(instance=user)
     

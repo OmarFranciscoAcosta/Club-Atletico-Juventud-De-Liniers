@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import Group
 
 class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -17,7 +17,10 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2',]
 
 class UserDetailsForm(forms.ModelForm):
+    last_login = forms.DateTimeField(label='Último inicio de sesión', disabled=True)
+    groups = forms.ModelMultipleChoiceField(queryset=Group.objects.all(), required=False)
+    
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'is_active']
+        fields = ['last_login','username', 'first_name', 'last_name', 'email', 'is_active','is_staff',]
         
