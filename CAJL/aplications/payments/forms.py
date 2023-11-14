@@ -17,6 +17,7 @@ class PaymentsForm(forms.ModelForm):
     }),
     help_text='Selecciona la fecha de creación del comprobante.',
     label = 'Fecha del comprobante',
+    required = True
     )
     
     fecha_pago = forms.DateField(
@@ -27,6 +28,7 @@ class PaymentsForm(forms.ModelForm):
     }),
     help_text='Selecciona la fecha de pago del comprobante.',
     label = 'Fecha del pago',
+    required = True
     )
     
     
@@ -38,6 +40,7 @@ class PaymentsForm(forms.ModelForm):
             attrs={'data-minimum-input-length': 0},
         ),
         label='Socio',
+        required= True
     )
     
     

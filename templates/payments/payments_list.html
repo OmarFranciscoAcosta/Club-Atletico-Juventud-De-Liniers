@@ -60,7 +60,7 @@
                         <td class="centered">{{ payment.fecha_pago }}</td>
                         <td class="centered">${{ payment.monto_pago }}</td>
                         <td class="centered">
-                            {% if payment.estado != '3' %}
+                            {% if payment.estado != '2' %}
                                 <a href={% url 'detalles_comprobante' payments_id=payment.id %} class="btn btn-sm btn-primary btn-custom-width">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
