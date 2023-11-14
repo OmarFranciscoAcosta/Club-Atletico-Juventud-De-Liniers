@@ -16,7 +16,11 @@ def error_404_view(request, exception):
 
 
 def home (request):
-    return render (request, 'loginregister/home.html')
+    es_presidente = False
+    if request.user.is_superuser or request.user.groups.filter(name='Presidente').exists():
+        es_presidente = True
+    
+    return render (request, 'loginregister/home.html', {'es_presidente': es_presidente})
 
 #AUTENTICACION EN LA PESTAÑA PARTNERS
 @login_required
