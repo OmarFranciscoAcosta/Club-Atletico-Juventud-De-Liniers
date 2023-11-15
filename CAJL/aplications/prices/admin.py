@@ -4,6 +4,7 @@ from .models import prices
 # Register your models here.
 class pricesAdmin (admin.ModelAdmin):
     list_display = (
+        'id',
         'anio',
         'mes',
         'actividad',
