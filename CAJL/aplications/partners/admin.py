@@ -4,6 +4,7 @@ from .models import partners
 # Register your models here.
 class PartnersAdmin (admin.ModelAdmin):
     list_display = (
+        'id',
         'nombre_completo',
         'dni',
         'fecha_nacimiento',
