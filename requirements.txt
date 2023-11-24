@@ -3,7 +3,7 @@ asgiref==3.7.2
 async-timeout==4.0.3
 crispy-bootstrap5==0.7
 dj-database-url==2.1.0
-Django==4.2.4
+Django==3.2.23
 django-appconf==1.0.5
 django-autocomplete-light==3.9.7
 django-bootstrap-datepicker-plus==5.0.4
