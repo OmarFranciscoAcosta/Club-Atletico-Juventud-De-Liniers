@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 
 LENGUAGE_CODE = "es-AR"
 
@@ -14,7 +14,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i0n&$uz4gf(nawukhrdo6kc2=%(@kyvxftl*ksinuf2ocybm71'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
 
 
 # # Application definition
