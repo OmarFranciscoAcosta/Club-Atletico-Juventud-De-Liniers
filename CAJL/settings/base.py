@@ -66,7 +66,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'CAJL.urls'
+ROOT_URLCONF = 'CAJL.CAJL.urls'
 
 TEMPLATES = [
     {
