@@ -13,8 +13,6 @@ django-jazzmin==2.6.0
 django-redis==5.4.0
 django-select2==7.11.1
 gunicorn==21.2.0
-mysql==0.0.3
-mysqlclient==2.2.0
 packaging==23.2
 pydantic==2.4.2
 pydantic_core==2.10.1
