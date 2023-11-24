@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -90,6 +91,9 @@ DATABASES = {
          'NAME': BASE_DIR / 'db.sqlite3',
      }
  }
+
+DATABASES["default"] = dj_database_url.parse("postgres://club_atletico_juventud_de_liniers_z9d9_user:fOmyaHpSBjgiE2Ef0i9PgmFGFMkNw108@dpg-clgi447jc5ks73eflofg-a.oregon-postgres.render.com/club_atletico_juventud_de_liniers_z9d9")
+
 
 # DATABASES = {
 #     'default': {
