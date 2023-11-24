@@ -40,5 +40,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "contactocmsoftware@gmail.com"
 EMAIL_HOST_PASSWORD = "tkxffxjaadqeviik"
-
-ROOT_URLCONF = 'CAJL.urls'
