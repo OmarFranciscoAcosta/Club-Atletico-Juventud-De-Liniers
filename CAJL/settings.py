@@ -82,6 +82,7 @@ DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
