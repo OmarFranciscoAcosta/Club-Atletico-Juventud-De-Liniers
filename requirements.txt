@@ -11,7 +11,7 @@ django-crispy-forms==2.0
 django-datatables-view==1.20.0
 django-jazzmin==2.6.0
 django-redis==5.4.0
-django-select2==8.1.2
+django-select2==7.11.1
 gunicorn==21.2.0
 mysql==0.0.3
 mysqlclient==2.2.0
